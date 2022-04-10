@@ -77,7 +77,7 @@ const App = () => {
   const onRouteChange = (route) => {
     if (route === 'signout') {
       setSignedIn(false);
- 
+
     } else if (route === 'home') {
       setSignedIn(true);
 
@@ -143,9 +143,10 @@ const App = () => {
     <BrowserRouter>
 
       <div className="container">
+        <Navigation isSignedIn={isSignedIn} onRouteChange={onRouteChange} />
         <Routes>
           <Route path="/">
-            <Route index element={<Home isSignedIn={isSignedIn} onRouteChange={onRouteChange} />} />
+            <Route index element={<Home/>} />
             <Route path="login" element={route === 'home'
               ? <div>
                 <Home />

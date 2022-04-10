@@ -6,7 +6,7 @@ const Home = ({ onRouteChange, isSignedIn }) => {
     return (
         <div >
             <div className="black f3">
-                <Navigation isSignedIn={isSignedIn} onRouteChange={onRouteChange} />
+           
                 <ul className="list-group">
                     <li className="list-group-item"> Must allow users to register and create a new account</li>
                 </ul>

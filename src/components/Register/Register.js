@@ -63,7 +63,7 @@ const Register = ({ onRouteChange, LoadUser }) => {
                         </div>
                         <div className="mv3">
                             <label className="db fw6 lh-copy f6" htmlFor="password">Role</label>
-                            <select id="types" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="">
+                            <select id="types" className="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="">
                                 <option value="">Accont Type</option>
                                 <option label="Customer" value="2">
                                 </option>
