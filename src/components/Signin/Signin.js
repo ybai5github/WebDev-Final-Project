@@ -1,7 +1,15 @@
 import React, { useState } from "react";
-
+import { useNavigate } from 'react-router-dom';
+import Home from "../Home/Home";
 
 const Signin = ({ onRouteChange, LoadUser }) => {
+
+    const navigate = useNavigate();
+
+    const home = () => {
+        onRouteChange('home');
+        navigate('/');
+    }
 
     const [email, setSignInEmail] = useState('');
     const [password, setSignInPassWord] = useState('');
@@ -28,8 +36,9 @@ const Signin = ({ onRouteChange, LoadUser }) => {
                 if (user.id) {
 
                     /* LoadUser(user) */
-                    onRouteChange('home');
-      
+                    /*  onRouteChange('home'); */
+                    home();
+
                 } else {
                     alert('incorrect submission');
                 }

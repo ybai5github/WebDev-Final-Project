@@ -4,7 +4,7 @@ import './App.css';
 import Home from './components/Home/Home';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Link, NavLink } from "react-router-dom";
 import Profile from './components/Profile/Profile';
 
 const App = () => {
@@ -78,6 +78,7 @@ const App = () => {
     if (route === 'signout') {
       setSignedIn(false);
 
+
     } else if (route === 'home') {
       setSignedIn(true);
 
@@ -141,12 +142,13 @@ const App = () => {
   return (
 
     <BrowserRouter>
-
+      <Navigation isSignedIn={isSignedIn} onRouteChange={onRouteChange} />
       <div className="container">
-        <Navigation isSignedIn={isSignedIn} onRouteChange={onRouteChange} />
+
         <Routes>
           <Route path="/">
-            <Route index element={<Home/>} />
+            <Route index element={
+              <Home isSignedIn={isSignedIn} onRouteChange={onRouteChange} />} />
             <Route path="login" element={route === 'home'
               ? <div>
                 <Home />
