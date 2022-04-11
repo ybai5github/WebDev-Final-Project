@@ -14,6 +14,12 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
           navigate('/register');
       }
 
+      /* const signOut = () => {
+          onRouteChange('home')
+          navigate('/')
+      } */
+      
+
 
     if (isSignedIn) {
         return (

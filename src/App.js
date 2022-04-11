@@ -13,18 +13,18 @@ const App = () => {
 
   const [input, setInput] = useState('');
 
-  const [box, setBox] = useState({});
+/*   const [box, setBox] = useState({}); */
 
   const [route, setRoute] = useState('signin');
 
   const [isSignedIn, setSignedIn] = useState(false);
 
-  const [users, setUsers] = useState(
+  const [users, setUser] = useState(
     {
       id: '',
       name: '',
       email: '',
-      entry: 0,
+      address: '',
       joined: ''
     }
   );
@@ -39,20 +39,17 @@ const App = () => {
       joined: data.joined
     }); */
 
-  const LoadUser = (data) => {
-    const updateUsers = [
-      ...users,
-      {
-        id: data.id,
-        name: data.name,
-        email: data.email,
-        entry: data.entry,
-        joined: data.joined
-      }
-    ];
-
-    setUsers(updateUsers);
-  }
+    const loadUser = (users) => {
+      console.log('users', users)
+      setUser({
+        id: users.id,
+        name: users.name,
+        email: users.email,
+        address: users.address,
+        joined: users.joined
+      })
+  
+    }
 
 
   console.log('name', users.name);
@@ -82,6 +79,8 @@ const App = () => {
     } else if (route === 'home') {
       setSignedIn(true);
 
+    } else if (route === 'profile') {
+      setSignedIn(true);
     }
     setRoute(route);
   }
@@ -105,38 +104,8 @@ const App = () => {
       ]
     });
 
-    const requestOptions = {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Authorization': 'Key 2f27d84734af45cf9458d0dbab0c600d'
-      },
-      body: raw
-    };
-
-    // NOTE: MODEL_VERSION_ID is optional, you can also call prediction with the MODEL_ID only
-    // https://api.clarifai.com/v2/models/{YOUR_MODEL_ID}/outputs
-    // this will default to the latest version_id
-
-    fetch("https://api.clarifai.com/v2/models/a403429f2ddf4b49b307e318f00e528b/outputs", requestOptions)
-      .then((response) => response.text())
-      .then((response) => {
-        if (response) {
-          fetch('http://localhost:4000/image', {
-            method: 'put',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              id: users.id
-            })
-          })
-        }
-
-      })
-      .catch(error => console.log('error', error));
-
-    /* .then(result => console.log(JSON.parse(result, null, 2).outputs[0].data.regions[0]
-    .region_info.bounding_box)) */
-
+  
+     
   }
 
   return (
@@ -155,16 +124,16 @@ const App = () => {
               </div>
               : (
                 route === 'signin'
-                  ? <Signin LoadUser={LoadUser} onRouteChange={onRouteChange} />
+                  ? <Signin loadUser={loadUser} onRouteChange={onRouteChange} />
                   : (route === 'signout'
                     ? <Signin onRouteChange={onRouteChange} />
-                    : <Register LoadUser={LoadUser} onRouteChange={onRouteChange} />
+                    : <Register loadUser={loadUser} onRouteChange={onRouteChange} />
                   )
               )
-
+              
             } />
-            <Route path="register" element={<Register LoadUser={LoadUser} onRouteChange={onRouteChange} />} />
-            <Route path="profile" element={<Profile />} />
+            <Route path="register" element={<Register loadUser={loadUser} onRouteChange={onRouteChange} />} />
+            <Route path="profile" element={route === 'profile' ? <div><Profile name={users.name} email={users.email}/></div> : <Home/>} />
           </Route>
         </Routes>
       </div>

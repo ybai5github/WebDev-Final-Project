@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-const Register = ({ onRouteChange, LoadUser }) => {
+const Register = ({ onRouteChange, loadUser }) => {
 
     const navigate = useNavigate();
 
@@ -42,6 +42,7 @@ const Register = ({ onRouteChange, LoadUser }) => {
                 console.log('user length', user.length)
 
                 if (user.length === 1) {
+                    loadUser(user);
                     home();
                 } else {
                     alert('incorrect submission')

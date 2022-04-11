@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import Home from "../Home/Home";
 
-const Signin = ({ onRouteChange, LoadUser }) => {
+const Signin = ({ onRouteChange, loadUser }) => {
 
     const navigate = useNavigate();
 
@@ -33,10 +32,10 @@ const Signin = ({ onRouteChange, LoadUser }) => {
         })
             .then(response => response.json())
             .then(user => {
+                console.log('user', user)
                 if (user.id) {
-
-                    /* LoadUser(user) */
-                    /*  onRouteChange('home'); */
+                    console.log('user', user);
+                    loadUser(user);
                     home();
 
                 } else {
