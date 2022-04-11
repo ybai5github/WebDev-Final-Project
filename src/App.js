@@ -24,7 +24,7 @@ const App = () => {
       id: '',
       name: '',
       email: '',
-      address: '',
+      entry: 'adfsdf',
       joined: ''
     }
   );
@@ -45,7 +45,7 @@ const App = () => {
         id: users.id,
         name: users.name,
         email: users.email,
-        address: users.address,
+        entry: users.entry,
         joined: users.joined
       })
   
@@ -53,7 +53,7 @@ const App = () => {
 
 
   console.log('name', users.name);
-  console.log('entries', users.entry);
+  console.log('address', users.entry);
   console.log('email', users.email);
 
   /*  useEffect(()=>{
@@ -85,29 +85,6 @@ const App = () => {
     setRoute(route);
   }
 
-  const onSubmit = () => {
-    setURL(input);
-
-    const raw = JSON.stringify({
-      "user_app_id": {
-        "user_id": "1028693",
-        "app_id": "bd6ab4db310c42dba83a7791fb6efa3b"
-      },
-      "inputs": [
-        {
-          "data": {
-            "image": {
-              "url": input
-            }
-          }
-        }
-      ]
-    });
-
-  
-     
-  }
-
   return (
 
     <BrowserRouter>
@@ -133,7 +110,7 @@ const App = () => {
               
             } />
             <Route path="register" element={<Register loadUser={loadUser} onRouteChange={onRouteChange} />} />
-            <Route path="profile" element={route === 'profile' ? <div><Profile name={users.name} email={users.email}/></div> : <Home/>} />
+            <Route path="profile" element={route === 'profile' ? <div><Profile name={users.name} email={users.email} address={users.entry}/></div> : <Home/>} />
           </Route>
         </Routes>
       </div>

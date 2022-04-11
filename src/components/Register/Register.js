@@ -13,6 +13,7 @@ const Register = ({ onRouteChange, loadUser }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [entry, setAddress] = useState('');
 
     const onEmailChange = (event) => {
         setEmail(event.target.value);
@@ -26,6 +27,10 @@ const Register = ({ onRouteChange, loadUser }) => {
         setName(event.target.value);
     }
 
+    const onAddressChange = (event) => {
+        setAddress(event.target.value);
+    }
+
     const onSubmitSignIn = () => {
         fetch('http://localhost:4000/register', {
             method: 'post',
@@ -33,16 +38,15 @@ const Register = ({ onRouteChange, loadUser }) => {
             body: JSON.stringify({
                 email: email,
                 password: password,
-                name: name
+                name: name,
+                entry: entry
             })
         })
             .then(response => response.json())
             .then(user => {
-                console.log('log', user[0].entry)
-                console.log('user length', user.length)
-
+                console.log('user', user);
                 if (user.length === 1) {
-                    loadUser(user);
+                    loadUser(user[0]);
                     home();
                 } else {
                     alert('incorrect submission')
@@ -64,6 +68,10 @@ const Register = ({ onRouteChange, loadUser }) => {
                         <div className="mt3">
                             <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
                             <input onChange={onEmailChange} className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email-address" id="email-address" />
+                        </div>
+                        <div className="mt3">
+                            <label className="db fw6 lh-copy f6" htmlFor="name">Address</label>
+                            <input onChange={onAddressChange} className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="address" id="address" />
                         </div>
                         <div className="mv3">
                             <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
