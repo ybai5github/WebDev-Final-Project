@@ -1,6 +1,7 @@
 # WebDev-Final-Project
+### This is the front end of our project
 #### Name of the project
-- Online liquor store
+- Online drinks store
 #### Team members
 - Felix Nampanya, Ye Bai, Chiemelie Ezeokeke, Ji Hua
 
