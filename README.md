@@ -1,5 +1,5 @@
 # WebDev-Final-Project
-### This is the front end of our project
+### This is the FRONT END of our project
 #### Name of the project
 - Online drinks store
 #### Team members
