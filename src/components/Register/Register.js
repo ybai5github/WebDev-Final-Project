@@ -11,6 +11,7 @@ const Register = ({ onRouteChange, loadUser }) => {
         navigate('/');
     }
 
+    const [accountType, setAccountType] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -67,13 +68,14 @@ const Register = ({ onRouteChange, loadUser }) => {
             password: password,
             name: name,
             address: address,
-            dob: dob
+            dob: dob,
+            account: accountType
         })
             .then(user => {
                 console.log('user data', user.data);
                 if (user.data._id) {
                     loadUser(user.data);
-                    /* home(); */
+                    home();
                 } else {
                     alert('incorrect submission');
                 }
@@ -112,16 +114,23 @@ const Register = ({ onRouteChange, loadUser }) => {
                         </div>
                         <div className="mv3">
                             <label className="db fw6 lh-copy f6" htmlFor="password">Role</label>
-                            <select id="types" className="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="">
-                                <option value="">Accont Type</option>
-                                <option label="Customer" value="2">
+                            <select id="types" className="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="role"
+                                value ={accountType}
+                                onChange={(event) => {
+                                    const selectedAccount = event.target.value;
+                                    setAccountType(selectedAccount);
+                                }}>
+                               
+                                <option label="Customer" value="customer">
                                 </option>
-                                <option label="Admin" value="12">
+                                <option label="Admin" value="admin">
                                 </option>
-                                <option label="Seller" value="22">
+                                <option label="Seller" value="seller">
                                 </option>
 
                             </select>
+                            {/* {console.log(accountType)}
+                            {accountType} */}
                         </div>
 
                     </fieldset>

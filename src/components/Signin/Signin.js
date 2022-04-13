@@ -56,7 +56,7 @@ const Signin = ({ onRouteChange, loadUser }) => {
                 }
                 if (user.data._id) {
                     loadUser(user.data);
-                   /*  home(); */
+                    home();
                 } else {
                     alert('incorrect submission');
                 }

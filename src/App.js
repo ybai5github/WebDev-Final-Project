@@ -4,14 +4,14 @@ import './App.css';
 import Home from './components/Home/Home';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
-import { BrowserRouter, Route, Routes, Link, NavLink } from "react-router-dom";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
 import Profile from './components/Profile/Profile';
 
 const App = () => {
 
-  const [imageURL, setURL] = useState('');
+  /* const [imageURL, setURL] = useState(''); */
 
-  const [input, setInput] = useState('');
+  /* const [input, setInput] = useState(''); */
 
   /*   const [box, setBox] = useState({}); */
 
@@ -26,7 +26,8 @@ const App = () => {
       email: '',
       address: '',
       joined: '',
-      dob: ''
+      dob: '',
+      account: ''
     }
   );
 
@@ -48,6 +49,7 @@ const App = () => {
       email: users.email,
       address: users.address,
       dob: users.dob,
+      account: users.account,
       joined: users.joined
     })
 
@@ -58,6 +60,7 @@ const App = () => {
   console.log('address', users.address);
   console.log('email', users.email);
   console.log('dob', users.dob);
+  console.log('account', users.account);
 
   /*  useEffect(()=>{
      fetch('http://localhost:4000/')
@@ -67,11 +70,11 @@ const App = () => {
 
 
 
-  const onInputChange = (event) => {
+  /* const onInputChange = (event) => {
     console.log(event.target.value);
     setInput(event.target.value);
   }
-
+ */
 
 
   const onRouteChange = (route) => {
@@ -113,7 +116,7 @@ const App = () => {
 
             } />
             <Route path="register" element={<Register loadUser={loadUser} onRouteChange={onRouteChange} />} />
-            <Route path="profile" element={route === 'profile' ? <div><Profile name={users.name} email={users.email} address={users.address} dob={users.dob} /></div> : <Home />} />
+            <Route path="profile" element={route === 'profile' ? <div><Profile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} /></div> : <Home />} />
           </Route>
         </Routes>
       </div>
