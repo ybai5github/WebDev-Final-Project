@@ -1,0 +1,9 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+/node_modules
+# Datasource local storage ignored files
+/../../../../../../:\Users\chiem\2022FinalProject\WebDev-Final-Project\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
