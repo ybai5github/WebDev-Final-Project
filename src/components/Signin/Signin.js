@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Signin = ({ onRouteChange, loadUser }) => {
 
@@ -21,7 +22,7 @@ const Signin = ({ onRouteChange, loadUser }) => {
         setSignInPassWord(event.target.value);
     }
 
-    const onSubmitSignIn = () => {
+   /*  const onSubmitSignIn = () => {
         fetch('http://localhost:4000/signin', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
@@ -41,6 +42,27 @@ const Signin = ({ onRouteChange, loadUser }) => {
                 } else {
                     alert('incorrect submission');
                 }
+            })
+    } */
+
+    const onSubmitSignIn = () => {
+        axios.post('http://localhost:4000/signin', {
+            email: email,
+            password: password,
+        }).then(user => {
+                console.log('user data', user.data);
+                if (user === 'wrong credentials'){
+                    alert("wrong credentials");
+                }
+                if (user.data._id) {
+                    loadUser(user.data);
+                   /*  home(); */
+                } else {
+                    alert('incorrect submission');
+                }
+            }).catch(err => {
+                console.log(err.response.data)
+                alert(err.response.data)
             })
     }
 

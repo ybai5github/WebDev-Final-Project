@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Register = ({ onRouteChange, loadUser }) => {
 
@@ -13,7 +14,8 @@ const Register = ({ onRouteChange, loadUser }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [entry, setAddress] = useState('');
+    const [address, setAddress] = useState('');
+    const [dob, setDob] = useState('');
 
     const onEmailChange = (event) => {
         setEmail(event.target.value);
@@ -31,7 +33,11 @@ const Register = ({ onRouteChange, loadUser }) => {
         setAddress(event.target.value);
     }
 
-    const onSubmitSignIn = () => {
+    const onDobChange = (event) => {
+        setDob(event.target.value);
+    }
+
+    /* const onSubmitSignIn = () => {
         fetch('http://localhost:4000/register', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
@@ -39,7 +45,7 @@ const Register = ({ onRouteChange, loadUser }) => {
                 email: email,
                 password: password,
                 name: name,
-                entry: entry
+                address: address,
             })
         })
             .then(response => response.json())
@@ -53,6 +59,29 @@ const Register = ({ onRouteChange, loadUser }) => {
                 }
 
             })
+    } */
+
+    const onSubmitSignIn = () => {
+        axios.post('http://localhost:4000/register', {
+            email: email,
+            password: password,
+            name: name,
+            address: address,
+            dob: dob
+        })
+            .then(user => {
+                console.log('user data', user.data);
+                if (user.data._id) {
+                    loadUser(user.data);
+                    /* home(); */
+                } else {
+                    alert('incorrect submission');
+                }
+            }).catch(error => {
+                console.log(error);
+                alert('please fill out all the fields');
+            })
+
     }
 
     return (
@@ -72,6 +101,10 @@ const Register = ({ onRouteChange, loadUser }) => {
                         <div className="mt3">
                             <label className="db fw6 lh-copy f6" htmlFor="name">Address</label>
                             <input onChange={onAddressChange} className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="address" id="address" />
+                        </div>
+                        <div className="mt3">
+                            <label className="db fw6 lh-copy f6" htmlFor="name">Date of Birth</label>
+                            <input onChange={onDobChange} className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="date" name="dob" id="dob" />
                         </div>
                         <div className="mv3">
                             <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>

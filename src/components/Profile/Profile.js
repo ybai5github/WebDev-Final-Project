@@ -1,9 +1,21 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 
-const Profile = ({ name, email, address, onRouteChange }) => {
+const Profile = ({ name, email, address, dob, onRouteChange }) => {
     console.log(name);
     console.log(email);
+    console.log(address);
+    console.log(dob);
+
+    const format = (input) => {
+        var pattern = /(\d{4})-(\d{2})-(\d{2})/;
+        if (!input || !input.match(pattern)) {
+            return null;
+        }
+        return input.replace(pattern, '$2/$3/$1');
+    };
+
+    console.log(format(dob));
     const navigate = useNavigate();
 
     return (
@@ -13,6 +25,7 @@ const Profile = ({ name, email, address, onRouteChange }) => {
                 <p> name : {name}  </p>
                 <p> email : {email}  </p>
                 <p> address : {address}  </p>
+                <p> date of birth : {format(dob)}  </p>
             </div>
 
             <button onClick={() => navigate(-1)}>go back</button>

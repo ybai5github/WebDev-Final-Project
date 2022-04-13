@@ -13,7 +13,7 @@ const App = () => {
 
   const [input, setInput] = useState('');
 
-/*   const [box, setBox] = useState({}); */
+  /*   const [box, setBox] = useState({}); */
 
   const [route, setRoute] = useState('signin');
 
@@ -24,8 +24,9 @@ const App = () => {
       id: '',
       name: '',
       email: '',
-      entry: 'adfsdf',
-      joined: ''
+      address: '',
+      joined: '',
+      dob: ''
     }
   );
 
@@ -39,22 +40,24 @@ const App = () => {
       joined: data.joined
     }); */
 
-    const loadUser = (users) => {
-      console.log('users', users)
-      setUser({
-        id: users.id,
-        name: users.name,
-        email: users.email,
-        entry: users.entry,
-        joined: users.joined
-      })
-  
-    }
+  const loadUser = (users) => {
+    console.log('users', users)
+    setUser({
+      id: users.id,
+      name: users.name,
+      email: users.email,
+      address: users.address,
+      dob: users.dob,
+      joined: users.joined
+    })
+
+  }
 
 
   console.log('name', users.name);
-  console.log('address', users.entry);
+  console.log('address', users.address);
   console.log('email', users.email);
+  console.log('dob', users.dob);
 
   /*  useEffect(()=>{
      fetch('http://localhost:4000/')
@@ -107,10 +110,10 @@ const App = () => {
                     : <Register loadUser={loadUser} onRouteChange={onRouteChange} />
                   )
               )
-              
+
             } />
             <Route path="register" element={<Register loadUser={loadUser} onRouteChange={onRouteChange} />} />
-            <Route path="profile" element={route === 'profile' ? <div><Profile name={users.name} email={users.email} address={users.entry}/></div> : <Home/>} />
+            <Route path="profile" element={route === 'profile' ? <div><Profile name={users.name} email={users.email} address={users.address} dob={users.dob} /></div> : <Home />} />
           </Route>
         </Routes>
       </div>
