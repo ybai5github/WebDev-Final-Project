@@ -15,19 +15,41 @@ function ControlledCarousel() {
                 alt="Image One"
             />
             <Carousel.Caption>
-              <h3>Label for first slide</h3>
+              <h3>Label for second slide</h3>
               <p>Sample Text for Image One</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item interval={500}>
             <img
                 className="d-block w-100"
-                src="https://www.thecocktaildb.com//images//media//drink//5noda61589575158.jpg"
+                src="https://www.thecocktaildb.com//images//media//drink//vuquyv1468876052.jpg"
                 alt="Image Two"
             />
             <Carousel.Caption>
-              <h3>Label for second slide</h3>
-              <p>Sample Text for Image Two</p>
+              <h3>Label for Three slide</h3>
+              <p>Sample Text for Image Three</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item interval={500}>
+            <img
+                className="d-block w-100"
+                src="https://www.thecocktaildb.com//images//media//drink//stwiva1619704025.jpg"
+                alt="Image Three"
+            />
+            <Carousel.Caption>
+              <h3>Label for four slide</h3>
+              <p>Sample Text for Image four</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item interval={500}>
+            <img
+                className="d-block w-100"
+                src="https://www.thecocktaildb.com//images//media//drink//4vobt21643844913.jpg"
+                alt="Image Four"
+            />
+            <Carousel.Caption>
+              <h3>Label for first slide</h3>
+              <p>Sample Text for Image four</p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
