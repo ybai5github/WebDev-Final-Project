@@ -12,7 +12,7 @@ const Home = ({ onRouteChange }) => {
 
     return (
         <div >
-            <div className="black f3">
+            <div className="white f3">
 
                 <ul className="list-group">
                     <li className="list-group-item"> Must allow users to register and create a new account</li>

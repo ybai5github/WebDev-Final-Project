@@ -21,7 +21,7 @@ const Profile = ({ name, email, address, dob, account, onRouteChange }) => {
 
     return (
         <div >
-            <div className="black f3">
+            <div className="white f3">
                 <p> Profile page  </p>
                 <p> name : {name}  </p>
                 <p> email : {email}  </p>
