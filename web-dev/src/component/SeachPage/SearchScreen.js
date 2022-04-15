@@ -10,7 +10,7 @@ const SearchScreen = () => {
     const [cocktails, setCocktails] = useState([])
     const searchUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php'
     const searchCocktailByName = async () => {
-        const searchString = cocktailSearchRef.current.value || cocktailSearch
+        const searchString = cocktailSearchRef.current.value || cocktailSearch ||""
             //||"margarita"
         const response = await axios.get(`${searchUrl}?s=${searchString}`)
         setCocktails(response.data.drinks)
