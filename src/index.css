@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.wd-font{
+  font-size: large;
+  font-style: italic;
+}
+
+.wd-bolded-font{
+  font-weight: bold;
+}
+
+.wd-color-orange{
+  color: orange;
+}
+
+.wd-blue-color{
+  color: deepskyblue;
+}
+
+.wd-yellow-color{
+  color: lightyellow;
+}
+
+.wd-rounded-corners{
+  border-radius: 50px;
+
+}
+
+.wd-font-white{
+  color: white;
+  font-size: large;
+}
+
+.wd-font-style{
+  font-style: oblique;
+}
