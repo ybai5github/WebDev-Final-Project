@@ -11,7 +11,7 @@ const GlobalProfilePage = ({profile})=> {
       <>
         <div className="row">
           <div className="col-1">
-            <i className="fas fa-arrow-left"></i>
+            <Link to="/drinks/profile"><i className="fas fa-arrow-left"></i></Link>
           </div>
 
           <div className="col-11">
@@ -22,16 +22,13 @@ const GlobalProfilePage = ({profile})=> {
 
           </div>
           <div className="mb-5 card">
-            <div className="mb-5">
+            <div className="mb-5 mt-5">
               <img
                   className="wd-image-border wd-relative-position-profile wd-rounded-corners-circle2 wd-border-style wd-move-up"
                   height="100" width="100" src={profile.profilePicture}/>
             </div>
 
-            <div width="100">
-              <Link to="/drinks/editProfile"
-                    className="btn btn-primary rounded-pill float-end mt-2 wd-rounded-corners  wd-border-color-grey wd-bolded-font wd-font-white">
-                Edit Profile</Link></div>
+
 
             <div className="mt-5 flex-column">
               <h5 className="wd-relative-profile-name wd-profile-name-style wd-font-white">
@@ -51,19 +48,6 @@ const GlobalProfilePage = ({profile})=> {
 
                 <i className="me-2 fa-regular fa-calendar-days"></i>
                 <text className="me-3">{profile.dateJoined}</text>
-              </div>
-
-
-              <div className="wd-relative-profile-icons row mb-5">
-                <text className="col-3 wd-font-white">
-                  {profile.followingCount}
-                  <span className="ms-1 wd-font-grey">Following</span>
-                </text>
-
-                <text className="col-9 wd-font-white">
-                  {profile.followersCount}
-                  <span className="ms-1 wd-font-grey">Followers</span>
-                </text>
               </div>
             </div>
           </div>

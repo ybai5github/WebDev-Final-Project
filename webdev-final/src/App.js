@@ -8,6 +8,7 @@ import Drinks from "./components/Drinks/Drinks";
 import Profile from "./components/Drinks/Profile/index.js";
 import EditProfile from "./components/Drinks/Profile/EditProfile.js";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import GlobalProfile from "./components/Drinks/GlobalProfile";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path="drinks" element={<Drinks/>}>
               <Route path="profile" element={<Profile/>}/>
               <Route path="editprofile" element={<EditProfile/>}/>
+              <Route path="globalprofile" element={<GlobalProfile/>}/>
               </Route>
             </Route>
             </Routes>

@@ -1,19 +1,22 @@
-
 import {Link} from "react-router-dom";
-import React from "react";
+import React,  {useState}  from "react";
 import ControlledCarousel from "../Carousel/ControlledCarousel";
+import {useDispatch} from "react-redux";
 import ControlledWishlist from "../Wishlist/ControlledWishlist";
-
-
+import {findAllUsers2} from "../Action/ProfileActions";
 
 const ProfilePage = ({profile})=> {
+
+  let [newProfile, setNewProfile] = useState({profile: 'New profile'});
+  const dispatch = useDispatch();
+
 
 
   return (
       <>
         <div className="row">
           <div className="col-1">
-            <i className="fas fa-arrow-left"></i>
+            <Link to="/home"><i className="fas fa-arrow-left"></i></Link>
           </div>
 
           <div className="col-11">
@@ -21,6 +24,11 @@ const ProfilePage = ({profile})=> {
               {profile.fullName}
               <div className="wd-font-color wd-font-size">{profile.tweet}</div>
             </div>
+
+
+            <Link to="/drinks/globalProfile" className="btn btn-primary rounded-pill float-end" onClick={() => findAllUsers2(dispatch, newProfile)}>
+              Find Users
+            </Link>
 
           </div>
           <div className="mb-5 card">
@@ -60,13 +68,13 @@ const ProfilePage = ({profile})=> {
 
             <div className="wd-relative-profile-icons row mb-5">
               <text className="col-3 wd-font-white">
-                {profile.followingCount}
-                <span className="ms-1 wd-font-grey">Following</span>
+                {profile.wishlistCount}
+                <span className="ms-1 wd-font-grey">Wishlist</span>
               </text>
 
               <text className="col-9 wd-font-white">
-                {profile.followersCount}
-                <span className="ms-1 wd-font-grey">Followers</span>
+                {profile.orderCount}
+                <span className="ms-1 wd-font-grey">Orders</span>
               </text>
             </div>
             </div>
