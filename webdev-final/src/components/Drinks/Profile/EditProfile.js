@@ -12,12 +12,12 @@ const EditProfile = () => {
   let [fullName, setFullName] = useState(profiles[0].fullName)
   let [bio, setBio] = useState(profiles[0].bio)
   let [location, setLocation] = useState(profiles[0].location)
-  let [website, setwebsite] = useState(profiles[0].website)
+  let [email, setemail] = useState(profiles[0].email)
   let [dob, setDob] = useState(profiles[0].dob)
   let navigate = useNavigate()
 
   const saveHandler = () => {
-    const newProfile = [{fullName, bio, location, website, dob}];
+    const newProfile = [{fullName, bio, location, email, dob}];
     dispatch({profile: newProfile, type: 'save'});
     navigate("/drinks/profile")
   }
@@ -71,16 +71,16 @@ const EditProfile = () => {
               setBio(event.target.value)}>
                 </textarea>
           <br/>
-          <text>Location</text>
+          <text>Address</text>
           <textarea className="wd-width bg-transparent wd-selector wd-font-white"
                     value={location} onChange={(event) =>
               setLocation(event.target.value)}>
                 </textarea>
           <br/>
-          <text>Website</text>
+          <text>Email</text>
           <textarea className="wd-width bg-transparent wd-selector wd-font-white"
-                    value={website} onChange={(event) =>
-              setwebsite(event.target.value)}>
+                    value={email} onChange={(event) =>
+              setemail(event.target.value)}>
                 </textarea>
           <br/>
           <text>Date of Birth</text>

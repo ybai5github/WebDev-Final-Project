@@ -1,5 +1,9 @@
 import React from "react";
 import ControlledCarousel from "../Carousel/ControlledCarousel.js";
+import StarRating from "../StarRating/StarRating.js";
+import StarRating4 from "../StarRating/StarRating4.js";
+import StarRating5 from "../StarRating/StarRating5.js";
+import StarRating3 from "../StarRating/StarRating3.js";
 
 const RecentDrinks = () => {
 
@@ -8,7 +12,7 @@ const RecentDrinks = () => {
         <div className="pt-6 row">
           <div>
             <img width= "50" height="50" src="https://ih1.redbubble.net/image.2008026467.8359/poster,840x830,f8f8f8-pad,1000x1000,f8f8f8.jpg"/>
-            <h2 className="text-center mb-5">DRINKS</h2></div>
+            <h2 className="text-center mb-5">Apéritif Cocktails</h2></div>
           <ul className="mb-5 col-1 list-group list-group-horizontal">
             <li className="list-group-item wd-move-to-the-left4">
               <div className="card">
@@ -107,17 +111,46 @@ const RecentDrinks = () => {
 
           <div className="mb-5 offset-md-1">
             <div className="row">
-              <div  className="col-3">
-            <img width= "200" height="200" src="https://www.thecocktaildb.com//images//media//drink//bry4qh1582751040.jpg"/>
-              </div>
-              <div className="col-3 float-left2">
-            <img width= "200" height="120" src="https://www.thecocktaildb.com//images//media//drink//5noda61589575158.jpg"/>
+              <div  className="col-2">
+                <div className="card">
+                   <img  height="200" src="https://www.thecocktaildb.com//images//media//drink//bry4qh1582751040.jpg"/>
+                  <div className="card-body">
+                    <h5 className="card-title">Cocktail name from Api </h5>
+                    <StarRating5/>
+                  </div>
                 </div>
-              <div className="col-3 float-left2">
-            <img width= "200" height="120" src="https://www.thecocktaildb.com//images//media//drink//srpxxp1441209622.jpg"/>
               </div>
+
+              <div className="col-3 float-left2">
+                <div className="card">
+                  <img width= "200" height="120" src="https://www.thecocktaildb.com//images//media//drink//5noda61589575158.jpg"/>
+                  <div className="card-body">
+                    <h5 className="card-title">Cocktail name from Api </h5>
+                    <StarRating4/>
+                  </div>
+                </div>
+                </div>
+
+
+              <div className="col-3 float-left2">
+                <div className="card">
+                  <img width= "200" height="120" src="https://www.thecocktaildb.com//images//media//drink//srpxxp1441209622.jpg"/>
+                  <div className="card-body">
+                    <h5 className="card-title">Cocktail name from Api </h5>
+                    <StarRating3/>
+                  </div>
+                </div>
+              </div>
+
+
             <div className="col-3 float-left3">
-            <img width= "200" height="120" src="https://www.thecocktaildb.com//images//media//drink//dztcv51598717861.jpg"/>
+              <div className="card">
+                <img width= "200" height="120" src="https://www.thecocktaildb.com//images//media//drink//dztcv51598717861.jpg"/>
+                <div className="card-body">
+                  <h5 className="card-title">Cocktail name from Api </h5>
+                  <StarRating4/>
+                </div>
+              </div>
             </div>
 
             </div>

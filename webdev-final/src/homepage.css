@@ -280,6 +280,12 @@ html, body {
     padding:5px;
 }
 
+.on {
+    color: #000;
+}
+.off {
+    color: #ccc;
+}
 
 /*.wd-pos-absolute-100-20 {*/
 /*    position: absolute;*/
