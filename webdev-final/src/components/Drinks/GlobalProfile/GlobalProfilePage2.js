@@ -4,7 +4,7 @@ import React from "react";
 
 
 
-const GlobalProfilePage = ({profile})=> {
+const GlobalProfilePage2 = ({profile})=> {
 
 
   return (
@@ -135,4 +135,4 @@ const GlobalProfilePage = ({profile})=> {
       </>
   );
 };
-export default GlobalProfilePage;
+export default GlobalProfilePage2;

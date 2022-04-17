@@ -58,8 +58,11 @@ const ProfilePage = ({profile})=> {
               <i className="me-2 fa-solid fa-location-dot"></i>
               <text className="me-3">{profile.location}</text>
 
-              <i className="me-2 fa-solid fa-comment-dots"></i>
+              <i className="me-2 fa-solid  fa-cake"></i>
               <text className="me-3">{profile.dob}</text>
+
+              <i className="me-2 fa-solid fa-envelope"></i>
+              <text className="me-3">{profile.email}</text>
 
               <i className="me-2 fa-regular fa-calendar-days"></i>
               <text className="me-3">{profile.dateJoined}</text>
@@ -67,13 +70,14 @@ const ProfilePage = ({profile})=> {
 
 
             <div className="wd-relative-profile-icons row mb-5">
+
               <text className="col-3 wd-font-white">
-                {profile.wishlistCount}
+                <i className="me-2 fa-solid fa-cart-plus"></i> {profile.wishlistCount}
                 <span className="ms-1 wd-font-grey">Wishlist</span>
               </text>
 
               <text className="col-9 wd-font-white">
-                {profile.orderCount}
+                <i className="me-2 fa-solid fa-shopping-cart"></i> {profile.orderCount}
                 <span className="ms-1 wd-font-grey">Orders</span>
               </text>
             </div>

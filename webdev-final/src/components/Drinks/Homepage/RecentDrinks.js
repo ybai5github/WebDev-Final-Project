@@ -1,11 +1,43 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import ControlledCarousel from "../Carousel/ControlledCarousel.js";
 import StarRating from "../StarRating/StarRating.js";
 import StarRating4 from "../StarRating/StarRating4.js";
 import StarRating5 from "../StarRating/StarRating5.js";
 import StarRating3 from "../StarRating/StarRating3.js";
 
+const magaritaurl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita";
+
 const RecentDrinks = () => {
+  const [useData, setData] = useState([]);
+
+  const getTheMagaritas = async () => {
+    const  response = await fetch(magaritaurl);
+    const jsonData = await response.json();
+    console.log(jsonData);
+    setData(jsonData.drinks);
+  };
+// console.log(useData);
+ //console.log(useData[0].strDrink);
+// console.log('drink array');
+
+  useEffect(() => {
+    getTheMagaritas();
+  }, []);
+
+
+
+
+  useEffect(() => {
+    window.localStorage.setItem("wakanda", JSON.stringify(useData));
+  });
+
+  useEffect(() => {
+    const usevalue = window.localStorage.getItem("wakanda");
+    console.log(usevalue);
+    setData(JSON.parse(usevalue));
+  }, []);
+
+
 
   return(
       <>
@@ -14,76 +46,75 @@ const RecentDrinks = () => {
             <img width= "50" height="50" src="https://ih1.redbubble.net/image.2008026467.8359/poster,840x830,f8f8f8-pad,1000x1000,f8f8f8.jpg"/>
             <h2 className="text-center mb-5">Apéritif Cocktails</h2></div>
           <ul className="mb-5 col-1 list-group list-group-horizontal">
-            <li className="list-group-item wd-move-to-the-left4">
+            <li className="list-group-item">
               <div className="card">
-                <img className="card-img-top wd-product-image-photo" height="291" width="291" src="https://www.thecocktaildb.com//images//media//drink//srpxxp1441209622.jpg"/>
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">Some quick example text to build on
-                    the card title and make up the bulk of the card's
-                    content.</p>
-                  <a href="#" className="btn btn-primary">Go somewhere</a>
+                <h5 className="card-title mb-5">Whitecap Margarita</h5>
+
+                <div className="card-body wd-flex">
+                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src="https://www.thecocktaildb.com//images//media//drink//srpxxp1441209622.jpg"/>
+
+
+                  <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
                 </div>
+                <a href="#" className="btn btn-primary mb-5">More Details</a>
               </div>
           </li>
-            <li className="list-group-item wd-move-to-the-left">
+            <li className="list-group-item">
               <div className="card">
-              <img className="card-img-top  wd-product-image-photo" height="291" width="291" src="https://www.thecocktaildb.com//images//media//drink//5noda61589575158.jpg"/>
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">Some quick example text to build on
-                    the card title and make up the bulk of the card's
-                    content.</p>
-                  <a href="#" className="btn btn-primary">Go somewhere</a>
+                <h5 className="card-title mb-5">Magarita</h5>
+                <div className="card-body wd-flex">
+                  <img className="card-img-top  wd-product-image-photo" height="400" width="400" src="https://www.thecocktaildb.com//images//media//drink//5noda61589575158.jpg"/>
+
+                  <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
+
                 </div>
+                <a href="#" className="btn btn-primary">More Details</a>
               </div>
             </li>
-            <li className="list-group-item wd-move-to-the-left5">
+            <li className="list-group-item">
               <div className="card">
-              <img className="card-img-top wd-product-image-photo" height="291" width="291" src="https://www.thecocktaildb.com//images//media//drink//loezxn1504373874.jpg"/>
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">Some quick example text to build on
-                    the card title and make up the bulk of the card's
-                    content.</p>
-                  <a href="#" className="btn btn-primary">Go somewhere</a>
+                <h5 className="card-title mb-5">Tommy's Margarita</h5>
+                <div className="card-body wd-flex">
+                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src="https://www.thecocktaildb.com//images//media//drink//loezxn1504373874.jpg"/>
+                  <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
                 </div>
+                <a href="#" className="btn btn-primary">More Details</a>
               </div>
             </li>
-            <li className="list-group-item wd-move-to-the-left6">
+            <li className="list-group-item ">
               <div className="card">
-              <img className="card-img-top wd-product-image-photo" height="291" width="291" src="https://www.thecocktaildb.com//images//media//drink//bry4qh1582751040.jpg"/>
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">Some quick example text to build on
-                    the card title and make up the bulk of the card's
-                    content.</p>
-                  <a href="#" className="btn btn-primary">Go somewhere</a>
+                <h5 className="card-title mb-5">Blue Margarita</h5>
+
+                <div className="card-body wd-flex">
+                  <img className="card-img-top wd-product-image-photo" height="291" width="291" src="https://www.thecocktaildb.com//images//media//drink//bry4qh1582751040.jpg"/>
+                  <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
+
                 </div>
+                <a href="#" className="btn btn-primary">More Details</a>
               </div>
             </li>
-            <li className="list-group-item wd-move-to-the-left3">
+            {/*<li className="list-group-item wd-move-to-the-left3">*/}
+            {/*  <div className="card">*/}
+            {/*    <img className="card-img-top wd-product-image-photo" height="291" width="291" src="https://www.thecocktaildb.com//images//media//drink//tqyrpw1439905311.jpg"/>*/}
+            {/*    <div className="card-body">*/}
+            {/*      <h5 className="card-title">Card title</h5>*/}
+            {/*      <p className="card-text">Some quick example text to build on*/}
+            {/*        the card title and make up the bulk of the card's*/}
+            {/*        content.</p>*/}
+            {/*      <a href="#" className="btn btn-primary">Go somewhere</a>*/}
+            {/*    </div>*/}
+            {/*  </div>*/}
+            {/*</li>*/}
+            <li className="list-group-item">
               <div className="card">
-              <img className="card-img-top wd-product-image-photo" height="291" width="291" src="https://www.thecocktaildb.com//images//media//drink//tqyrpw1439905311.jpg"/>
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">Some quick example text to build on
-                    the card title and make up the bulk of the card's
-                    content.</p>
-                  <a href="#" className="btn btn-primary">Go somewhere</a>
+                <h5 className="card-title mb-5">Smashed Watermelon Margarita</h5>
+
+                <div className="card-body wd-flex">
+                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src="https://www.thecocktaildb.com//images//media//drink//dztcv51598717861.jpg"/>
+
+                  <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
                 </div>
-              </div>
-            </li>
-            <li className="list-group-item wd-move-to-the-left2">
-              <div className="card">
-              <img className="card-img-top wd-product-image-photo" height="291" width="291" src="https://www.thecocktaildb.com//images//media//drink//dztcv51598717861.jpg"/>
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">Some quick example text to build on
-                    the card title and make up the bulk of the card's
-                    content.</p>
-                  <a href="#" className="btn btn-primary">Go somewhere</a>
-                </div>
+                <a href="#" className="btn btn-primary">More Details</a>
               </div>
             </li>
           </ul>
@@ -96,17 +127,19 @@ const RecentDrinks = () => {
           <a href="/search" className="btn btn-primary my-btn-wide">Shop</a>
           </div>
 
+          <div className="col-xxl-12 row-cols-12">
           <div className="mb-5 offset-md-1">
           <div className="card">
             <h5 className="text-center card-header">Featured</h5>
             <div className="card-body">
-              <h5 className="card-title">Special title treatment</h5>
+              <h5 className="card-title text-center"> Our House Special</h5>
 
               <ControlledCarousel/>
 
             </div>
           </div>
           </div>
+        </div>
 
 
           <div className="mb-5 offset-md-1">
@@ -115,17 +148,17 @@ const RecentDrinks = () => {
                 <div className="card">
                    <img  height="200" src="https://www.thecocktaildb.com//images//media//drink//bry4qh1582751040.jpg"/>
                   <div className="card-body">
-                    <h5 className="card-title">Cocktail name from Api </h5>
-                    <StarRating5/>
+                    <h5 className="card-title">Blue Margarita </h5>
+                    <StarRating4/>
                   </div>
                 </div>
               </div>
 
               <div className="col-3 float-left2">
                 <div className="card">
-                  <img width= "200" height="120" src="https://www.thecocktaildb.com//images//media//drink//5noda61589575158.jpg"/>
+                  <img width= "282" height="200" src="https://www.thecocktaildb.com//images//media//drink//5noda61589575158.jpg"/>
                   <div className="card-body">
-                    <h5 className="card-title">Cocktail name from Api </h5>
+                    <h5 className="card-title">Margarita </h5>
                     <StarRating4/>
                   </div>
                 </div>
@@ -134,9 +167,9 @@ const RecentDrinks = () => {
 
               <div className="col-3 float-left2">
                 <div className="card">
-                  <img width= "200" height="120" src="https://www.thecocktaildb.com//images//media//drink//srpxxp1441209622.jpg"/>
+                  <img width= "282" height="200" src="https://www.thecocktaildb.com//images//media//drink//srpxxp1441209622.jpg"/>
                   <div className="card-body">
-                    <h5 className="card-title">Cocktail name from Api </h5>
+                    <h5 className="card-title">Whitecap Margarita </h5>
                     <StarRating3/>
                   </div>
                 </div>
@@ -145,10 +178,10 @@ const RecentDrinks = () => {
 
             <div className="col-3 float-left3">
               <div className="card">
-                <img width= "200" height="120" src="https://www.thecocktaildb.com//images//media//drink//dztcv51598717861.jpg"/>
+                <img width= "282" height="200" src="https://www.thecocktaildb.com//images//media//drink//dztcv51598717861.jpg"/>
                 <div className="card-body">
-                  <h5 className="card-title">Cocktail name from Api </h5>
-                  <StarRating4/>
+                  <h5 className="card-title">Smashed Watermelon Margarita</h5>
+                  <StarRating5/>
                 </div>
               </div>
             </div>
@@ -169,7 +202,7 @@ const RecentDrinks = () => {
               </div>
               <div className="row">
                 <ul className="col-3 list-group">
-                  <li className="list-group-item wd-float-inside"><strong>Our Logo</strong></li>
+                  <li className="list-group-item wd-float-inside"><strong>We are</strong></li>
                   <li className="list-group-item">
                     <img width= "200" height="200" src="https://ih1.redbubble.net/image.2008026467.8359/poster,840x830,f8f8f8-pad,1000x1000,f8f8f8.jpg"/>
                   </li>

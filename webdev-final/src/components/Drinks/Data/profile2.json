@@ -1,5 +1,5 @@
-[{ "fullName": "alice wang",
-    "type": "CUSTOMER",
+[{ "fullName": "bob hepburn",
+    "type": "ADMIN",
     "handle": "cmelie",
     "profilePicture": "https://images.saymedia-content.com/.image/t_share/MTc5NjQ1ODEzMTgwNDA5ODE2/the-tragedy-of-eren-yeager-how-the-character-changes-throughout-attack-on-titan.png",
     "bio": "Faculty, Software Engineer, AI, Space, and renewable enthusiast.Retuits and likes are not endorsements",
@@ -9,6 +9,6 @@
     "dateJoined": "4/2009",
     "wishlistCount": 312,
     "orderCount": 180,
-    "_id": "123" }
-    ]
+    "_id": "234" }
+]
 

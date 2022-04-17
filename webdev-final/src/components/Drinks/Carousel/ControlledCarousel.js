@@ -6,7 +6,7 @@ function ControlledCarousel() {
 
   return (
       <div style={{ display: 'block', width: 700, padding: 30 }} className="mb-5">
-        <h4>React-Bootstrap Carousel Component</h4>
+        <h4>It's our favorite try it...</h4>
         <Carousel className="wd-move-to-the-left7">
           <Carousel.Item interval={1500}>
             <img
@@ -15,8 +15,8 @@ function ControlledCarousel() {
                 alt="Image One"
             />
             <Carousel.Caption>
-              <h3>Label for second slide</h3>
-              <p>Sample Text for Image One</p>
+              <h3>Smashed Watermelon Margarita</h3>
+              <p>Wonderful punch of melons</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item interval={500}>
@@ -26,8 +26,8 @@ function ControlledCarousel() {
                 alt="Image Two"
             />
             <Carousel.Caption>
-              <h3>Label for Three slide</h3>
-              <p>Sample Text for Image Three</p>
+              <h3>Afterglow</h3>
+              <p>Get a wonderful glow after one sip</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item interval={500}>
@@ -37,8 +37,8 @@ function ControlledCarousel() {
                 alt="Image Three"
             />
             <Carousel.Caption>
-              <h3>Label for four slide</h3>
-              <p>Sample Text for Image four</p>
+              <h3>Mountain Bramble</h3>
+              <p>Flavors bursting with berries</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item interval={500}>
@@ -48,8 +48,8 @@ function ControlledCarousel() {
                 alt="Image Four"
             />
             <Carousel.Caption>
-              <h3>Label for first slide</h3>
-              <p>Sample Text for Image four</p>
+              <h3>Cocktail Horse Neck</h3>
+              <p>Taste a hint of fresh lemons</p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>

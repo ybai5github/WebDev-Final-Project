@@ -1,3 +1,4 @@
+import RecentDrinkList from "./RecentDrinkList.js";
 import RecentDrinks from "./RecentDrinks";
 import {Link} from "react-router-dom";
 import Cart from "./Cart";
