@@ -7,6 +7,7 @@ import DetailScreen from "./components/detail-screen";
 import reviewsReducer from "./reducer/reviews-reducer";
 import {createStore} from "redux";
 import {Provider} from "react-redux";
+import SearchScreen from "./component-jihua/SeachPage/SearchScreen";
 
 
 const store = createStore(reviewsReducer);
@@ -18,6 +19,10 @@ function App() {
           <BrowserRouter>
               <div className="container">
                   <Routes>
+                      <Route path="/search/"
+                             element={<SearchScreen/>}/>
+                      <Route path="/search/:cocktailSearch"
+                             element={<SearchScreen/>}/>
                       <Route path="/detail/:imdbID" exact={true} element={<DetailScreen/>}/>
                   </Routes>
               </div>

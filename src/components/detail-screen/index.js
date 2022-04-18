@@ -1,6 +1,6 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import Preformatted from "./preformatted";
 import "../../index.css"
 import ReviewList from "./review-list";
@@ -8,11 +8,14 @@ import ReviewList from "./review-list";
 
 const DetailScreen = () => {
     const [drinkDetails, setDrinkDetails] = useState({})
-    const url = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?'
-    const imdbID = 13196;
-    //const {imdbID} = useParams()
+    const url = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php'
+    //const idDrink = 178363;
+    const idDrink = useParams()
+    const propertyValues = Object.values(idDrink);
+    //console.log(propertyValues[0]);
     const searchDrinkByID = async () => {
-        const response = await axios.get(`${url}i=${imdbID}`)
+        const response = await axios.get(`${url}?${propertyValues[0]}`)
+        //console.log(response);
         setDrinkDetails(response.data.drinks[0])
     }
     useEffect( () => {
@@ -49,7 +52,7 @@ const DetailScreen = () => {
                                 <h5 className="wd-bolded-font">
                                     Ingredient
                                 </h5>
-                                {drinkDetails.strIngredient1}
+                                {drinkDetails.strIngredient1}; {drinkDetails.strIngredient2}; {drinkDetails.strIngredient3};
                             </li>
 
                             <li className="wd-font pb-4">
