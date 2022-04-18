@@ -4,6 +4,10 @@ import ControlledCarousel from "../Carousel/ControlledCarousel";
 import {useDispatch} from "react-redux";
 import ControlledWishlist from "../Wishlist/ControlledWishlist";
 import {findAllUsers2} from "../Action/ProfileActions";
+import drinking from "../Data/recentdrinks.json";
+import StarRating5 from "../StarRating/StarRating5";
+import StarRating3 from "../StarRating/StarRating3";
+import StarRating4 from "../StarRating/StarRating4";
 
 const ProfilePage = ({profile})=> {
 
@@ -112,61 +116,61 @@ const ProfilePage = ({profile})=> {
         <ul className="mb-5 col-1 list-group list-group-horizontal">
           <li className="list-group-item">
             <div className="card">
-              <h5 className="card-title mb-5">Whitecap Margarita</h5>
+              <h5 className="card-title mb-5">{drinking[0].strDrink}</h5>
 
               <div className="card-body wd-flex">
-                <img className="card-img-top wd-product-image-photo" height="400" width="400" src="https://www.thecocktaildb.com//images//media//drink//srpxxp1441209622.jpg"/>
+                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[0].strDrinkThumb}/>
 
 
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
               </div>
-              <a href="#" className="btn btn-primary mb-5">More Details</a>
+              <StarRating5/>
             </div>
           </li>
           <li className="list-group-item">
             <div className="card">
-              <h5 className="card-title mb-5">Magarita</h5>
+              <h5 className="card-title mb-5">{drinking[1].strDrink}</h5>
               <div className="card-body wd-flex">
-                <img className="card-img-top  wd-product-image-photo" height="400" width="400" src="https://www.thecocktaildb.com//images//media//drink//5noda61589575158.jpg"/>
+                <img className="card-img-top  wd-product-image-photo" height="400" width="400" src={drinking[1].strDrinkThumb}/>
 
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
 
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating5/>
             </div>
           </li>
           <li className="list-group-item">
             <div className="card">
-              <h5 className="card-title mb-5">Tommy's Margarita</h5>
+              <h5 className="card-title mb-5">{drinking[2].strDrink}</h5>
               <div className="card-body wd-flex">
-                <img className="card-img-top wd-product-image-photo" height="400" width="400" src="https://www.thecocktaildb.com//images//media//drink//loezxn1504373874.jpg"/>
+                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[2].strDrinkThumb}/>
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating3/>
             </div>
           </li>
           <li className="list-group-item ">
             <div className="card">
-              <h5 className="card-title mb-5">Blue Margarita</h5>
+              <h5 className="card-title mb-5">{drinking[3].strDrink}</h5>
 
               <div className="card-body wd-flex">
-                <img className="card-img-top wd-product-image-photo" height="291" width="291" src="https://www.thecocktaildb.com//images//media//drink//bry4qh1582751040.jpg"/>
+                <img className="card-img-top wd-product-image-photo" height="291" width="291" src={drinking[3].strDrinkThumb}/>
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
 
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating5/>
             </div>
           </li>
           <li className="list-group-item ">
             <div className="card">
-              <h5 className="card-title mb-5">Blue Margarita</h5>
+              <h5 className="card-title mb-5">{drinking[4].strDrink}</h5>
 
               <div className="card-body wd-flex">
-                <img className="card-img-top wd-product-image-photo" height="291" width="291" src="https://www.thecocktaildb.com//images//media//drink//tqyrpw1439905311.jpg"/>
+                <img className="card-img-top wd-product-image-photo" height="291" width="291" src={drinking[4].strDrinkThumb}/>
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
 
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating4/>
             </div>
           </li>
         </ul>
@@ -174,58 +178,58 @@ const ProfilePage = ({profile})=> {
         <ul className="mb-5 col-1 list-group list-group-horizontal">
           <li className="list-group-item">
             <div className="card">
-              <h5 className="card-title mb-5">Tommy's Margarita</h5>
+              <h5 className="card-title mb-5">{drinking[5].strDrink}</h5>
               <div className="card-body wd-flex">
-                <img className="card-img-top wd-product-image-photo" height="400" width="400" src="https://www.thecocktaildb.com//images//media//drink//loezxn1504373874.jpg"/>
+                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[5].strDrinkThumb}/>
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating5/>
             </div>
           </li>
           <li className="list-group-item ">
             <div className="card">
-              <h5 className="card-title mb-5">Blue Margarita</h5>
+              <h5 className="card-title mb-5">{drinking[6].strDrink}</h5>
 
               <div className="card-body wd-flex">
-                <img className="card-img-top wd-product-image-photo" height="291" width="291" src="https://www.thecocktaildb.com//images//media//drink//bry4qh1582751040.jpg"/>
+                <img className="card-img-top wd-product-image-photo" height="291" width="291" src={drinking[6].strDrinkThumb}/>
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
 
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating5/>
             </div>
           </li>
           <li className="list-group-item">
             <div className="card">
-              <h5 className="card-title mb-5">Smashed Watermelon Margarita</h5>
+              <h5 className="card-title mb-5">{drinking[7].strDrink}</h5>
 
               <div className="card-body wd-flex">
-                <img className="card-img-top wd-product-image-photo" height="400" width="400" src="https://www.thecocktaildb.com//images//media//drink//dztcv51598717861.jpg"/>
+                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[7].strDrinkThumb}/>
 
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating5/>
             </div>
           </li>
           <li className="list-group-item">
             <div className="card">
-              <h5 className="card-title mb-5">Tommy's Margarita</h5>
+              <h5 className="card-title mb-5">{drinking[8].strDrink}</h5>
               <div className="card-body wd-flex">
-                <img className="card-img-top wd-product-image-photo" height="400" width="400" src="https://www.thecocktaildb.com//images//media//drink//loezxn1504373874.jpg"/>
+                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[8].strDrinkThumb}/>
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating5/>
             </div>
           </li>
           <li className="list-group-item ">
             <div className="card">
-              <h5 className="card-title mb-5">Blue Margarita</h5>
+              <h5 className="card-title mb-5">{drinking[9].strDrink}</h5>
 
               <div className="card-body wd-flex">
-                <img className="card-img-top wd-product-image-photo" height="291" width="291" src="https://www.thecocktaildb.com//images//media//drink//bry4qh1582751040.jpg"/>
+                <img className="card-img-top wd-product-image-photo" height="291" width="291" src={drinking[9].strDrinkThumb}/>
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
 
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating5/>
             </div>
           </li>
         </ul>

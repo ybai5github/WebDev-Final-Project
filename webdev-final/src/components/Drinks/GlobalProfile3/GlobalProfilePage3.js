@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom";
 import React from "react";
+import StarRating5 from "../StarRating/StarRating5";
 
 
 
@@ -77,7 +78,7 @@ const GlobalProfilePage3 = ({charlie})=> {
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
 
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating5/>
             </div>
           </li>
           <li className="list-group-item">
@@ -87,7 +88,7 @@ const GlobalProfilePage3 = ({charlie})=> {
                 <img className="card-img-top wd-product-image-photo" height="400" width="400" src="https://www.thecocktaildb.com//images//media//drink//loezxn1504373874.jpg"/>
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating5/>
             </div>
           </li>
           <li className="list-group-item ">
@@ -99,7 +100,7 @@ const GlobalProfilePage3 = ({charlie})=> {
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
 
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating5/>
             </div>
           </li>
           <li className="list-group-item ">
@@ -111,7 +112,7 @@ const GlobalProfilePage3 = ({charlie})=> {
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
 
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating5/>
             </div>
           </li>
         </ul>
@@ -124,7 +125,7 @@ const GlobalProfilePage3 = ({charlie})=> {
                 <img className="card-img-top wd-product-image-photo" height="400" width="400" src="https://www.thecocktaildb.com//images//media//drink//loezxn1504373874.jpg"/>
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating5/>
             </div>
           </li>
           <li className="list-group-item ">
@@ -136,7 +137,7 @@ const GlobalProfilePage3 = ({charlie})=> {
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
 
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating5/>
             </div>
           </li>
           <li className="list-group-item">
@@ -148,7 +149,7 @@ const GlobalProfilePage3 = ({charlie})=> {
 
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating5/>
             </div>
           </li>
           <li className="list-group-item">
@@ -158,7 +159,7 @@ const GlobalProfilePage3 = ({charlie})=> {
                 <img className="card-img-top wd-product-image-photo" height="400" width="400" src="https://www.thecocktaildb.com//images//media//drink//loezxn1504373874.jpg"/>
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating5/>
             </div>
           </li>
           <li className="list-group-item ">
@@ -170,7 +171,7 @@ const GlobalProfilePage3 = ({charlie})=> {
                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
 
               </div>
-              <a href="#" className="btn btn-primary">More Details</a>
+              <StarRating5/>
             </div>
           </li>
         </ul>
