@@ -6,7 +6,7 @@ import StarRating5 from "../StarRating/StarRating5.js";
 import StarRating3 from "../StarRating/StarRating3.js";
 import './homepage.css'
 
-const Home = ({ onRouteChange }) => {
+const Home = ({ onRouteChange, userName }) => {
     const magaritaurl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic";
     const getTheMagaritas = async () => {
         const response = await fetch(magaritaurl);
@@ -33,6 +33,7 @@ const Home = ({ onRouteChange }) => {
     }, [useData]);
 
 
+    console.log(userName);
     const navigate = useNavigate();
 
     const profile = () => {
@@ -43,6 +44,9 @@ const Home = ({ onRouteChange }) => {
     return (
         <div >
             <div className="pt-6 row">
+                <h1>
+                    welcome {userName}!
+                </h1>
                 <div>
                     <img width="50" height="50" src="https://ih1.redbubble.net/image.2008026467.8359/poster,840x830,f8f8f8-pad,1000x1000,f8f8f8.jpg" />
                     <h2 className="text-center mb-5">Apéritif Cocktails</h2></div>

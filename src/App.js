@@ -84,23 +84,13 @@ const App = () => {
     if (route === 'signout') {
       setSignedIn(false);
     } else if (route === 'home') {
-      display();
+
       setSignedIn(true);
 
     } else if (route === 'profile') {
       setSignedIn(true);
     }
     setRoute(route);
-  }
-
-  const display = (userName) => {
-    return (
-      <>
-        <h1>
-          welcome {userName}
-        </h1>
-      </>
-    )
   }
 
   return (
@@ -115,7 +105,7 @@ const App = () => {
               <Home isSignedIn={isSignedIn} onRouteChange={onRouteChange} userName={users.name} />} />
             <Route path="login" element={route === 'home'
               ? <div>
-                <Home />
+                <Home userName={users.name} />
               </div>
               : (
                 route === 'signin'
