@@ -8,7 +8,7 @@ import StarRating3 from "../StarRating/StarRating3.js";
 const magaritaurl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita";
 
 const RecentDrinks = () => {
-  const [useData, setData] = useState([]);
+
 
   const getTheMagaritas = async () => {
     const  response = await fetch(magaritaurl);
@@ -25,17 +25,27 @@ const RecentDrinks = () => {
   }, []);
 
 
+  const storedWakanda = localStorage.getItem('wakanda')
+  const myarray = JSON.parse(storedWakanda)
 
+  const [useData, setData] = useState(myarray)
 
   useEffect(() => {
-    window.localStorage.setItem("wakanda", JSON.stringify(useData));
-  });
+    localStorage.setItem('wakanda', JSON.stringify(useData));
+  }, [useData]);
 
-  useEffect(() => {
-    const usevalue = window.localStorage.getItem("wakanda");
-    console.log(usevalue);
-    setData(JSON.parse(usevalue));
-  }, []);
+
+
+
+  // useEffect(() => {
+  //   window.localStorage.setItem("wakanda", JSON.stringify(useData));
+  // });
+  //
+  // useEffect(() => {
+  //   const usevalue = window.localStorage.getItem("wakanda");
+  //   console.log(usevalue);
+  //   setData(JSON.parse(usevalue));
+  // }, [useData]);
 
 
 
@@ -48,7 +58,7 @@ const RecentDrinks = () => {
           <ul className="mb-5 col-1 list-group list-group-horizontal">
             <li className="list-group-item">
               <div className="card">
-                <h5 className="card-title mb-5">Whitecap Margarita</h5>
+                <h5 className="card-title mb-5">{useData[3].strDrink}</h5>
 
                 <div className="card-body wd-flex">
                   <img className="card-img-top wd-product-image-photo" height="400" width="400" src="https://www.thecocktaildb.com//images//media//drink//srpxxp1441209622.jpg"/>
@@ -61,7 +71,7 @@ const RecentDrinks = () => {
           </li>
             <li className="list-group-item">
               <div className="card">
-                <h5 className="card-title mb-5">Magarita</h5>
+                <h5 className="card-title mb-5">{useData[0].strDrink}</h5>
                 <div className="card-body wd-flex">
                   <img className="card-img-top  wd-product-image-photo" height="400" width="400" src="https://www.thecocktaildb.com//images//media//drink//5noda61589575158.jpg"/>
 
@@ -73,7 +83,7 @@ const RecentDrinks = () => {
             </li>
             <li className="list-group-item">
               <div className="card">
-                <h5 className="card-title mb-5">Tommy's Margarita</h5>
+                <h5 className="card-title mb-5">{useData[2].strDrink}</h5>
                 <div className="card-body wd-flex">
                   <img className="card-img-top wd-product-image-photo" height="400" width="400" src="https://www.thecocktaildb.com//images//media//drink//loezxn1504373874.jpg"/>
                   <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
@@ -83,7 +93,7 @@ const RecentDrinks = () => {
             </li>
             <li className="list-group-item ">
               <div className="card">
-                <h5 className="card-title mb-5">Blue Margarita</h5>
+                <h5 className="card-title mb-5">{useData[1].strDrink}</h5>
 
                 <div className="card-body wd-flex">
                   <img className="card-img-top wd-product-image-photo" height="291" width="291" src="https://www.thecocktaildb.com//images//media//drink//bry4qh1582751040.jpg"/>
@@ -107,7 +117,7 @@ const RecentDrinks = () => {
             {/*</li>*/}
             <li className="list-group-item">
               <div className="card">
-                <h5 className="card-title mb-5">Smashed Watermelon Margarita</h5>
+                <h5 className="card-title mb-5">{useData[5].strDrink}</h5>
 
                 <div className="card-body wd-flex">
                   <img className="card-img-top wd-product-image-photo" height="400" width="400" src="https://www.thecocktaildb.com//images//media//drink//dztcv51598717861.jpg"/>

@@ -5,9 +5,9 @@ import {useDispatch} from "react-redux";
 import ControlledWishlist from "../Wishlist/ControlledWishlist";
 import {findAllUsers2} from "../Action/ProfileActions";
 
-const ProfilePage = ({profile})=> {
+const ProfilePageBob = ({bob})=> {
 
-  let [newProfile, setNewProfile] = useState({profile: 'New profile'});
+  let [newProfile, setNewProfile] = useState({bob: 'New profile'});
   const dispatch = useDispatch();
 
 
@@ -22,8 +22,8 @@ const ProfilePage = ({profile})=> {
 
           <div className="col-11">
             <div className="pb-2 wd-font-white wd-font-size3">
-              {profile.fullName}
-              <div className="wd-font-color wd-font-size">{profile.tweet}</div>
+              {bob.fullName}
+              <div className="wd-font-color wd-font-size">{bob.tweet}</div>
             </div>
 
 
@@ -36,49 +36,49 @@ const ProfilePage = ({profile})=> {
             <div className="mb-5">
             <img
                 className="wd-image-border wd-relative-position-profile wd-rounded-corners-circle2 wd-border-style wd-move-up"
-                height="100" width="100" src={profile.profilePicture}/>
+                height="100" width="100" src={bob.profilePicture}/>
           </div>
 
                 <div width="100">
-            <Link to="/drinks/editProfile"
+            <Link to="/drinks/editprofilebob"
                   className="btn btn-primary rounded-pill float-end mt-2 wd-rounded-corners  wd-border-color-grey wd-bolded-font wd-font-white">
               Edit Profile</Link></div>
 
             <div className="mt-5 flex-column">
             <h5 className="wd-relative-profile-name wd-profile-name-style wd-font-white">
-              {profile.fullName}
+              {bob.fullName}
             </h5>
 
             <text
-                className="wd-relative-profile-handle wd-font-grey">@{profile.handle}</text>
+                className="wd-relative-profile-handle wd-font-grey">@{bob.handle}</text>
 
 
-            <h6 className="wd-relative-profile-bio pb-2">{profile.bio}</h6>
+            <h6 className="wd-relative-profile-bio pb-2">{bob.bio}</h6>
 
             <div className="wd-relative-profile-icons pb-2">
               <i className="me-2 fa-solid fa-location-dot"></i>
-              <text className="me-3">{profile.location}</text>
+              <text className="me-3">{bob.location}</text>
 
               <i className="me-2 fa-solid  fa-cake"></i>
-              <text className="me-3">{profile.dob}</text>
+              <text className="me-3">{bob.dob}</text>
 
               <i className="me-2 fa-solid fa-envelope"></i>
-              <text className="me-3">{profile.email}</text>
+              <text className="me-3">{bob.email}</text>
 
               <i className="me-2 fa-regular fa-calendar-days"></i>
-              <text className="me-3">{profile.dateJoined}</text>
+              <text className="me-3">{bob.dateJoined}</text>
             </div>
 
 
             <div className="wd-relative-profile-icons row mb-5">
 
               <text className="col-3 wd-font-white">
-                <i className="me-2 fa-solid fa-cart-plus"></i> {profile.wishlistCount}
+                <i className="me-2 fa-solid fa-cart-plus"></i> {bob.wishlistCount}
                 <span className="ms-1 wd-font-grey">Wishlist</span>
               </text>
 
               <text className="col-9 wd-font-white">
-                <i className="me-2 fa-solid fa-shopping-cart"></i> {profile.orderCount}
+                <i className="me-2 fa-solid fa-shopping-cart"></i> {bob.orderCount}
                 <span className="ms-1 wd-font-grey">Orders</span>
               </text>
             </div>
@@ -233,4 +233,4 @@ const ProfilePage = ({profile})=> {
       </>
   );
 };
-export default ProfilePage;
+export default ProfilePageBob;

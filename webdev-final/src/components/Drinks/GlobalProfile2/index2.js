@@ -1,4 +1,4 @@
-import GlobalProfileList2 from "./GlobalProfileList";
+import GlobalProfileList2 from "./GlobalProfileList2.js";
 
 const GlobalProfile2 = () => {
   return(

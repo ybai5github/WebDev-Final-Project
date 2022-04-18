@@ -1,0 +1,14 @@
+[
+    { "fullName": "Charlie Newman",
+        "type": "SELLER",
+        "handle": "charles",
+        "profilePicture": "https://images.saymedia-content.com/.image/t_share/MTc5NjQ1ODEzMTgwNDA5ODE2/the-tragedy-of-eren-yeager-how-the-character-changes-throughout-attack-on-titan.png",
+        "bio": "AI, Space, and renewable enthusiast.I love selling drinks.",
+        "email": "charmedtomeetyou@liqour.com",
+        "location": "Seattle, WA",
+        "dob": "7/7/1968",
+        "dateJoined": "10/2011",
+        "wishlistCount": 0,
+        "orderCount": 800,
+        "_id": "345" }
+]

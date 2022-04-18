@@ -509,6 +509,11 @@ ul {
     left:250px
 }
 
+.wd-move-lefts8 {
+    position: absolute;
+    left:120px
+}
+
 .wd-move-up {
     position: absolute;
     top:20px;

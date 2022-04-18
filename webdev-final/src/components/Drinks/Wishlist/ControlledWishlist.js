@@ -6,7 +6,7 @@ function ControlledWishlist() {
 
   return (
       <div style={{ display: 'block', width: 700, padding: 30 }} className="mb-5">
-        <h4>React-Bootstrap Carousel Component</h4>
+        <h4>Don't Forget to Order</h4>
         <Carousel>
           <Carousel.Item interval={1500}>
             <img
