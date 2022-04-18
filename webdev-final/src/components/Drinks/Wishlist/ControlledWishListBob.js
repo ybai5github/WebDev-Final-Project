@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from 'react-bootstrap/Carousel';
 
-function ControlledWishlist() {
+function ControlledWishlistBob() {
 
 
   return (
@@ -11,23 +11,23 @@ function ControlledWishlist() {
           <Carousel.Item interval={1500}>
             <img
                 className="d-block w-100"
-                src="https://www.thecocktaildb.com//images//media//drink//srpxxp1441209622.jpg"
+                src="https://www.thecocktaildb.com//images//media//drink//ojsezf1582477277.jpg"
                 alt="Image One"
             />
             <Carousel.Caption>
-              <h3>Whitecap Margarita</h3>
-              <p>Try a whitecap before bed</p>
+              <h3>Brooklyn</h3>
+              <p>Welcome to brooklyn</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item interval={500}>
             <img
                 className="d-block w-100"
-                src="https://www.thecocktaildb.com//images//media//drink//5noda61589575158.jpg"
+                src="https://www.thecocktaildb.com//images//media//drink//g5upn41513706732.jpg"
                 alt="Image Two"
             />
             <Carousel.Caption>
-              <h3>Margarita</h3>
-              <p>When you wanna relax</p>
+              <h3>Greyhound</h3>
+              <p>A Howling effect after</p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
@@ -36,4 +36,4 @@ function ControlledWishlist() {
 }
 
 
-export default ControlledWishlist;
+export default ControlledWishlistBob;

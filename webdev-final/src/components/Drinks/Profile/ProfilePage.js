@@ -44,7 +44,7 @@ const ProfilePage = ({profile})=> {
           </div>
 
                 <div width="100">
-            <Link to="/drinks/editProfile"
+            <Link to="/drinks/editProfile/:_id"
                   className="btn btn-primary rounded-pill float-end mt-2 wd-rounded-corners  wd-border-color-grey wd-bolded-font wd-font-white">
               Edit Profile</Link></div>
 
@@ -103,7 +103,7 @@ const ProfilePage = ({profile})=> {
           <div className="card">
             <h5 className="text-center card-header">WishList</h5>
             <div className="card-body">
-              <h5 className="card-title">Special title treatment</h5>
+              <h5 className="card-title"> My Special treatment</h5>
 
                 <ControlledWishlist/>
 
