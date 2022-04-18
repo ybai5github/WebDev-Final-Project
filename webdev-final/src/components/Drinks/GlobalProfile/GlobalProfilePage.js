@@ -1,5 +1,5 @@
-import {Link} from "react-router-dom";
-import React from "react";
+import {Link, useParams} from "react-router-dom";
+import React, {useState} from "react";
 import StarRating5 from "../StarRating/StarRating5";
 import StarRating4 from "../StarRating/StarRating4";
 import StarRating3 from "../StarRating/StarRating3";
@@ -9,6 +9,12 @@ import drinking from "../Data/recentdrinks.json";
 
 
 const GlobalProfilePage = ({profile})=> {
+
+  //const [profile, setprofile] = useState([])
+  // const viewprofile = useParams()
+  // console.log(viewprofile);
+  // const uservalue = Object.values(viewprofile);
+
 
 
   return (

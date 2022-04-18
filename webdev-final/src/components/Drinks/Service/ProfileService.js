@@ -20,6 +20,7 @@ export const findAllUsers2 = async (profiles) => {
   return profile;
 }
 
+
 export const deleteUser = async (profile) => {
   const response = await axios.delete(`${PROFILE_API}/${profile._id}`);
   return response.data;
