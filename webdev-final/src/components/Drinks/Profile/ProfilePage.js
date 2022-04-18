@@ -31,7 +31,7 @@ const ProfilePage = ({profile})=> {
             </div>
 
 
-            <Link to="/drinks/globalProfile" className="btn btn-primary rounded-pill float-end" onClick={() => findAllUsers2(dispatch, newProfile)}>
+            <Link to="/drinks/globalProfile/:_id" className="btn btn-primary rounded-pill float-end" onClick={() => findAllUsers2(dispatch, newProfile)}>
               Find Users
             </Link>
 
