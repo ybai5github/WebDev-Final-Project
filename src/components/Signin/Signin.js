@@ -8,8 +8,12 @@ const Signin = ({ onRouteChange, loadUser }) => {
 
     const home = () => {
         onRouteChange('home');
+
         navigate('/');
+        
     }
+
+   
 
     const [email, setSignInEmail] = useState('');
     const [password, setSignInPassWord] = useState('');

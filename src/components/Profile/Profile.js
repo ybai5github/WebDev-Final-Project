@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Profile = ({ name, email, address, dob, account, onRouteChange }) => {
     console.log(name);
@@ -21,17 +21,58 @@ const Profile = ({ name, email, address, dob, account, onRouteChange }) => {
 
     return (
         <div >
-            <div className="white f3">
+            {/* <div className="white f3">
                 <p> Profile page  </p>
                 <p> name : {name}  </p>
                 <p> email : {email}  </p>
                 <p> address : {address}  </p>
                 <p> date of birth : {format(dob)}  </p>
                 <p> account : {account}  </p>
-            </div>
+            </div> */}
 
             <button onClick={() => navigate(-1)}>go back</button>
+
+            <div className="row">
+                <div className="col-1">
+                    <Link to="/home"><i className="fas fa-arrow-left"></i></Link>
+                </div>
+
+
+
+                <div width="100">
+                    <Link to="/drinks/editProfile/:_id"
+                        className="btn btn-primary rounded-pill float-end mt-2 wd-rounded-corners  wd-border-color-grey wd-bolded-font wd-font-white">
+                        Edit Profile</Link></div>
+
+                <div className="mt-5 flex-column">
+                    <h5 className="wd-relative-profile-name wd-profile-name-style wd-font-white">
+                        {name}
+                    </h5>
+
+                    
+
+
+                    <h6 className="wd-relative-profile-bio pb-2">{address}</h6>
+
+                    <div className="wd-relative-profile-icons pb-2">
+                       
+                        <i className="me-2 fa-solid  fa-cake"></i>
+                        <text className="me-3">{format(dob)}</text>
+
+                        <i className="me-2 fa-solid fa-envelope"></i>
+                        <text className="me-3">{email}</text>
+
+                     
+                    </div>
+
+
+                 
+                </div>
+            </div>
+
+
         </div>
+
 
     );
 }

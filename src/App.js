@@ -4,8 +4,11 @@ import './App.css';
 import Home from './components/Home/Home';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
-import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Profile from './components/Profile/Profile';
+import './vendors/bootstrap/css/bootstrap.min.css';
+import './vendors/bootstrap/bootstrap.min.css';
+import './vendors/fontawesome/css/all.min.css';
 
 const App = () => {
 
@@ -80,15 +83,24 @@ const App = () => {
   const onRouteChange = (route) => {
     if (route === 'signout') {
       setSignedIn(false);
-
-
     } else if (route === 'home') {
+      display();
       setSignedIn(true);
 
     } else if (route === 'profile') {
       setSignedIn(true);
     }
     setRoute(route);
+  }
+
+  const display = (userName) => {
+    return (
+      <>
+        <h1>
+          welcome {userName}
+        </h1>
+      </>
+    )
   }
 
   return (
@@ -100,7 +112,7 @@ const App = () => {
         <Routes>
           <Route path="/">
             <Route index element={
-              <Home isSignedIn={isSignedIn} onRouteChange={onRouteChange} />} />
+              <Home isSignedIn={isSignedIn} onRouteChange={onRouteChange} userName={users.name} />} />
             <Route path="login" element={route === 'home'
               ? <div>
                 <Home />
