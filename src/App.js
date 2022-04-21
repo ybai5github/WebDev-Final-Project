@@ -60,9 +60,12 @@ function App() {
         }
     }
 
+    const email = "felix@gmail.com";
+
     const onSubmitOrder = () => {
         axios.post('http://localhost:4000/order', {
-            cartItems: cartItems
+            cartItems: cartItems,
+            email: email
         })
             .then(user => {
                 console.log('user data', user.data);
@@ -78,7 +81,10 @@ function App() {
                 setHistoryItems(response.data);
                 console.log('history items', historyItems);
             })
-            .catch(error => { console.log(error) })
+            .catch(error => { 
+                console.log(error) 
+                alert(error.response.data);
+            })
     }
 
     const handleCartClearance = () => {
