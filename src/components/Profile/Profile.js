@@ -1,5 +1,7 @@
-import React from "react";
-import { useNavigate, Link } from 'react-router-dom';
+import React, {useState, useEffect, useRef}  from "react";
+import { useNavigate, Link, useParams } from 'react-router-dom';
+import {useDispatch} from "react-redux";
+import profile from "../Data/profile.json";
 
 const Profile = ({ name, email, address, dob, account, onRouteChange }) => {
     console.log(name);
@@ -18,6 +20,29 @@ const Profile = ({ name, email, address, dob, account, onRouteChange }) => {
 
     console.log(format(dob));
     const navigate = useNavigate();
+    
+  let [newProfile, setNewProfile] = useState({profile: 'New profile'});
+  const dispatch = useDispatch();
+  const {userSearch} = useParams()
+  const searchUrl = "";
+  const Searchforuser = useRef();
+
+  const searchuserbyname = async () => {
+    const searchString = Searchforuser.current.value || userSearch ||""
+
+    const response = await axios.get(`${searchUrl}?s=${searchString}`)
+    setNewProfile(response.data.profile)
+    Searchforuser.current.value = searchString
+    if(searchString == null){
+      navigate(`/profile`)
+    }else {
+      navigate(`/profile/${searchString}`)
+    }
+
+  }
+  useEffect(() => {
+    searchuserbyname()
+  }, [])
 
     return (
         <div >
@@ -37,7 +62,21 @@ const Profile = ({ name, email, address, dob, account, onRouteChange }) => {
                     <Link to="/home"><i className="fas fa-arrow-left"></i></Link>
                 </div>
 
+                <div className="input-group mb-3">
+              <input type="text" className="form-control" placeholder="Find users..."
+                     aria-label="Recipient's username" aria-describedby="basic-addon2" ref={Searchforuser}/>
+              <div className="input-group-append">
+                <button className="btn btn-outline-primary float-end" type="button" onClick={searchuserbyname}>Find users</button>
+              </div>
+            </div>
 
+                </div>
+          <div className="mb-5 card">
+            <div className="mb-5">
+            <img
+                className="wd-image-border wd-relative-position-profile wd-rounded-corners-circle2 wd-border-style wd-move-up"
+                height="100" width="100" src={profile.profilePicture}/>
+          </div>
 
                 <div width="100">
                     <Link to="/drinks/editProfile/:_id"
