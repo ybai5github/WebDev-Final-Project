@@ -29,6 +29,11 @@ code {
   color: deepskyblue;
 }
 
+.wd-red-color{
+  color: orangered;
+  font-style: italic;
+}
+
 .wd-yellow-color{
   color: lightyellow;
 }
@@ -46,3 +51,4 @@ code {
 .wd-font-style{
   font-style: oblique;
 }
+

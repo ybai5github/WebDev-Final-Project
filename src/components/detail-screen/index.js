@@ -4,23 +4,37 @@ import {Link, useParams} from "react-router-dom";
 import Preformatted from "./preformatted";
 import "../../index.css"
 import ReviewList from "./review-list";
+import ReviewListItem from "./review-list-item";
 
 
 const DetailScreen = () => {
     const [drinkDetails, setDrinkDetails] = useState({})
+    const [drinkReviews, setDrinkReviews] = useState({})
     const url = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php'
-    //const idDrink = 178363;
     const idDrink = useParams()
     const propertyValues = Object.values(idDrink);
-    //console.log(propertyValues[0]);
+
     const searchDrinkByID = async () => {
         const response = await axios.get(`${url}?${propertyValues[0]}`)
-        //console.log(response);
         setDrinkDetails(response.data.drinks[0])
     }
+
+    const searchReviewByDrinkID = async () =>{
+        const response = await axios.get(`http://localhost:4000/detail`)
+        const result = response.data;
+        let myString = propertyValues[0].replace(/\D/g,'');
+        var filtered = result.filter(obj => {
+            return obj.drinkID === myString
+        })
+        setDrinkReviews(filtered)
+    }
+
     useEffect( () => {
-        searchDrinkByID()}, []
+        searchDrinkByID()
+        searchReviewByDrinkID()
+        }, []
     )
+
     return(
         <>
             <h1 className="pt-3 wd-color-orange">Welcome to Detail Screen</h1>
@@ -74,8 +88,16 @@ const DetailScreen = () => {
                     <h6><span><i className="wd-blue-color fa-solid fa-circle-info"></i>&nbsp;</span>This is information from local API</h6>
                 </div>
 
+                {
+                    (drinkReviews.length != 0) ?
 
-                <ReviewList/>
+                    <ReviewList drinkReviews={drinkReviews}/>
+                    :
+                    <h5 className="pt-4 wd-red-color">"There are not any reviews for this product yet!"</h5>
+
+                }
+
+                {/*{JSON.stringify(drinkReviews)}*/}
 
             </div>
         </>
