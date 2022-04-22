@@ -1,9 +1,12 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import axios from "axios";
-import {Link, useNavigate, useParams} from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 //import drink from "../data/drink.json";
 import ResultItem from "../ResultPage/ResultItem";
-const SearchScreen = () => {
+
+
+const SearchScreen = ({handleAddProduct}) => {
+
     const cocktailSearchRef = useRef()
     const {cocktailSearch} = useParams()
     const navigate = useNavigate()
@@ -25,6 +28,23 @@ const SearchScreen = () => {
     useEffect(() => {
         searchCocktailByName()
     }, [])
+ 
+
+
+    /*  console.log('cocktail', cocktails); */
+    /* const [cartItems, setCartItems] = useState([]);
+    console.log('cart items', cartItems)
+    const handleAddProduct = (product) => {
+        const ProductExist = cartItems.find((item) => item.idDrink === product.idDrink);
+        if (ProductExist) {
+            setCartItems(cartItems.map((item) => item.idDrink === product.idDrink ?
+                { ...ProductExist, quantity: ProductExist.quantity + 1 } : item));
+
+        } else {
+            setCartItems([...cartItems, { ...product, quantity: 1 }]);
+        }
+    }
+    console.log('app', cartItems); */
 
     return (
         <div>
@@ -32,36 +52,41 @@ const SearchScreen = () => {
                 <div className="col-1">
                 </div>
                 <div className="col-10">
-                    <img src="/image/drink.jpg" className="pb-3 wd-image float-end" width="600"/>
-                        <h2 className="p-2 wd-centered wd-yellow-color wd-font-style wd-bolded-font">Enjoy your Fresh Drink Today!</h2>
+                    <img src="/image/drink.jpg" className="pb-3 wd-image float-end" width="600" />
+                    <h2 className="p-2 wd-centered wd-yellow-color wd-font-style wd-bolded-font">Enjoy your Fresh Drink Today!</h2>
 
                     <div>
                         <div className="input-group mb-3">
                             <input type="text" className="pt-2 form-control" placeholder="Please Start your Cocktail Today!"
-                                   aria-label="Recipient's username" aria-describedby="basic-addon2" ref={cocktailSearchRef}/>
-                                <div className="input-group-append">
-                                    <button className="btn btn-outline-primary" type="button" onClick={searchCocktailByName}>Search</button>
-                                </div>
+                                aria-label="Recipient's username" aria-describedby="basic-addon2" ref={cocktailSearchRef} />
+                            <div className="input-group-append">
+                                <button className="btn btn-outline-primary" type="button" onClick={searchCocktailByName}>Search</button>
+                            </div>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row"  >
                         {
-                            cocktails&&cocktails.map(drink =>
-                                <div className="col-sm-12 col-md-10 col-lg-6">
-                                <div className="card mb-4">
-                                    <img className="card-img-top wd-search-result-image" src={drink.strDrinkThumb? drink.strDrinkThumb : ""} alt="..."/>
-                                    <div className="card-body">
-                                        <h5 className="card-title">{drink.strDrink}</h5>
-                                        <p className="card-text wd-instruction-length">{drink.strInstructions}</p>
-                                        <Link to={`/detail/i=${drink.idDrink}`}>
-                                            Detail Page</Link>
+                            cocktails.map((cocktails ) => 
+                                <div key ={cocktails.idDrink} className="col-sm-12 col-md-10 col-lg-6">
+                                    
+                                    <div className="card mb-4">
+                                        <img className="card-img-top wd-search-result-image" src={cocktails.strDrinkThumb ? cocktails.strDrinkThumb : ""} alt="..." />
+                                        <div className="card-body">
+                                            <h5 className="card-title">{cocktails.strDrink} </h5>
+                                            <p className="card-text wd-instruction-length">{cocktails.strInstructions}</p>
+                                            <Link to={`/detail/i=${cocktails.idDrink}`}>
+                                                Detail Page</Link>
+                                        </div>
+
+                                        <div>
+                                            <button className="product-add-button" onClick={() => handleAddProduct(cocktails)}>Add to Cart</button>
+                                        </div>
                                     </div>
-                                </div>
                                 </div>
                             )
                         }
                         {
-                            !cocktails&&<h1>Please enter a valid drink!</h1>
+                            !cocktails && <h1>Please enter a valid drink!</h1>
                         }
                     </div>
                 </div>
