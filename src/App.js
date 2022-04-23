@@ -36,6 +36,17 @@ const App = () => {
     }
   );
 
+  const [drink, setdrink] = useState(
+      {
+        id:'',
+        strDrink:'',
+        strDrinkThumb:'',
+        idDrink:''
+
+
+      }
+  );
+
   /* const LoadUser = (data) => {
     setUsers({
       ...users,
@@ -45,6 +56,15 @@ const App = () => {
       entry: data.entry,
       joined: data.joined
     }); */
+  const loadDrink = (recentdrinks) =>{
+    console.log("recentdrinks", recentdrinks)
+    setdrink({
+      id:recentdrinks.id,
+      strDrink: recentdrinks.strDrink,
+      strDrinkThumb: recentdrinks.strDrinkThumb,
+      idDrink: recentdrinks.idDrink
+    })
+  }
 
   const loadUser = (users) => {
     console.log('users', users)
@@ -66,6 +86,10 @@ const App = () => {
   console.log('email', users.email);
   console.log('dob', users.dob);
   console.log('account', users.account);
+
+
+  console.log("strDrink", drink.strDrink);
+  console.log("strDrinkThumb",drink.strDrinkThumb);
 
   /*  useEffect(()=>{
      fetch('http://localhost:4000/')
@@ -120,9 +144,9 @@ const App = () => {
 
             } />
             <Route path="register" element={<Register loadUser={loadUser} onRouteChange={onRouteChange} />} />
-            <Route path="profile" element={route === 'profile' ? <div><Profile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} /></div> : <Home />} />
+            <Route path="profile" element={route === 'profile' ? <div><Profile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb}  /></div> : <Home />} />
             <Route path="profile/bob" element={<GlobalProfile/>}/>
-            <Route path="editProfile" element={route === 'editprofile' ? <div><EditProfile /></div> : <EditProfile/>} />
+            <Route path="editProfile" element={route === 'editprofile' ? <div><EditProfile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} /></div> : <EditProfile/>} />
               <Route path="home" element={<Home/>}/>}/>
           </Route>
         </Routes>

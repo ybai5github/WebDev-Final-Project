@@ -2,14 +2,17 @@ import React, {useState, useEffect, useRef}  from "react";
 import { useNavigate, Link, useParams } from 'react-router-dom';
 import axios from  "axios";
 import {useDispatch} from "react-redux";
+import StarRating5 from "../StarRating/StarRating5";
+import StarRating4 from "../StarRating/StarRating4";
 
-
-const Profile = ({ name, email, address, dob, account, onRouteChange }) => {
+const Profile = ({ name, email, address, dob, account, strDrink,strDrinkThumb,onRouteChange }) => {
     console.log(name);
     console.log(email);
     console.log(address);
     console.log(dob);
     console.log(account);
+    console.log(strDrink);
+    console.log(strDrinkThumb);
 
     const format = (input) => {
         var pattern = /(\d{4})-(\d{2})-(\d{2})/;
@@ -109,6 +112,21 @@ const Profile = ({ name, email, address, dob, account, onRouteChange }) => {
                  
                 </div>
             </div>
+          <ul className="mb-5 col-1 list-group list-group-horizontal">
+            <li className="list-group-item">
+            <div className="card">
+              <h5 className="card-title mb-5">{strDrink}</h5>
+
+              <div className="card-body wd-flex">
+                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={strDrinkThumb}/>
+
+
+                <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
+              </div>
+              <StarRating5/>
+            </div>
+          </li>
+          </ul>
 
 
         </div>

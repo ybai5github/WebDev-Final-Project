@@ -18,7 +18,8 @@ const EditProfile = ({onRouteChange }) => {
 
 
 
-  // console.log('name', name);
+   console.log('name', name);
+
   // console.log('address', address);
   // console.log('email', email);
   // console.log('dob', dob);
