@@ -6,6 +6,8 @@ import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Profile from './components/Profile/Profile';
+import GlobalProfile from "./components/Profile/GlobalProfile";
+import EditProfile from "./components/Profile/EditProfile";
 import './vendors/bootstrap/css/bootstrap.min.css';
 import './vendors/bootstrap/bootstrap.min.css';
 import './vendors/fontawesome/css/all.min.css';
@@ -119,6 +121,9 @@ const App = () => {
             } />
             <Route path="register" element={<Register loadUser={loadUser} onRouteChange={onRouteChange} />} />
             <Route path="profile" element={route === 'profile' ? <div><Profile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} /></div> : <Home />} />
+            <Route path="profile/bob" element={<GlobalProfile/>}/>
+            <Route path="editProfile" element={route === 'editprofile' ? <div><EditProfile /></div> : <EditProfile/>} />
+              <Route path="home" element={<Home/>}/>}/>
           </Route>
         </Routes>
       </div>

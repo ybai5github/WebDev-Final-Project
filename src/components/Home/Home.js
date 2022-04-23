@@ -182,16 +182,89 @@ const Home = ({ onRouteChange, userName }) => {
 
 
 
-                <div className="white f3">
+                {/*<div className="white f3">*/}
 
+                {/*    <ul className="list-group">*/}
+                {/*        <li className="list-group-item"> Must allow users to register and create a new account</li>*/}
+                {/*    </ul>*/}
+
+                {/*    <p onClick={profile} className="pointer">Profile</p>*/}
+                {/*</div>*/}
+                {/*<div className="white f1">*/}
+
+                {/*</div>*/}
+
+
+                <div className="card offset-md-1">
                     <ul className="list-group">
                         <li className="list-group-item"> Must allow users to register and create a new account</li>
                     </ul>
+                    <div className="card-body">
+                        <div>
+                            <h2 className="text-center">About our Store</h2>
+                        </div>
+                        <div className="row">
+                            <ul className="col-3 list-group">
+                                <li className="list-group-item wd-float-inside"><strong>We are</strong></li>
+                                <li className="list-group-item">
+                                    <img width= "200" height="200" src="https://ih1.redbubble.net/image.2008026467.8359/poster,840x830,f8f8f8-pad,1000x1000,f8f8f8.jpg"/>
+                                </li>
+                            </ul>
 
-                    <p onClick={profile} className="pointer">Profile</p>
-                </div>
-                <div className="white f1">
 
+
+
+
+
+                            <ul className="col-2 list-group">
+                                <li className="list-group-item wd-float-inside"><strong>Main Menu</strong></li>
+                                <li className="list-group-item">
+                                    <a href="#">Home</a>
+                                </li>
+                                <li className="list-group-item">
+                                    <a  onClick={profile}>Profile</a>
+                                </li>
+                                <li className="list-group-item">
+                                    <a href="#">Shop</a>
+                                </li><li className="list-group-item">
+                                <a href="#">Privacy</a>
+                            </li>
+                            </ul>
+
+                            <ul className="col-2 list-group">
+                                <li className="list-group-item wd-float-inside"><strong>Location</strong></li>
+                                <li className="list-group-item">
+                                    <span>200 Cleveland Boston MA</span>
+                                </li>
+                            </ul>
+
+                            <ul className="col-2 list-group">
+                                <li className="list-group-item wd-float-inside"><strong>Our Socials</strong></li>
+                                <li className="list-group-item">
+                                    <a href="#">Facebook</a>
+                                </li>
+                                <li className="list-group-item">
+                                    <a href="#">Twitter</a>
+                                </li>
+                                <li className="list-group-item">
+                                    <a href="#">Instagram</a>
+                                </li><li className="list-group-item">
+                                <a href="#">Snapchat</a>
+                            </li>
+                            </ul>
+
+                            <ul className="col-3 list-group">
+                                <li className="list-group-item wd-float-inside"><strong>Contact Us</strong></li>
+                                <li className="list-group-item">
+                                    <span>111-234-6789</span>
+                                </li>
+                                <li className="list-group-item">
+                                    <a href="#">website@website.com</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>

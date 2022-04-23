@@ -1,7 +1,8 @@
 import React, {useState, useEffect, useRef}  from "react";
 import { useNavigate, Link, useParams } from 'react-router-dom';
+import axios from  "axios";
 import {useDispatch} from "react-redux";
-import profile from "../Data/profile.json";
+
 
 const Profile = ({ name, email, address, dob, account, onRouteChange }) => {
     console.log(name);
@@ -22,7 +23,7 @@ const Profile = ({ name, email, address, dob, account, onRouteChange }) => {
     const navigate = useNavigate();
     
   let [newProfile, setNewProfile] = useState({profile: 'New profile'});
-  const dispatch = useDispatch();
+
   const {userSearch} = useParams()
   const searchUrl = "";
   const Searchforuser = useRef();
@@ -55,7 +56,7 @@ const Profile = ({ name, email, address, dob, account, onRouteChange }) => {
                 <p> account : {account}  </p>
             </div> */}
 
-            <button onClick={() => navigate(-1)}>go back</button>
+            {/*<button onClick={() => navigate(-1)}>go back</button>*/}
 
             <div className="row">
                 <div className="col-1">
@@ -75,11 +76,11 @@ const Profile = ({ name, email, address, dob, account, onRouteChange }) => {
             <div className="mb-5">
             <img
                 className="wd-image-border wd-relative-position-profile wd-rounded-corners-circle2 wd-border-style wd-move-up"
-                height="100" width="100" src={profile.profilePicture}/>
+                height="100" width="100" src="http://static.zerochan.net/Anya.Forger.full.3333219.jpg"/>
           </div>
 
                 <div width="100">
-                    <Link to="/drinks/editProfile/:_id"
+                    <Link to="/editProfile"
                         className="btn btn-primary rounded-pill float-end mt-2 wd-rounded-corners  wd-border-color-grey wd-bolded-font wd-font-white">
                         Edit Profile</Link></div>
 
