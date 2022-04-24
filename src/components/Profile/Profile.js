@@ -2,17 +2,19 @@ import React, {useState, useEffect, useRef}  from "react";
 import { useNavigate, Link, useParams } from 'react-router-dom';
 import axios from  "axios";
 import {useDispatch} from "react-redux";
+
+import drinking from "../Data/recentdrinks.json";
 import StarRating5 from "../StarRating/StarRating5";
 import StarRating4 from "../StarRating/StarRating4";
+import StarRating3 from "../StarRating/StarRating3";
 
-const Profile = ({ name, email, address, dob, account, strDrink,strDrinkThumb,onRouteChange }) => {
+const Profile = ({ name, email, address, dob, account, loadDrink, onRouteChange }) => {
     console.log(name);
     console.log(email);
     console.log(address);
     console.log(dob);
     console.log(account);
-    console.log(strDrink);
-    console.log(strDrinkThumb);
+
 
     const format = (input) => {
         var pattern = /(\d{4})-(\d{2})-(\d{2})/;
@@ -26,6 +28,7 @@ const Profile = ({ name, email, address, dob, account, strDrink,strDrinkThumb,on
     const navigate = useNavigate();
     
   let [newProfile, setNewProfile] = useState({profile: 'New profile'});
+
 
   const {userSearch} = useParams()
   const searchUrl = "";
@@ -114,18 +117,99 @@ const Profile = ({ name, email, address, dob, account, strDrink,strDrinkThumb,on
             </div>
           <ul className="mb-5 col-1 list-group list-group-horizontal">
             <li className="list-group-item">
-            <div className="card">
-              <h5 className="card-title mb-5">{strDrink}</h5>
+              <div className="card">
+                <h5 className="card-title mb-5">{drinking[0].strDrink}</h5>
 
-              <div className="card-body wd-flex">
-                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={strDrinkThumb}/>
+                <div className="card-body wd-flex">
+                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[0].strDrinkThumb}/>
 
 
-                <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
+                  <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
+                </div>
+                <StarRating5/>
               </div>
-              <StarRating5/>
-            </div>
-          </li>
+            </li>
+            <li className="list-group-item">
+              <div className="card">
+                <h5 className="card-title mb-5">{drinking[1].strDrink}</h5>
+                <div className="card-body wd-flex">
+                  <img className="card-img-top  wd-product-image-photo" height="400" width="400" src={drinking[1].strDrinkThumb}/>
+
+                  <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
+
+                </div>
+                <StarRating5/>
+              </div>
+            </li>
+            <li className="list-group-item">
+              <div className="card">
+                <h5 className="card-title mb-5">{drinking[2].strDrink}</h5>
+                <div className="card-body wd-flex">
+                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[2].strDrinkThumb}/>
+                  <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
+                </div>
+                <StarRating3/>
+              </div>
+            </li>
+            <li className="list-group-item ">
+              <div className="card">
+                <h5 className="card-title mb-5">{drinking[3].strDrink}</h5>
+
+                <div className="card-body wd-flex">
+                  <img className="card-img-top wd-product-image-photo" height="291" width="291" src={drinking[3].strDrinkThumb}/>
+                  <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
+
+                </div>
+                <StarRating5/>
+              </div>
+            </li>
+          </ul>
+
+          <ul className="mb-5 col-1 list-group list-group-horizontal">
+            <li className="list-group-item">
+              <div className="card">
+                <h5 className="card-title mb-5">{drinking[5].strDrink}</h5>
+                <div className="card-body wd-flex">
+                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[5].strDrinkThumb}/>
+                  <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
+                </div>
+                <StarRating5/>
+              </div>
+            </li>
+            <li className="list-group-item ">
+              <div className="card">
+                <h5 className="card-title mb-5">{drinking[6].strDrink}</h5>
+
+                <div className="card-body wd-flex">
+                  <img className="card-img-top wd-product-image-photo" height="291" width="291" src={drinking[6].strDrinkThumb}/>
+                  <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
+
+                </div>
+                <StarRating5/>
+              </div>
+            </li>
+            <li className="list-group-item">
+              <div className="card">
+                <h5 className="card-title mb-5">{drinking[7].strDrink}</h5>
+
+                <div className="card-body wd-flex">
+                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[7].strDrinkThumb}/>
+
+                  <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
+                </div>
+                <StarRating5/>
+              </div>
+            </li>
+            <li className="list-group-item">
+              <div className="card">
+                <h5 className="card-title mb-5">{drinking[8].strDrink}</h5>
+                <div className="card-body wd-flex">
+                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[8].strDrinkThumb}/>
+                  <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
+                </div>
+                <StarRating5/>
+              </div>
+            </li>
           </ul>
 
 
