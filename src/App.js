@@ -31,21 +31,32 @@ const store = createStore(reviewsReducer);
 
 function App() {
 
-    const [route, setRoute] = useState('signin');
+    const storedRoute = localStorage.getItem('route');
+    const routeArray = JSON.parse(storedRoute) || "";
 
-    const [isSignedIn, setSignedIn] = useState(false);
+    const [route, setRoute] = useState(routeArray);
 
-    const [users, setUser] = useState(
-        {
-            id: '',
-            name: '',
-            email: '',
-            address: '',
-            joined: '',
-            dob: '',
-            account: ''
-        }
-    );
+    useEffect(() => {
+        localStorage.setItem('route', JSON.stringify(route));
+    }, [route]);
+
+    const storedSignedin = localStorage.getItem('status');
+    const statusArray = JSON.parse(storedSignedin) || false;
+
+    const [isSignedIn, setSignedIn] = useState(statusArray);
+
+    useEffect(() => {
+        localStorage.setItem('status', JSON.stringify(isSignedIn));
+    }, [isSignedIn]);
+
+    const storedUser = localStorage.getItem('user');
+    const userArray = JSON.parse(storedUser) || [];
+
+    const [users, setUser] = useState(userArray);
+
+    useEffect(() => {
+        localStorage.setItem('user', JSON.stringify(users));
+    }, [users]);
 
     const [drink, setdrink] = useState(
         {
@@ -53,8 +64,6 @@ function App() {
             strDrink: '',
             strDrinkThumb: '',
             idDrink: ''
-
-
         }
     );
 
@@ -200,7 +209,7 @@ function App() {
             })
             .catch(error => {
                 console.log(error)
-                
+
             })
     }
 
@@ -221,7 +230,7 @@ function App() {
             <BrowserRouter>
                 <Navigation isSignedIn={isSignedIn} onRouteChange={onRouteChange} handleSignout={handleSignout} />
                 <div className="container">
-                    <Header cartItems={cartItems} userName={users.name} onRouteChange={onRouteChange}/>
+                    <Header cartItems={cartItems} userName={users.name} onRouteChange={onRouteChange} />
                     <Routes>
                         <Route path="/">
                             <Route index element={
@@ -241,7 +250,7 @@ function App() {
 
                             } />
                             <Route path="register" element={<Register loadUser={loadUser} onRouteChange={onRouteChange} />} />
-                            <Route path="profile" element={<Profile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} getAllHistory={getAllHistory} adminItems={adminItems}/>} />
+                            <Route path="profile" element={<Profile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} getAllHistory={getAllHistory} adminItems={adminItems} />} />
                             <Route path="profile/bob" element={<GlobalProfile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} loadDrink={loadDrink} />} />
                             <Route path="editProfile" element={route === 'editprofile' ? <div><EditProfile loadUser={loadUser} onRouteChange={onRouteChange} /></div> : <EditProfile />} />
                             <Route path="home" element={<Home isSignedIn={isSignedIn} onRouteChange={onRouteChange} userName={users.name} />} />
