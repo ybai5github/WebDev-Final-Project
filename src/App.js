@@ -220,9 +220,8 @@ function App() {
 
             <BrowserRouter>
                 <Navigation isSignedIn={isSignedIn} onRouteChange={onRouteChange} handleSignout={handleSignout} />
-
                 <div className="container">
-                    <Header cartItems={cartItems} />
+                    <Header cartItems={cartItems} userName={users.name} onRouteChange={onRouteChange}/>
                     <Routes>
                         <Route path="/">
                             <Route index element={
@@ -245,7 +244,7 @@ function App() {
                             <Route path="profile" element={<Profile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} getAllHistory={getAllHistory} adminItems={adminItems}/>} />
                             <Route path="profile/bob" element={<GlobalProfile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} loadDrink={loadDrink} />} />
                             <Route path="editProfile" element={route === 'editprofile' ? <div><EditProfile loadUser={loadUser} onRouteChange={onRouteChange} /></div> : <EditProfile />} />
-                            <Route path="home" element={<Home />} />
+                            <Route path="home" element={<Home isSignedIn={isSignedIn} onRouteChange={onRouteChange} userName={users.name} />} />
                             <Route path="search" element={<SearchScreen handleAddProduct={handleAddProduct} />} />
                             <Route path="search/:cocktailSearch" element={<SearchScreen handleAddProduct={handleAddProduct} />} />
                             <Route path="detail/:imdbID" exact={true} element={<DetailScreen />} />
@@ -253,14 +252,6 @@ function App() {
                             <Route path="history" element={<History historyItems={historyItems} getCartItems={getCartItems} />} />
                             <Route path="ordered" element={<Ordered />} />
                         </Route>
-                        {/*  <Route path="/search"
-                            element={<SearchScreen handleAddProduct={handleAddProduct} />} />
-                        <Route path="/search/:cocktailSearch"
-                            element={<SearchScreen handleAddProduct={handleAddProduct} />} />
-                        <Route path="/detail/:imdbID" exact={true} element={<DetailScreen />} />
-                        <Route path="cart" element={<Cart cartItems={cartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance} onSubmitOrder={onSubmitOrder} />} />
-                        <Route path="history" element={<History historyItems={historyItems} getCartItems={getCartItems} />} />
-                        <Route path="ordered" element={<Ordered />} /> */}
                     </Routes>
                 </div>
             </BrowserRouter>

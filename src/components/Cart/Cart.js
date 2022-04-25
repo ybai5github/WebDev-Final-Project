@@ -12,7 +12,7 @@ const Cart = ({ cartItems, handleRemoveProduct, handleAddProduct, handleCartClea
     console.log('cart items', cartItems.length);
     const ordered = () => {
         if (cartItems.length === 0) {
-            alert('please sign in to purchase the items')
+            alert('please purchase the items')
             return;
         } else {
             onSubmitOrder();

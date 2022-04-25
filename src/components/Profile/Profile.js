@@ -117,6 +117,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
                 <h5 className="card-title mb-5">{drinking[0].strDrink}</h5>
                 <div className="card-body wd-flex">
                   <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[0].strDrinkThumb} alt="star" />
+                  <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                 </div>
                 <StarRating5 />
               </div>
@@ -126,6 +127,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
                 <h5 className="card-title mb-5">{drinking[1].strDrink}</h5>
                 <div className="card-body wd-flex">
                   <img className="card-img-top  wd-product-image-photo" height="400" width="400" src={drinking[1].strDrinkThumb} alt="star" />
+                  <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                 </div>
                 <StarRating5 />
               </div>
@@ -135,6 +137,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
                 <h5 className="card-title mb-5">{drinking[2].strDrink}</h5>
                 <div className="card-body wd-flex">
                   <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[2].strDrinkThumb} alt="star" />
+                  <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                 </div>
                 <StarRating3 />
               </div>
@@ -145,6 +148,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
 
                 <div className="card-body wd-flex">
                   <img className="card-img-top wd-product-image-photo" height="291" width="291" src={drinking[3].strDrinkThumb} alt="star" />
+                  <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                 </div>
                 <StarRating5 />
               </div>
@@ -156,6 +160,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
                 <h5 className="card-title mb-5">{drinking[5].strDrink}</h5>
                 <div className="card-body wd-flex">
                   <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[5].strDrinkThumb} alt="star" />
+                  <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                 </div>
                 <StarRating5 />
               </div>
@@ -166,6 +171,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
 
                 <div className="card-body wd-flex">
                   <img className="card-img-top wd-product-image-photo" height="291" width="291" src={drinking[6].strDrinkThumb} alt="star" />
+                  <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                 </div>
                 <StarRating5 />
               </div>
@@ -175,6 +181,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
                 <h5 className="card-title mb-5">{drinking[7].strDrink}</h5>
                 <div className="card-body wd-flex">
                   <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[7].strDrinkThumb} alt="star" />
+                  <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                 </div>
                 <StarRating5 />
               </div>
@@ -184,6 +191,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
                 <h5 className="card-title mb-5">{drinking[8].strDrink}</h5>
                 <div className="card-body wd-flex">
                   <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[8].strDrinkThumb} alt="star" />
+                  <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                 </div>
                 <StarRating5 />
               </div>
