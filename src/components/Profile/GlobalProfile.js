@@ -5,7 +5,7 @@ import StarRating4 from "../StarRating/StarRating4";
 import StarRating3 from "../StarRating/StarRating3";
 import React from "react";
 
-const GlobalProfilePage = ({ name, email, address, dob, account, strDrink,strDrinkThumb,onRouteChange })=> {
+const GlobalProfilePage = ({ name, email, address, dob, account, strDrink,strDrinkThumb,loadDrink })=> {
 
 
   console.log(name);
