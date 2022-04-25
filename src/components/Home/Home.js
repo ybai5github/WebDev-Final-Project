@@ -63,7 +63,6 @@ const Home = ({ onRouteChange, userName }) => {
 
                                 <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                             </div>
-                            <a href="/#" className="btn btn-primary mb-5">More Details</a>
                         </div>
                     </li>
                     <li className="list-group-item">
@@ -73,7 +72,6 @@ const Home = ({ onRouteChange, userName }) => {
                                 <img className="card-img-top  wd-product-image-photo" height="400" width="400" src={useData.length ? useData[1].strDrinkThumb : 'Loading ... '} alt="img" />
                                 <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                             </div>
-                            <a href="/#" className="btn btn-primary">More Details</a>
                         </div>
                     </li>
                     <li className="list-group-item">
@@ -83,7 +81,6 @@ const Home = ({ onRouteChange, userName }) => {
                                 <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData.length ? useData[2].strDrinkThumb : 'Loading ... '} alt="img" />
                                 <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                             </div>
-                            <a href="/" className="btn btn-primary">More Details</a>
                         </div>
                     </li>
                     <li className="list-group-item ">
@@ -94,7 +91,6 @@ const Home = ({ onRouteChange, userName }) => {
                                 <img className="card-img-top wd-product-image-photo" height="291" width="291" src={useData.length ? useData[3].strDrinkThumb : 'Loading ... '} alt="img" />
                                 <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                             </div>
-                            <a href="/#" className="btn btn-primary">More Details</a>
                         </div>
                     </li>
 
@@ -106,7 +102,6 @@ const Home = ({ onRouteChange, userName }) => {
                                 <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData.length ? useData[4].strDrinkThumb : 'Loading ... '} alt="img" />
                                 <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                             </div>
-                            <a href="/#" className="btn btn-primary">More Details</a>
                         </div>
                     </li>
                 </ul>
@@ -117,9 +112,7 @@ const Home = ({ onRouteChange, userName }) => {
                             <h5 className="text-center card-header">Featured</h5>
                             <div className="card-body">
                                 <h5 className="card-title text-center"> Our House Special</h5>
-
                                 <ControlledCarousel />
-
                             </div>
                         </div>
                     </div>

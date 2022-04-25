@@ -201,11 +201,38 @@ function App() {
             })
     }
 
+    const merged = (arr) => {
+        console.log('merged', arr);
+        arr = arr.filter(v => v !== '0');
+        console.log('filterred', arr);
+        arr = arr.filter(v => v !== '1');
+        console.log('filterred', arr);
+        const filteredArray = arr.filter(v => v !== '2');
+        console.log('filterred', filteredArray);
+        const res = filteredArray.reduce((acc, obj) => {
+            let exist = false;
+            for (var i = 0; i < acc.length; i++) {
+                if (acc[i].idDrink === obj.idDrink) {
+                    exist = true;
+                    acc[i].count++;
+                };
+            }
+            if (!exist) {
+                obj.count = 1;
+                acc.push(obj);
+            }
+            return acc;
+        }, []);
+        console.log(res);
+        return res;
+    }
+
     const getAllHistory = () => {
         axios.get('http://localhost:4000/admin')
             .then(response => {
                 console.log('all the order hisotry form users', response.data)
-                setAdminItems(response.data);
+
+                setAdminItems(merged(response.data));
             })
             .catch(error => {
                 console.log(error)

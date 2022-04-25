@@ -199,15 +199,13 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
           </ul>
         </div>)}
 
-
-
       {account === 'admin' && (
         <div className="category-preview-container">
           <h1>Order History Items from all the users</h1>
           <button className="clear-cart-button" onClick={getAllHistory}> History</button>
           {adminItems.map((item) => (
 
-            <div className="preview">
+            <div className="preview" key={item.strDrink}>
               <img className="cart-items-image"
                 src={item.strDrinkThumb}
                 alt={item.strDrink}
@@ -217,7 +215,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
 
               </div>
               <div className="preview">
-                {item.quantity}
+                {item.count}
               </div>
             </div>
             
