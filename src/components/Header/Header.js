@@ -1,10 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import './Header.css'
 
-const Header = ({ cartItems }) => {
+const Header = ({ cartItems, userName, onRouteChange }) => {
 
     console.log('cartitems length', cartItems.length);
+    const navigate = useNavigate();
+    const profile = (e) => {
+        e.preventDefault();
+        if (userName === '' || userName === undefined) {
+            alert('please sign in');
+        } else {
+            onRouteChange('profile');
+            navigate('/profile');
+        }
+    }
     return (
         <header className="header">
             <div>
@@ -36,6 +46,11 @@ const Header = ({ cartItems }) => {
                 <ul>
                     <li>
                         <Link to="/history">History</Link>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <Link to="/profile" onClick={(e) => profile(e)}>Profile</Link>
                     </li>
                 </ul>
                 <ul>
