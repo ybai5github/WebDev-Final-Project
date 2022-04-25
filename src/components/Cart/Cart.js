@@ -9,10 +9,16 @@ const Cart = ({ cartItems, handleRemoveProduct, handleAddProduct, handleCartClea
 
     const navigate = useNavigate();
 
+    console.log('cart items', cartItems.length);
     const ordered = () => {
-        onSubmitOrder();
-        handleCartClearance()
-        navigate('/ordered');
+        if (cartItems.length === 0) {
+            alert('please sign in to purchase the items')
+            return;
+        } else {
+            onSubmitOrder();
+            handleCartClearance()
+            navigate('/ordered');
+        }
     }
 
     return (

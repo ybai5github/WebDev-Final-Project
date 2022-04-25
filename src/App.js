@@ -91,7 +91,6 @@ function App() {
 
     }
 
-
     console.log('name', users.name);
     console.log('address', users.address);
     console.log('email', users.email);
@@ -101,21 +100,6 @@ function App() {
 
     console.log("strDrink", drink.strDrink);
     console.log("strDrinkThumb", drink.strDrinkThumb);
-
-    /*  useEffect(()=>{
-       fetch('http://localhost:4000/')
-       .then(response=> response.json())
-       .then(data => console.log(data))
-     }) */
-
-
-
-    /* const onInputChange = (event) => {
-      console.log(event.target.value);
-      setInput(event.target.value);
-    }
-   */
-
 
     const onRouteChange = (route) => {
         if (route === 'signout') {
@@ -135,23 +119,29 @@ function App() {
     console.log('stored cart', storedCart);
     console.log('parsed cart', myarray);
 
-    const [cartItems, setCartItems] = useState(myarray);
+    const [cartItems, setCartItems] = useState([]);
     const [orderedItems, setOrderedItems] = useState([]);
     const [historyItems, setHistoryItems] = useState([]);
 
     useEffect(() => {
         localStorage.setItem('item', JSON.stringify(cartItems));
-    }, [cartItems]);
+    }, [myarray]);
 
     console.log('cart items', cartItems)
-    const handleAddProduct = (product) => {
-        const ProductExist = cartItems.find((item) => item.idDrink === product.idDrink);
-        if (ProductExist) {
-            setCartItems(cartItems.map((item) => item.idDrink === product.idDrink ?
-                { ...ProductExist, quantity: ProductExist.quantity + 1 } : item));
 
+    const handleAddProduct = (product) => {
+        if (users.name === '' || users.name === undefined) {
+            alert('please sign in');
+            return;
         } else {
-            setCartItems([...cartItems, { ...product, quantity: 1 }]);
+            const ProductExist = cartItems.find((item) => item.idDrink === product.idDrink);
+            if (ProductExist) {
+                setCartItems(cartItems.map((item) => item.idDrink === product.idDrink ?
+                    { ...ProductExist, quantity: ProductExist.quantity + 1 } : item));
+
+            } else {
+                setCartItems([...cartItems, { ...product, quantity: 1 }]);
+            }
         }
     }
 
@@ -188,8 +178,13 @@ function App() {
         axios.get('http://localhost:4000/cartitems')
             .then(response => {
                 console.log(response.data)
-                setHistoryItems(response.data);
-                console.log('history items', historyItems);
+                if (users.name === '' || users.name === undefined) {
+                    alert('please sign in');
+                    return;
+                } else {
+                    setHistoryItems(response.data);
+                    console.log('history items', historyItems);
+                }
             })
             .catch(error => {
                 console.log(error)
@@ -201,11 +196,15 @@ function App() {
         setCartItems([]);
     }
 
+    const handleSignout = () => {
+        setUser('');
+    }
+
     return (
         <Provider store={store}>
 
             <BrowserRouter>
-                <Navigation isSignedIn={isSignedIn} onRouteChange={onRouteChange} />
+                <Navigation isSignedIn={isSignedIn} onRouteChange={onRouteChange} handleSignout={handleSignout} />
 
                 <div className="container">
                     <Header cartItems={cartItems} />
@@ -232,15 +231,21 @@ function App() {
                             <Route path="profile/bob" element={<GlobalProfile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} loadDrink={loadDrink} />} />
                             <Route path="editProfile" element={route === 'editprofile' ? <div><EditProfile loadUser={loadUser} onRouteChange={onRouteChange} /></div> : <EditProfile />} />
                             <Route path="home" element={<Home />} />
+                            <Route path="search" element={<SearchScreen handleAddProduct={handleAddProduct} />} />
+                            <Route path="search/:cocktailSearch" element={<SearchScreen handleAddProduct={handleAddProduct} />} />
+                            <Route path="detail/:imdbID" exact={true} element={<DetailScreen />} />
+                            <Route path="cart" element={<Cart cartItems={cartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance} onSubmitOrder={onSubmitOrder} />} />
+                            <Route path="history" element={<History historyItems={historyItems} getCartItems={getCartItems} />} />
+                            <Route path="ordered" element={<Ordered />} />
                         </Route>
-                        <Route path="/search"
+                        {/*  <Route path="/search"
                             element={<SearchScreen handleAddProduct={handleAddProduct} />} />
                         <Route path="/search/:cocktailSearch"
                             element={<SearchScreen handleAddProduct={handleAddProduct} />} />
                         <Route path="/detail/:imdbID" exact={true} element={<DetailScreen />} />
                         <Route path="cart" element={<Cart cartItems={cartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance} onSubmitOrder={onSubmitOrder} />} />
                         <Route path="history" element={<History historyItems={historyItems} getCartItems={getCartItems} />} />
-                        <Route path="ordered" element={<Ordered />} />
+                        <Route path="ordered" element={<Ordered />} /> */}
                     </Routes>
                 </div>
             </BrowserRouter>

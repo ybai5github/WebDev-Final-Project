@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {Link, useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Preformatted from "./preformatted";
 import "../../index.css"
 import ReviewList from "./review-list";
@@ -19,23 +19,23 @@ const DetailScreen = () => {
         setDrinkDetails(response.data.drinks[0])
     }
 
-    const searchReviewByDrinkID = async () =>{
+    const searchReviewByDrinkID = async () => {
         const response = await axios.get(`http://localhost:4000/detail`)
         const result = response.data;
-        let myString = propertyValues[0].replace(/\D/g,'');
+        let myString = propertyValues[0].replace(/\D/g, '');
         var filtered = result.filter(obj => {
             return obj.drinkID === myString
         })
         setDrinkReviews(filtered)
     }
 
-    useEffect( () => {
+    useEffect(() => {
         searchDrinkByID()
         searchReviewByDrinkID()
-        }, []
+    }, []
     )
 
-    return(
+    return (
         <>
             <h1 className="pt-3 wd-color-orange">Welcome to Detail Screen</h1>
             <div className="p-3">
@@ -45,14 +45,15 @@ const DetailScreen = () => {
                         <i className="wd-yellow-color fa-solid fa-martini-glass-citrus"></i>
                     </span></h1>
                     <div className="row">
-                        <img className="col-4" src={drinkDetails.strDrinkThumb} height={350} width={300}/>
-
-                        <ul className="col-8 ps-5">
+                        <img className="col-4" src={drinkDetails.strDrinkThumb} height={350} width={300} />
+                        <ul className="col-8 ps-4">
                             <li className="wd-font pb-4">
                                 <h5 className="wd-bolded-font">
                                     Category
+
                                 </h5>
                                 {drinkDetails.strCategory}
+
                             </li>
 
                             <li className="wd-font pb-4">
@@ -81,8 +82,8 @@ const DetailScreen = () => {
 
                     {/*<Preformatted obj={drinkDetails}/>*/}
                 </div>
-                <br/>
-                <hr/>
+                <br />
+                <hr />
 
                 <div>
                     <h6><span><i className="wd-blue-color fa-solid fa-circle-info"></i>&nbsp;</span>This is information from local API</h6>
@@ -91,9 +92,9 @@ const DetailScreen = () => {
                 {
                     (drinkReviews.length != 0) ?
 
-                    <ReviewList drinkReviews={drinkReviews}/>
-                    :
-                    <h5 className="pt-4 wd-red-color">"There are not any reviews for this product yet!"</h5>
+                        <ReviewList drinkReviews={drinkReviews} />
+                        :
+                        <h5 className="pt-4 wd-red-color">"There are not any reviews for this product yet!"</h5>
 
                 }
 
