@@ -161,12 +161,10 @@ function App() {
         }
     }
 
-    const email = "felix@gmail.com";
-
     const onSubmitOrder = () => {
         axios.post('http://localhost:4000/order', {
             cartItems: cartItems,
-            email: email
+            email: users.email,
         })
             .then(user => {
                 console.log('user data', user.data);
@@ -175,6 +173,7 @@ function App() {
             })
 
     }
+
     const getCartItems = () => {
         axios.get('http://localhost:4000/cartitems')
             .then(response => {
@@ -196,7 +195,7 @@ function App() {
     const getAllHistory = () => {
         axios.get('http://localhost:4000/admin')
             .then(response => {
-                console.log(response.data)
+                console.log('all the order hisotry form users', response.data)
                 setAdminItems(response.data);
             })
             .catch(error => {
@@ -212,6 +211,8 @@ function App() {
 
     const handleSignout = () => {
         setUser('');
+        setUser(users.email === '');
+        setHistoryItems([]);
     }
 
     return (

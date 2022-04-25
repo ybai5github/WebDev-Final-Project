@@ -15,15 +15,15 @@ const Home = ({ onRouteChange, userName }) => {
         setData(jsonData.drinks);
         console.log('3rd render now')
     };
-    const storedWakanda = localStorage.getItem('wakanda')
-    const myarray = JSON.parse(storedWakanda) || [];
+    /* const storedWakanda = localStorage.getItem('wakanda') */
+   /*  const myarray = JSON.parse(storedWakanda) || []; */
 
     const [useData, setData] = useState([])
 
     useEffect(() => {
         localStorage.setItem('wakanda', JSON.stringify(useData));
         console.log('4th render now useeffect');
-    }, [myarray]);
+    }, [useData]);
 
     /*     console.log('1st', useData[0].strDrink); */
 
