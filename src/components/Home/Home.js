@@ -16,18 +16,16 @@ const Home = ({ onRouteChange, userName }) => {
         console.log('3rd render now')
     };
     const storedWakanda = localStorage.getItem('wakanda')
-    const myarray = JSON.parse(storedWakanda)
+    const myarray = JSON.parse(storedWakanda) || [];
 
     const [useData, setData] = useState([])
-
- 
 
     useEffect(() => {
         localStorage.setItem('wakanda', JSON.stringify(useData));
         console.log('4th render now useeffect');
     }, [myarray]);
 
-/*     console.log('1st', useData[0].strDrink); */
+    /*     console.log('1st', useData[0].strDrink); */
 
     useEffect(() => {
         getTheMagaritas();
@@ -36,8 +34,13 @@ const Home = ({ onRouteChange, userName }) => {
     const navigate = useNavigate();
 
     const profile = () => {
-        onRouteChange('profile');
-        navigate('/profile');
+        if (userName === '' || userName === undefined) {
+            alert('please sign in');
+            return;
+        } else {
+            onRouteChange('profile');
+            navigate('/profile');
+        }
     }
 
     return (
@@ -56,7 +59,7 @@ const Home = ({ onRouteChange, userName }) => {
                             <h5 className="card-title mb-5">{useData.length ? useData[0].strDrink : 'Loading ... '}</h5>
 
                             <div className="card-body wd-flex">
-                                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData.length ? useData[0].strDrinkThumb : 'Loading ... '}  />
+                                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData.length ? useData[0].strDrinkThumb : 'Loading ... '} />
 
 
                                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>

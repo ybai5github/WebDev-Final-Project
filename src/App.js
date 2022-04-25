@@ -115,17 +115,17 @@ function App() {
     }
 
     const storedCart = localStorage.getItem('item');
-    const myarray = JSON.parse(storedCart);
+    const myarray = JSON.parse(storedCart) || [];
     console.log('stored cart', storedCart);
     console.log('parsed cart', myarray);
 
-    const [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useState(myarray);
     const [orderedItems, setOrderedItems] = useState([]);
     const [historyItems, setHistoryItems] = useState([]);
 
     useEffect(() => {
         localStorage.setItem('item', JSON.stringify(cartItems));
-    }, [myarray]);
+    }, [cartItems]);
 
     console.log('cart items', cartItems)
 
@@ -227,7 +227,7 @@ function App() {
 
                             } />
                             <Route path="register" element={<Register loadUser={loadUser} onRouteChange={onRouteChange} />} />
-                            <Route path="profile" element={route === 'profile' ? <div><Profile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} /></div> : <Home />} />
+                            <Route path="profile" element={<Profile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} />} />
                             <Route path="profile/bob" element={<GlobalProfile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} loadDrink={loadDrink} />} />
                             <Route path="editProfile" element={route === 'editprofile' ? <div><EditProfile loadUser={loadUser} onRouteChange={onRouteChange} /></div> : <EditProfile />} />
                             <Route path="home" element={<Home />} />
