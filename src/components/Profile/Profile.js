@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate, Link, useParams } from 'react-router-dom';
 import axios from "axios";
 import './profile.css';
@@ -45,9 +45,9 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
     }
 
   }
-  useEffect(() => {
+  /* useEffect(() => {
     searchuserbyname()
-  }, [])
+  }, []) */
 
   return (
     <div >
@@ -80,7 +80,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
         <div className="mb-5">
           <img
             className="wd-image-border wd-relative-position-profile wd-rounded-corners-circle2 wd-border-style wd-move-up"
-            height="100" width="100" src="http://static.zerochan.net/Anya.Forger.full.3333219.jpg" />
+            height="100" width="100" src="http://static.zerochan.net/Anya.Forger.full.3333219.jpg" alt="star" />
         </div>
 
         <div width="100">
@@ -92,9 +92,6 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
           <h5 className="wd-relative-profile-name wd-profile-name-style wd-font-white">
             {name}
           </h5>
-
-
-
 
           <h6 className="wd-relative-profile-bio pb-2">{address}</h6>
 
@@ -119,7 +116,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
               <div className="card">
                 <h5 className="card-title mb-5">{drinking[0].strDrink}</h5>
                 <div className="card-body wd-flex">
-                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[0].strDrinkThumb} />
+                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[0].strDrinkThumb} alt="star" />
                 </div>
                 <StarRating5 />
               </div>
@@ -128,7 +125,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
               <div className="card">
                 <h5 className="card-title mb-5">{drinking[1].strDrink}</h5>
                 <div className="card-body wd-flex">
-                  <img className="card-img-top  wd-product-image-photo" height="400" width="400" src={drinking[1].strDrinkThumb} />
+                  <img className="card-img-top  wd-product-image-photo" height="400" width="400" src={drinking[1].strDrinkThumb} alt="star" />
                 </div>
                 <StarRating5 />
               </div>
@@ -137,7 +134,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
               <div className="card">
                 <h5 className="card-title mb-5">{drinking[2].strDrink}</h5>
                 <div className="card-body wd-flex">
-                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[2].strDrinkThumb} />
+                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[2].strDrinkThumb} alt="star" />
                 </div>
                 <StarRating3 />
               </div>
@@ -147,7 +144,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
                 <h5 className="card-title mb-5">{drinking[3].strDrink}</h5>
 
                 <div className="card-body wd-flex">
-                  <img className="card-img-top wd-product-image-photo" height="291" width="291" src={drinking[3].strDrinkThumb} />
+                  <img className="card-img-top wd-product-image-photo" height="291" width="291" src={drinking[3].strDrinkThumb} alt="star" />
                 </div>
                 <StarRating5 />
               </div>
@@ -158,7 +155,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
               <div className="card">
                 <h5 className="card-title mb-5">{drinking[5].strDrink}</h5>
                 <div className="card-body wd-flex">
-                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[5].strDrinkThumb} />
+                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[5].strDrinkThumb} alt="star" />
                 </div>
                 <StarRating5 />
               </div>
@@ -168,7 +165,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
                 <h5 className="card-title mb-5">{drinking[6].strDrink}</h5>
 
                 <div className="card-body wd-flex">
-                  <img className="card-img-top wd-product-image-photo" height="291" width="291" src={drinking[6].strDrinkThumb} />
+                  <img className="card-img-top wd-product-image-photo" height="291" width="291" src={drinking[6].strDrinkThumb} alt="star" />
                 </div>
                 <StarRating5 />
               </div>
@@ -177,7 +174,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
               <div className="card">
                 <h5 className="card-title mb-5">{drinking[7].strDrink}</h5>
                 <div className="card-body wd-flex">
-                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[7].strDrinkThumb} />
+                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[7].strDrinkThumb} alt="star" />
                 </div>
                 <StarRating5 />
               </div>
@@ -186,7 +183,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
               <div className="card">
                 <h5 className="card-title mb-5">{drinking[8].strDrink}</h5>
                 <div className="card-body wd-flex">
-                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[8].strDrinkThumb} />
+                  <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drinking[8].strDrinkThumb} alt="star" />
                 </div>
                 <StarRating5 />
               </div>
@@ -194,26 +191,29 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
           </ul>
         </div>)}
 
-      <button className="clear-cart-button" onClick={getAllHistory}> History</button>
 
-      {account === 'admin' && (<div className="category-preview-container">
-        {adminItems.map((item) => (
-    
-          <div className="preview">
-            <img className="cart-items-image"
-              src={item.strDrinkThumb}
-              alt={item.strDrink}
-            />
-            <div className="title"> {item.strDrink}</div>
-            <div className="preview">
 
-            </div>
+      {account === 'admin' && (
+        <div className="category-preview-container">
+          <h1>Order History Items from all the users</h1>
+         {/*  <button className="clear-cart-button" onClick={getAllHistory}> History</button> */}
+          {adminItems.map((item) => (
+
             <div className="preview">
-              {item.quantity}
+              <img className="cart-items-image"
+                src={item.strDrinkThumb}
+                alt={item.strDrink}
+              />
+              <div className="title"> {item.strDrink}</div>
+              <div className="preview">
+
+              </div>
+              <div className="preview">
+                {item.quantity}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>)}
+          ))}
+        </div>)}
 
 
     </div>

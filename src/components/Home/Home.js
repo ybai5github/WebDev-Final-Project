@@ -51,7 +51,7 @@ const Home = ({ onRouteChange, userName }) => {
                 </h1>
                 {console.log('2nd render return')}
                 <div>
-                    <img width="50" height="50" src="https://ih1.redbubble.net/image.2008026467.8359/poster,840x830,f8f8f8-pad,1000x1000,f8f8f8.jpg" />
+                    <img width="50" height="50" src="https://ih1.redbubble.net/image.2008026467.8359/poster,840x830,f8f8f8-pad,1000x1000,f8f8f8.jpg" alt="img" />
                     <h2 className="text-center mb-5">Apéritif Cocktails</h2></div>
                 <ul className="mb-5 col-1 list-group list-group-horizontal">
                     <li className="list-group-item">
@@ -59,34 +59,31 @@ const Home = ({ onRouteChange, userName }) => {
                             <h5 className="card-title mb-5">{useData.length ? useData[0].strDrink : 'Loading ... '}</h5>
 
                             <div className="card-body wd-flex">
-                                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData.length ? useData[0].strDrinkThumb : 'Loading ... '} />
+                                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData.length ? useData[0].strDrinkThumb : 'Loading ... '} alt="img" />
 
-
-                                <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
+                                <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                             </div>
-                            <a href="#" className="btn btn-primary mb-5">More Details</a>
+                            <a href="/#" className="btn btn-primary mb-5">More Details</a>
                         </div>
                     </li>
                     <li className="list-group-item">
                         <div className="card">
                             <h5 className="card-title mb-5">{useData.length ? useData[1].strDrink : 'Loading ... '}</h5>
                             <div className="card-body wd-flex">
-                                <img className="card-img-top  wd-product-image-photo" height="400" width="400" src={useData.length ? useData[1].strDrinkThumb : 'Loading ... '} />
-
-                                <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
-
+                                <img className="card-img-top  wd-product-image-photo" height="400" width="400" src={useData.length ? useData[1].strDrinkThumb : 'Loading ... '} alt="img" />
+                                <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                             </div>
-                            <a href="#" className="btn btn-primary">More Details</a>
+                            <a href="/#" className="btn btn-primary">More Details</a>
                         </div>
                     </li>
                     <li className="list-group-item">
                         <div className="card">
                             <h5 className="card-title mb-5">{useData.length ? useData[2].strDrink : 'Loading ... '}</h5>
                             <div className="card-body wd-flex">
-                                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData.length ? useData[2].strDrinkThumb : 'Loading ... '} />
-                                <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
+                                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData.length ? useData[2].strDrinkThumb : 'Loading ... '} alt="img" />
+                                <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                             </div>
-                            <a href="#" className="btn btn-primary">More Details</a>
+                            <a href="/" className="btn btn-primary">More Details</a>
                         </div>
                     </li>
                     <li className="list-group-item ">
@@ -94,11 +91,10 @@ const Home = ({ onRouteChange, userName }) => {
                             <h5 className="card-title mb-5">{useData.length ? useData[3].strDrink : 'Loading ... '}</h5>
 
                             <div className="card-body wd-flex">
-                                <img className="card-img-top wd-product-image-photo" height="291" width="291" src={useData.length ? useData[3].strDrinkThumb : 'Loading ... '} />
-                                <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
-
+                                <img className="card-img-top wd-product-image-photo" height="291" width="291" src={useData.length ? useData[3].strDrinkThumb : 'Loading ... '} alt="img" />
+                                <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                             </div>
-                            <a href="#" className="btn btn-primary">More Details</a>
+                            <a href="/#" className="btn btn-primary">More Details</a>
                         </div>
                     </li>
 
@@ -107,11 +103,10 @@ const Home = ({ onRouteChange, userName }) => {
                             <h5 className="card-title mb-5">{useData.length ? useData[4].strDrink : 'Loading ... '}</h5>
 
                             <div className="card-body wd-flex">
-                                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData.length ? useData[4].strDrinkThumb : 'Loading ... '} />
-
-                                <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
+                                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData.length ? useData[4].strDrinkThumb : 'Loading ... '} alt="img" />
+                                <div className="p-5 mt-5"><a href="/#" className="btn btn-primary mb-5">Go somewhere</a></div>
                             </div>
-                            <a href="#" className="btn btn-primary">More Details</a>
+                            <a href="/#" className="btn btn-primary">More Details</a>
                         </div>
                     </li>
                 </ul>
@@ -135,39 +130,34 @@ const Home = ({ onRouteChange, userName }) => {
                     <div className="row">
                         <div className="col-2">
                             <div className="card">
-                                <img height="200" src="https://www.thecocktaildb.com//images//media//drink//bry4qh1582751040.jpg" />
+                                <img height="200" src="https://www.thecocktaildb.com//images//media//drink//bry4qh1582751040.jpg" alt="img" />
                                 <div className="card-body">
                                     <h5 className="card-title">Blue Margarita </h5>
                                     <StarRating4 />
                                 </div>
                             </div>
                         </div>
-
                         <div className="col-3 float-left2">
                             <div className="card">
-                                <img width="282" height="200" src="https://www.thecocktaildb.com//images//media//drink//5noda61589575158.jpg" />
+                                <img width="282" height="200" src="https://www.thecocktaildb.com//images//media//drink//5noda61589575158.jpg" alt="img" />
                                 <div className="card-body">
                                     <h5 className="card-title">Margarita </h5>
                                     <StarRating4 />
                                 </div>
                             </div>
                         </div>
-
-
                         <div className="col-3 float-left2">
                             <div className="card">
-                                <img width="282" height="200" src="https://www.thecocktaildb.com//images//media//drink//srpxxp1441209622.jpg" />
+                                <img width="282" height="200" src="https://www.thecocktaildb.com//images//media//drink//srpxxp1441209622.jpg" alt="img" />
                                 <div className="card-body">
                                     <h5 className="card-title">Whitecap Margarita </h5>
                                     <StarRating3 />
                                 </div>
                             </div>
                         </div>
-
-
                         <div className="col-3 float-left3">
                             <div className="card">
-                                <img width="282" height="200" src="https://www.thecocktaildb.com//images//media//drink//dztcv51598717861.jpg" />
+                                <img width="282" height="200" src="https://www.thecocktaildb.com//images//media//drink//dztcv51598717861.jpg" alt="img" />
                                 <div className="card-body">
                                     <h5 className="card-title">Smashed Watermelon Margarita</h5>
                                     <StarRating5 />
@@ -206,27 +196,21 @@ const Home = ({ onRouteChange, userName }) => {
                             <ul className="col-3 list-group">
                                 <li className="list-group-item wd-float-inside"><strong>We are</strong></li>
                                 <li className="list-group-item">
-                                    <img width="200" height="200" src="https://ih1.redbubble.net/image.2008026467.8359/poster,840x830,f8f8f8-pad,1000x1000,f8f8f8.jpg" />
+                                    <img width="200" height="200" src="https://ih1.redbubble.net/image.2008026467.8359/poster,840x830,f8f8f8-pad,1000x1000,f8f8f8.jpg" alt="img" />
                                 </li>
                             </ul>
-
-
-
-
-
-
                             <ul className="col-2 list-group">
                                 <li className="list-group-item wd-float-inside"><strong>Main Menu</strong></li>
                                 <li className="list-group-item">
-                                    <a href="#">Home</a>
+                                    <a href="/#">Home</a>
                                 </li>
                                 <li className="list-group-item">
-                                    <a onClick={profile}>Profile</a>
+                                    <span onClick={profile}>Profile</span>
                                 </li>
                                 <li className="list-group-item">
-                                    <a href="#">Shop</a>
+                                    <a href="/#">Shop</a>
                                 </li><li className="list-group-item">
-                                    <a href="#">Privacy</a>
+                                    <a href="/#">Privacy</a>
                                 </li>
                             </ul>
 
@@ -240,15 +224,15 @@ const Home = ({ onRouteChange, userName }) => {
                             <ul className="col-2 list-group">
                                 <li className="list-group-item wd-float-inside"><strong>Our Socials</strong></li>
                                 <li className="list-group-item">
-                                    <a href="#">Facebook</a>
+                                    <a href="/#">Facebook</a>
                                 </li>
                                 <li className="list-group-item">
-                                    <a href="#">Twitter</a>
+                                    <a href="/#">Twitter</a>
                                 </li>
                                 <li className="list-group-item">
-                                    <a href="#">Instagram</a>
+                                    <a href="/#">Instagram</a>
                                 </li><li className="list-group-item">
-                                    <a href="#">Snapchat</a>
+                                    <a href="/#">Snapchat</a>
                                 </li>
                             </ul>
 
@@ -258,7 +242,7 @@ const Home = ({ onRouteChange, userName }) => {
                                     <span>111-234-6789</span>
                                 </li>
                                 <li className="list-group-item">
-                                    <a href="#">website@website.com</a>
+                                    <a href="/#">website@website.com</a>
                                 </li>
                             </ul>
                         </div>
