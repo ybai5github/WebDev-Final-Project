@@ -122,6 +122,7 @@ function App() {
     const [cartItems, setCartItems] = useState(myarray);
     const [orderedItems, setOrderedItems] = useState([]);
     const [historyItems, setHistoryItems] = useState([]);
+    const [adminItems, setAdminItems] = useState([]);
 
     useEffect(() => {
         localStorage.setItem('item', JSON.stringify(cartItems));
@@ -192,6 +193,19 @@ function App() {
             })
     }
 
+    const getAllHistory = () => {
+        axios.get('http://localhost:4000/admin')
+            .then(response => {
+                console.log(response.data)
+                setAdminItems(response.data);
+            })
+            .catch(error => {
+                console.log(error)
+                
+            })
+    }
+
+
     const handleCartClearance = () => {
         setCartItems([]);
     }
@@ -227,7 +241,7 @@ function App() {
 
                             } />
                             <Route path="register" element={<Register loadUser={loadUser} onRouteChange={onRouteChange} />} />
-                            <Route path="profile" element={<Profile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} />} />
+                            <Route path="profile" element={<Profile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} getAllHistory={getAllHistory} adminItems={adminItems}/>} />
                             <Route path="profile/bob" element={<GlobalProfile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} loadDrink={loadDrink} />} />
                             <Route path="editProfile" element={route === 'editprofile' ? <div><EditProfile loadUser={loadUser} onRouteChange={onRouteChange} /></div> : <EditProfile />} />
                             <Route path="home" element={<Home />} />
