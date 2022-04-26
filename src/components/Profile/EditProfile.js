@@ -2,7 +2,9 @@ import {useDispatch, useSelector} from "react-redux";
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
-
+import service from "../../services/profile-service.js"
+import {updateUser} from "../../actions/profile-action";
+import {Button} from "react-bootstrap";
 
 const EditProfile = ({loadUser,onRouteChange }) => {
 
@@ -15,6 +17,7 @@ const EditProfile = ({loadUser,onRouteChange }) => {
   let [address, setaddress] = useState('')
   let [email, setemail] = useState('')
   let [dob, setdob] = useState('')
+  let [user, setuser] = useState({name:""})
 
 
   const onNameChange = (event) => {
@@ -32,9 +35,21 @@ const EditProfile = ({loadUser,onRouteChange }) => {
     setdob(event.target.value);
   }
 
+  const updateUser = (event) =>{
+      setuser({...user, name: event.target.value});}
+
+  const saveUser = () => {
+    service.updateUser(user)
+    .then(() => setuser(
+        loadUser.map(m => m._id === user._id ? user : m)
+    ));
+    onRouteChange('profile');
+    navigate('/');
+  }
 
 
-   console.log('name', name);
+
+  console.log('name', name);
 
   // console.log('address', address);
   // console.log('email', email);
@@ -60,8 +75,14 @@ const EditProfile = ({loadUser,onRouteChange }) => {
   //   navigate("/profile");
   // }
 
+  // const updateUser = (event) => setname({...name, name:event.target.value});
+  //
+  // const saveuser = () =>{
+  //   service.updateUser(name).then(() => setname(user.map(m => m._id === name._id? name: m)));
+  // }
+
   const onSubmitSignIn = () => {
-    axios.post('http://localhost:4000/editprofile', {
+    axios.post('http://localhost:4000/editProfile', {
       email: email,
       name: name,
       address: address,
@@ -114,7 +135,7 @@ const EditProfile = ({loadUser,onRouteChange }) => {
         <div className="wd-content-goes-up">
           <text>Name</text>
           <textarea className="wd-width bg-transparent wd-selector wd-font-white"
-                  value={name} onChange={onNameChange} >
+                  value={user.name} onChange={updateUser} >
                 </textarea>
           <br/>
           <text>Address</text>
@@ -133,7 +154,7 @@ const EditProfile = ({loadUser,onRouteChange }) => {
                 </textarea>
 
           <div className="">
-            <input onClick={onSubmitSignIn} className="b ph3 pv2 input-reset ba b--white grow pointer f6 dib pointer btn btn-outline-primary" type="submit" value="submit" />
+            <Button onClick={saveUser} className="btn btn-outline-primary">Update</Button>
           </div>
 
         </div>
