@@ -65,7 +65,7 @@ const Register = ({ onRouteChange, loadUser }) => {
     } */
 
     const onSubmitSignIn = () => {
-        axios.post('http://localhost:4000/register', {
+        axios.post('https://shrouded-brushlands-00973.herokuapp.com/register', {
             email: email,
             password: password,
             name: name,

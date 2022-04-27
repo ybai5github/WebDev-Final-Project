@@ -100,7 +100,7 @@ function App() {
 
     }
 
-    console.log('name', users.name);
+/*     console.log('name', users.name);
     console.log('address', users.address);
     console.log('email', users.email);
     console.log('dob', users.dob);
@@ -108,7 +108,7 @@ function App() {
 
 
     console.log("strDrink", drink.strDrink);
-    console.log("strDrinkThumb", drink.strDrinkThumb);
+    console.log("strDrinkThumb", drink.strDrinkThumb); */
 
     const onRouteChange = (route) => {
         if (route === 'signout') {
@@ -125,8 +125,8 @@ function App() {
 
     const storedCart = localStorage.getItem('item');
     const myarray = JSON.parse(storedCart) || [];
-    console.log('stored cart', storedCart);
-    console.log('parsed cart', myarray);
+ /*    console.log('stored cart', storedCart);
+    console.log('parsed cart', myarray); */
 
     const [cartItems, setCartItems] = useState(myarray);
     const [orderedItems, setOrderedItems] = useState([]);
@@ -137,7 +137,7 @@ function App() {
         localStorage.setItem('item', JSON.stringify(cartItems));
     }, [cartItems]);
 
-    console.log('cart items', cartItems)
+    /* console.log('cart items', cartItems) */
 
     const handleAddProduct = (product) => {
         if (users.name === '' || users.name === undefined) {
@@ -155,7 +155,7 @@ function App() {
         }
     }
 
-    console.log('app', cartItems);
+  /*   console.log('app', cartItems); */
 
     const handleRemoveProduct = (product) => {
         const ProductExist = cartItems.find((item) => item.idDrink === product.idDrink);
@@ -171,7 +171,7 @@ function App() {
     }
 
     const onSubmitOrder = () => {
-        axios.post('http://localhost:4000/order', {
+        axios.post('https://shrouded-brushlands-00973.herokuapp.com/order', {
             cartItems: cartItems,
             email: users.email,
         })
@@ -184,7 +184,7 @@ function App() {
     }
 
     const getCartItems = () => {
-        axios.get('http://localhost:4000/cartitems')
+        axios.get('https://shrouded-brushlands-00973.herokuapp.com/cartitems')
             .then(response => {
                 console.log(response.data)
                 if (users.name === '' || users.name === undefined) {
@@ -204,11 +204,11 @@ function App() {
     const merged = (arr) => {
         console.log('merged', arr);
         arr = arr.filter(v => v !== '0');
-        console.log('filterred', arr);
+        /* console.log('filterred', arr); */
         arr = arr.filter(v => v !== '1');
-        console.log('filterred', arr);
+       /*  console.log('filterred', arr); */
         const filteredArray = arr.filter(v => v !== '2');
-        console.log('filterred', filteredArray);
+        /* console.log('filterred', filteredArray); */
         const res = filteredArray.reduce((acc, obj) => {
             let exist = false;
             for (var i = 0; i < acc.length; i++) {
@@ -228,7 +228,7 @@ function App() {
     }
 
     const getAllHistory = () => {
-        axios.get('http://localhost:4000/admin')
+        axios.get('https://shrouded-brushlands-00973.herokuapp.com/admin')
             .then(response => {
                 console.log('all the order hisotry form users', response.data)
 

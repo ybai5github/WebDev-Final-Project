@@ -20,7 +20,8 @@ const DetailScreen = () => {
     }
 
     const searchReviewByDrinkID = async () => {
-        const response = await axios.get(`http://localhost:4000/detail`)
+        const response = await axios.get(`https://shrouded-brushlands-00973.herokuapp.com/detail`)
+        /* const response = await axios.get(`http://localhost:4000/detail`) */
         const result = response.data;
         let myString = propertyValues[0].replace(/\D/g, '');
         var filtered = result.filter(obj => {
