@@ -1,18 +1,26 @@
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import drinking from "../Data/recentdrinks.json";
 import StarRating5 from "../StarRating/StarRating5";
 import StarRating4 from "../StarRating/StarRating4";
 import StarRating3 from "../StarRating/StarRating3";
 import React from "react";
+import axios from "axios";
 
 const GlobalProfilePage = ({ name, email, address, dob, account, strDrink,strDrinkThumb,loadDrink })=> {
 
 
-  console.log(name);
-  console.log(email);
-  console.log(address);
-  console.log(dob);
-  console.log(account);
+  const getUserID = useParams();
+  console.log(getUserID)
+  // console.log(name);
+  // console.log(email);
+  // console.log(address);
+  // console.log(dob);
+  // console.log(account);
+
+  const searchUserByID = async () =>{
+    const response = await axios.get(`http://localhost:4000/user`)
+    const result = response.data;
+  }
   let navigate = useNavigate()
 
 
@@ -26,7 +34,7 @@ const GlobalProfilePage = ({ name, email, address, dob, account, strDrink,strDri
 
           <div className="col-11">
             <div className="pb-2 wd-font-white wd-font-size3">
-              Bob
+              {getUserID.user}
               <div className="wd-font-color wd-font-size">Profile</div>
             </div>
 
@@ -35,18 +43,18 @@ const GlobalProfilePage = ({ name, email, address, dob, account, strDrink,strDri
             <div className="mb-5 mt-5">
               <img
                   className="wd-image-border wd-relative-position-profile wd-rounded-corners-circle2 wd-border-style wd-move-up"
-                  height="100" width="100" src="http://static.zerochan.net/Anya.Forger.full.3333219.jpg"/>
+                  height="100" width="100" src="https://images.squarespace-cdn.com/content/v1/544111afe4b0881390277165/1413637430193-F3ZXW2JIYGB62PDBA9AC/James+Stickley+Profile.jpg"/>
             </div>
 
 
 
             <div className="mt-5 flex-column">
               <h5 className="wd-relative-profile-name wd-profile-name-style wd-font-white">
-                Bob
+                {getUserID.user}
               </h5>
 
               <text
-                  className="wd-relative-profile-handle wd-font-grey">@bob</text>
+                  className="wd-relative-profile-handle wd-font-grey">@{getUserID.user}</text>
 
 
               {/*<h6 className="wd-relative-profile-bio pb-2">bio</h6>*/}

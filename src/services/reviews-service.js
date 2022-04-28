@@ -13,6 +13,13 @@ export const findReviewsByDrinkID = async () => {
     const response = await axios.get(API_BASE);
     return response.data;
 
+
+}
+
+
+export const findReviewUsersByID = async () =>{
+    const response = await axios.get('http://localhost:4000/user');
+    return response.data;
 }
 
 // export const findReviewsByDrinkID = (id) => fetch(????).then(response => response.json());

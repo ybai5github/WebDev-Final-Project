@@ -22,11 +22,14 @@ const Home = ({ onRouteChange, userName }) => {
         getTheMagaritas();
     }, []);
 
-
-    const storedWakanda = localStorage.getItem('wakanda')
-    const myarray = JSON.parse(storedWakanda)
-
+    const myarray = localStorage.getItem('wakanda') ? JSON.parse(localStorage.getItem('wakanda')) : []
     const [useData, setData] = useState(myarray)
+
+
+    // const storedWakanda = localStorage.getItem('wakanda')
+    // const myarray = JSON.parse(storedWakanda)
+    //
+    // const [useData, setData] = useState(myarray)
 
     useEffect(() => {
         localStorage.setItem('wakanda', JSON.stringify(useData));
@@ -51,66 +54,82 @@ const Home = ({ onRouteChange, userName }) => {
                     <img width="50" height="50" src="https://ih1.redbubble.net/image.2008026467.8359/poster,840x830,f8f8f8-pad,1000x1000,f8f8f8.jpg" />
                     <h2 className="text-center mb-5">Apéritif Cocktails</h2></div>
                 <ul className="mb-5 col-1 list-group list-group-horizontal">
-                    <li className="list-group-item">
-                        <div className="card">
-                            <h5 className="card-title mb-5">{useData[0].strDrink}</h5>
-
-                            <div className="card-body wd-flex">
-                                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData[0].strDrinkThumb} />
-
-
-                                <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
+                    {useData && useData.slice(0, 5).map(drink =>
+                        <li className="list-group-item">
+                            <div className="card">
+                                <h5 className="card-title mb-5">{drink.strDrink}</h5>
+                                <h5 className="card-title mb-5">Hello</h5>
+                                <div className="card-body wd-flex">
+                                    <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drink.strDrinkThumb} />
+                                    <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
+                                </div>
+                                <a href="#" className="btn btn-primary mb-5">More Details</a>
                             </div>
-                            <a href="#" className="btn btn-primary mb-5">More Details</a>
-                        </div>
-                    </li>
-                    <li className="list-group-item">
-                        <div className="card">
-                            <h5 className="card-title mb-5">{useData[1].strDrink}</h5>
-                            <div className="card-body wd-flex">
-                                <img className="card-img-top  wd-product-image-photo" height="400" width="400" src={useData[1].strDrinkThumb} />
+                        </li>)}
 
-                                <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
 
-                            </div>
-                            <a href="#" className="btn btn-primary">More Details</a>
-                        </div>
-                    </li>
-                    <li className="list-group-item">
-                        <div className="card">
-                            <h5 className="card-title mb-5">{useData[2].strDrink}</h5>
-                            <div className="card-body wd-flex">
-                                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData[2].strDrinkThumb} />
-                                <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
-                            </div>
-                            <a href="#" className="btn btn-primary">More Details</a>
-                        </div>
-                    </li>
-                    <li className="list-group-item ">
-                        <div className="card">
-                            <h5 className="card-title mb-5">{useData[3].strDrink}</h5>
 
-                            <div className="card-body wd-flex">
-                                <img className="card-img-top wd-product-image-photo" height="291" width="291" src={useData[3].strDrinkThumb} />
-                                <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
 
-                            </div>
-                            <a href="#" className="btn btn-primary">More Details</a>
-                        </div>
-                    </li>
+                    {/*        <li className="list-group-item">*/}
+                    {/*    <div className="card">*/}
+                    {/*        <h5 className="card-title mb-5">{useData[0].strDrink}</h5>*/}
 
-                    <li className="list-group-item">
-                        <div className="card">
-                            <h5 className="card-title mb-5">{useData[4].strDrink}</h5>
+                    {/*        <div className="card-body wd-flex">*/}
+                    {/*            <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData[0].strDrinkThumb} />*/}
 
-                            <div className="card-body wd-flex">
-                                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData[4].strDrinkThumb} />
 
-                                <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
-                            </div>
-                            <a href="#" className="btn btn-primary">More Details</a>
-                        </div>
-                    </li>
+                    {/*            <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>*/}
+                    {/*        </div>*/}
+                    {/*        <a href="#" className="btn btn-primary mb-5">More Details</a>*/}
+                    {/*    </div>*/}
+                    {/*</li>*/}
+                    {/*<li className="list-group-item">*/}
+                    {/*    <div className="card">*/}
+                    {/*        <h5 className="card-title mb-5">{useData[1].strDrink}</h5>*/}
+                    {/*        <div className="card-body wd-flex">*/}
+                    {/*            <img className="card-img-top  wd-product-image-photo" height="400" width="400" src={useData[1].strDrinkThumb} />*/}
+
+                    {/*            <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>*/}
+
+                    {/*        </div>*/}
+                    {/*        <a href="#" className="btn btn-primary">More Details</a>*/}
+                    {/*    </div>*/}
+                    {/*</li>*/}
+                    {/*<li className="list-group-item">*/}
+                    {/*    <div className="card">*/}
+                    {/*        <h5 className="card-title mb-5">{useData[2].strDrink}</h5>*/}
+                    {/*        <div className="card-body wd-flex">*/}
+                    {/*            <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData[2].strDrinkThumb} />*/}
+                    {/*            <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>*/}
+                    {/*        </div>*/}
+                    {/*        <a href="#" className="btn btn-primary">More Details</a>*/}
+                    {/*    </div>*/}
+                    {/*</li>*/}
+                    {/*<li className="list-group-item ">*/}
+                    {/*    <div className="card">*/}
+                    {/*        <h5 className="card-title mb-5">{useData[3].strDrink}</h5>*/}
+
+                    {/*        <div className="card-body wd-flex">*/}
+                    {/*            <img className="card-img-top wd-product-image-photo" height="291" width="291" src={useData[3].strDrinkThumb} />*/}
+                    {/*            <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>*/}
+
+                    {/*        </div>*/}
+                    {/*        <a href="#" className="btn btn-primary">More Details</a>*/}
+                    {/*    </div>*/}
+                    {/*</li>*/}
+
+                    {/*<li className="list-group-item">*/}
+                    {/*    <div className="card">*/}
+                    {/*        <h5 className="card-title mb-5">{useData[4].strDrink}</h5>*/}
+
+                    {/*        <div className="card-body wd-flex">*/}
+                    {/*            <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData[4].strDrinkThumb} />*/}
+
+                    {/*            <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>*/}
+                    {/*        </div>*/}
+                    {/*        <a href="#" className="btn btn-primary">More Details</a>*/}
+                    {/*    </div>*/}
+                    {/*</li>*/}
                 </ul>
 
                 <div className="text-center mb-5">

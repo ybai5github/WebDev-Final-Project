@@ -95,10 +95,12 @@ const Profile = ({ name, email, address, dob, account, loadDrink, onRouteChange 
                         {name}
                     </h5>
 
-                    
 
+                  <div className="wd-relative-profile-icons pb-2">
+                    <i className="fa-solid fa-location-dot me-2"></i>
+                    <text className="me-3 wd-relative-profile-bio">{address}</text>
+                  </div>
 
-                    <h6 className="wd-relative-profile-bio pb-2">{address}</h6>
 
                     <div className="wd-relative-profile-icons pb-2">
                        
@@ -107,6 +109,10 @@ const Profile = ({ name, email, address, dob, account, loadDrink, onRouteChange 
 
                         <i className="me-2 fa-solid fa-envelope"></i>
                         <text className="me-3">{email}</text>
+
+                          <i className="me-2  fa-solid fa-user"></i>
+                          <text className="me-3">{account}</text>
+
 
                      
                     </div>
