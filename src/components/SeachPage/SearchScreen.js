@@ -1,9 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
-//import drink from "../data/drink.json";
-import ResultItem from "../ResultPage/ResultItem";
-
 
 const SearchScreen = ({ handleAddProduct }) => {
 
@@ -27,6 +24,7 @@ const SearchScreen = ({ handleAddProduct }) => {
     }
     useEffect(() => {
         searchCocktailByName()
+        //eslint-disable-next-line
     }, [])
 
     return (
@@ -35,7 +33,7 @@ const SearchScreen = ({ handleAddProduct }) => {
                 <div className="col-1">
                 </div>
                 <div className="col-10">
-                    <img src="/image/drink.jpg" className="pb-3 wd-image float-end" width="600" />
+                    <img src="/image/drink.jpg" className="pb-3 wd-image float-end" width="600" alt="img" />
                     <h2 className="p-2 wd-centered wd-yellow-color wd-font-style wd-bolded-font">Enjoy your Fresh Drink Today!</h2>
 
                     <div>
@@ -56,7 +54,7 @@ const SearchScreen = ({ handleAddProduct }) => {
                                 <div key={cocktails.idDrink} className="col-sm-12 col-md-10 col-lg-6">
 
                                     <div className="card mb-4">
-                                        <img className="card-img-top wd-search-result-image" src={cocktails.strDrinkThumb ? cocktails.strDrinkThumb : ""} alt="..." />
+                                        <img className="card-img-top wd-search-result-image" src={cocktails.strDrinkThumb ? cocktails.strDrinkThumb : ""} alt="img" />
                                         <div className="card-body">
                                             <h5 className="card-title">{cocktails.strDrink} </h5>
                                             <p className="card-text wd-instruction-length">{cocktails.strInstructions}</p>

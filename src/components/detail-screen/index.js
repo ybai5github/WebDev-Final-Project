@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "../../index.css"
 import ReviewList from "./review-list";
 
@@ -31,8 +31,8 @@ const DetailScreen = () => {
     useEffect(() => {
         searchDrinkByID()
         searchReviewByDrinkID()
-    }, []
-    )
+        //eslint-disable-next-line
+    }, [])
 
     return (
         <>
@@ -44,7 +44,7 @@ const DetailScreen = () => {
                         <i className="wd-yellow-color fa-solid fa-martini-glass-citrus"></i>
                     </span></h1>
                     <div className="row">
-                        <img className="col-4" src={drinkDetails.strDrinkThumb} height={350} width={300} />
+                        <img className="col-4" src={drinkDetails.strDrinkThumb} height={350} width={300} alt="img" />
                         <ul className="col-8 ps-4">
                             <li className="wd-font pb-4">
                                 <h5 className="wd-bolded-font">
@@ -89,8 +89,7 @@ const DetailScreen = () => {
                 </div>
 
                 {
-                    (drinkReviews.length != 0) ?
-
+                    (drinkReviews.length !== 0) ?
                         <ReviewList drinkReviews={drinkReviews} />
                         :
                         <h5 className="pt-4 wd-red-color">"There are not any reviews for this product yet!"</h5>

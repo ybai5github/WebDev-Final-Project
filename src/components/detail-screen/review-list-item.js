@@ -6,7 +6,7 @@ const ReviewListItem = ({review}) => {
       <tr className='row'>
           <div className="p-3 col-3">
 
-              <img className="wd-rounded-corners" width="50" height="50" src={review.profilePicture}/>
+              <img className="wd-rounded-corners" width="50" height="50" src={review.profilePicture} alt="img"/>
               <Link className="ps-3" to={`#`}>Link to profile</Link>
 
               <div className="wd-bolded-font wd-font-white">

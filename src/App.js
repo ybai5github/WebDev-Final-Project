@@ -89,7 +89,7 @@ function App() {
     const loadUser = (users) => {
         console.log('users', users)
         setUser({
-            id: users.id,
+            id: users._id,
             name: users.name,
             email: users.email,
             address: users.address,
@@ -100,15 +100,15 @@ function App() {
 
     }
 
-/*     console.log('name', users.name);
-    console.log('address', users.address);
-    console.log('email', users.email);
-    console.log('dob', users.dob);
-    console.log('account', users.account);
-
-
-    console.log("strDrink", drink.strDrink);
-    console.log("strDrinkThumb", drink.strDrinkThumb); */
+    /*     console.log('name', users.name);
+        console.log('address', users.address);
+        console.log('email', users.email);
+        console.log('dob', users.dob);
+        console.log('account', users.account);
+    
+    
+        console.log("strDrink", drink.strDrink);
+        console.log("strDrinkThumb", drink.strDrinkThumb); */
 
     const onRouteChange = (route) => {
         if (route === 'signout') {
@@ -125,8 +125,8 @@ function App() {
 
     const storedCart = localStorage.getItem('item');
     const myarray = JSON.parse(storedCart) || [];
- /*    console.log('stored cart', storedCart);
-    console.log('parsed cart', myarray); */
+    /*    console.log('stored cart', storedCart);
+       console.log('parsed cart', myarray); */
 
     const [cartItems, setCartItems] = useState(myarray);
     const [orderedItems, setOrderedItems] = useState([]);
@@ -155,7 +155,7 @@ function App() {
         }
     }
 
-  /*   console.log('app', cartItems); */
+    /*   console.log('app', cartItems); */
 
     const handleRemoveProduct = (product) => {
         const ProductExist = cartItems.find((item) => item.idDrink === product.idDrink);
@@ -206,7 +206,7 @@ function App() {
         arr = arr.filter(v => v !== '0');
         /* console.log('filterred', arr); */
         arr = arr.filter(v => v !== '1');
-       /*  console.log('filterred', arr); */
+        /*  console.log('filterred', arr); */
         const filteredArray = arr.filter(v => v !== '2');
         /* console.log('filterred', filteredArray); */
         const res = filteredArray.reduce((acc, obj) => {
@@ -279,7 +279,8 @@ function App() {
                             <Route path="register" element={<Register loadUser={loadUser} onRouteChange={onRouteChange} />} />
                             <Route path="profile" element={<Profile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} getAllHistory={getAllHistory} adminItems={adminItems} />} />
                             <Route path="profile/bob" element={<GlobalProfile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} loadDrink={loadDrink} />} />
-                            <Route path="editProfile" element={route === 'editprofile' ? <div><EditProfile loadUser={loadUser} onRouteChange={onRouteChange} /></div> : <EditProfile />} />
+                            <Route path="editProfile" element={<EditProfile loadUser={loadUser} userInfo={users} />} />
+                            <Route path="home" element={<Home />} />
                             <Route path="home" element={<Home isSignedIn={isSignedIn} onRouteChange={onRouteChange} userName={users.name} />} />
                             <Route path="search" element={<SearchScreen handleAddProduct={handleAddProduct} />} />
                             <Route path="search/:cocktailSearch" element={<SearchScreen handleAddProduct={handleAddProduct} />} />
