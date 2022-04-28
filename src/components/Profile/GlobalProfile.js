@@ -2,57 +2,25 @@ import { useNavigate, useParams } from "react-router-dom";
 import drinking from "../Data/recentdrinks.json";
 import StarRating5 from "../StarRating/StarRating5";
 import StarRating3 from "../StarRating/StarRating3";
-import { useDispatch, useSelector } from "react-redux";
-import React, { useEffect, useState } from "react";
-import { findAllReviews } from "../../actions/reviews-actions";
-
+import { useSelector } from "react-redux";
+import React from "react";
 
 const GlobalProfilePage = () => {
 
   const getUserID = useParams();
   let myname = getUserID.user
   const reviews = useSelector(state => state);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    findAllReviews(dispatch)
-    console.log('render 1st');
-  }, [dispatch]);
-
-  console.log('reviews', reviews)
-
-  var filtered = reviews.filter(
-    obj => {
-      return obj.user === myname
-    }
-  )
-
-  console.log('render', filtered[0]);
-
-  const copy = Object.assign({},filtered);
-
-  console.log(copy);
-
-  var profilePic =""
-
-/*   const storedPic = localStorage.getItem('pic');
-    const routePic = JSON.parse("") || "";
-
-    const [pic, setPic] = useState(routePic); */
-
-  /*   useEffect(() => {
-        localStorage.setItem('pic', JSON.stringify(pic));
-    }, [pic]); */
-
-  /*   const loadPic = (filtered) => {
-      setPic(filtered[0])
-    } */
-/* 
-    console.log(loadPic); */
-
-  
-  console.log(profilePic);
+  console.log(myname);
+  var profilePic = ""
+  if (myname === 'Alice') {
+    profilePic = "http://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
+  } else if (myname === "Bob") {
+    profilePic = "https://images.squarespace-cdn.com/content/v1/544111afe4b0881390277165/1413637430193-F3ZXW2JIYGB62PDBA9AC/James+Stickley+Profile.jpg"
+  } else if (myname === "Charlie") {
+    profilePic = "https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-100-400x382.jpg"
+  } else {
+    profilePic = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+  }
   let navigate = useNavigate()
 
   return (
@@ -75,23 +43,13 @@ const GlobalProfilePage = () => {
               className="wd-image-border wd-relative-position-profile wd-rounded-corners-circle2 wd-border-style wd-move-up"
               height="100" width="100" src={profilePic} alt="img" />
           </div>
-
-
-
           <div className="mt-5 flex-column">
             <h5 className="wd-relative-profile-name wd-profile-name-style wd-font-white">
               {getUserID.user}
             </h5>
-
-            <text
-              className="wd-relative-profile-handle wd-font-grey">@{getUserID.user}</text>
-
-            {/*<h6 className="wd-relative-profile-bio pb-2">bio</h6>*/}
+            <span className="wd-relative-profile-handle wd-font-grey">@{getUserID.user}</span>
 
             <div className="wd-relative-profile-icons pb-2">
-
-              {/*<i className="me-2 fa-regular fa-calendar-days"></i>*/}
-              {/*<text className="me-3">join</text>*/}
             </div>
           </div>
         </div>
@@ -135,7 +93,6 @@ const GlobalProfilePage = () => {
             <div className="card-body wd-flex">
               <img className="card-img-top wd-product-image-photo" height="291" width="291" src={drinking[3].strDrinkThumb} alt="img" />
               <div className="p-5 mt-5"><a href="/" className="btn btn-primary mb-5">Go somewhere</a></div>
-
             </div>
             <StarRating5 />
           </div>

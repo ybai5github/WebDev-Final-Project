@@ -10,7 +10,7 @@ const ReviewList = ({drinkReviews}) => {
     // useEffect(() => findReviewsByDrinkID(dispatch), []);
 
     return(
-        <>
+        <div>
             <h4 className="pt-2 wd-color-orange">Reviews</h4>
             <ul className="list-group">
                 {
@@ -20,10 +20,7 @@ const ReviewList = ({drinkReviews}) => {
                 }
 
             </ul>
-        </>
-
-
-
+        </div>
     );
 }
 
