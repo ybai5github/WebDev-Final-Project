@@ -1,6 +1,4 @@
-import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect, useState} from "react";
-import {findAllReviews, findReviewsByDrinkID} from '../../actions/reviews-actions'
 import ReviewListItem from "./review-list-item";
 
 

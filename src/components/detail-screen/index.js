@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-import Preformatted from "./preformatted";
 import "../../index.css"
 import ReviewList from "./review-list";
-import ReviewListItem from "./review-list-item";
 
 
 const DetailScreen = () => {
