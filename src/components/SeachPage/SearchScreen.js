@@ -5,22 +5,22 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import ResultItem from "../ResultPage/ResultItem";
 
 
-const SearchScreen = ({handleAddProduct}) => {
+const SearchScreen = ({ handleAddProduct }) => {
 
     const cocktailSearchRef = useRef()
-    const {cocktailSearch} = useParams()
+    const { cocktailSearch } = useParams()
     const navigate = useNavigate()
     const [cocktails, setCocktails] = useState([])
     const searchUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php'
     const searchCocktailByName = async () => {
-        const searchString = cocktailSearchRef.current.value || cocktailSearch ||""
-            //||"margarita"
+        const searchString = cocktailSearchRef.current.value || cocktailSearch || ""
+        //||"margarita"
         const response = await axios.get(`${searchUrl}?s=${searchString}`)
         setCocktails(response.data.drinks)
         cocktailSearchRef.current.value = searchString
-        if(searchString == null){
+        if (searchString == null) {
             navigate(`/search`)
-        }else {
+        } else {
             navigate(`/search/${searchString}`)
         }
 
@@ -28,23 +28,6 @@ const SearchScreen = ({handleAddProduct}) => {
     useEffect(() => {
         searchCocktailByName()
     }, [])
- 
-
-
-    /*  console.log('cocktail', cocktails); */
-    /* const [cartItems, setCartItems] = useState([]);
-    console.log('cart items', cartItems)
-    const handleAddProduct = (product) => {
-        const ProductExist = cartItems.find((item) => item.idDrink === product.idDrink);
-        if (ProductExist) {
-            setCartItems(cartItems.map((item) => item.idDrink === product.idDrink ?
-                { ...ProductExist, quantity: ProductExist.quantity + 1 } : item));
-
-        } else {
-            setCartItems([...cartItems, { ...product, quantity: 1 }]);
-        }
-    }
-    console.log('app', cartItems); */
 
     return (
         <div>
@@ -66,9 +49,12 @@ const SearchScreen = ({handleAddProduct}) => {
                     </div>
                     <div className="row"  >
                         {
-                            cocktails.map((cocktails ) => 
-                                <div key ={cocktails.idDrink} className="col-sm-12 col-md-10 col-lg-6">
-                                    
+                            !cocktails && <h1>Please enter a valid drink!</h1>
+                        }
+                        {
+                            cocktails && cocktails.map((cocktails) =>
+                                <div key={cocktails.idDrink} className="col-sm-12 col-md-10 col-lg-6">
+
                                     <div className="card mb-4">
                                         <img className="card-img-top wd-search-result-image" src={cocktails.strDrinkThumb ? cocktails.strDrinkThumb : ""} alt="..." />
                                         <div className="card-body">
@@ -85,9 +71,7 @@ const SearchScreen = ({handleAddProduct}) => {
                                 </div>
                             )
                         }
-                        {
-                            !cocktails && <h1>Please enter a valid drink!</h1>
-                        }
+
                     </div>
                 </div>
                 <div className="col-1">

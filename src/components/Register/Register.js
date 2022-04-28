@@ -38,6 +38,8 @@ const Register = ({ onRouteChange, loadUser }) => {
         setDob(event.target.value);
     }
 
+    console.log(accountType);
+
     /* const onSubmitSignIn = () => {
         fetch('http://localhost:4000/register', {
             method: 'post',
@@ -114,7 +116,7 @@ const Register = ({ onRouteChange, loadUser }) => {
                         </div>
                         <div className="mv3">
                             <label className="db fw6 lh-copy f6" htmlFor="password">Role</label>
-                            <select id="types" className="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="role"
+                            <select id="types" className="b pa2 input-reset ba hover-bg-white hover-black w-100" name="role"
                                 value ={accountType}
                                 onChange={(event) => {
                                     const selectedAccount = event.target.value;

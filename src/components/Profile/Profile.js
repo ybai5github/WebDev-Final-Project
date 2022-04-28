@@ -66,7 +66,7 @@ const Profile = ({ name, email, address, dob, account, loadDrink, onRouteChange 
 
             <div className="row">
                 <div className="col-1">
-                    <Link to="/home"><i className="fas fa-arrow-left"></i></Link>
+                    <Link to="/"><i className="fas fa-arrow-left"></i></Link>
                 </div>
 
                 <div className="input-group mb-3">
@@ -110,15 +110,9 @@ const Profile = ({ name, email, address, dob, account, loadDrink, onRouteChange 
                         <i className="me-2 fa-solid fa-envelope"></i>
                         <text className="me-3">{email}</text>
 
-                          <i className="me-2  fa-solid fa-user"></i>
-                          <text className="me-3">{account}</text>
-
-
-                     
+                        <i className="me-2 fa-solid fa-user"></i>
+                        <text className="me-3">{account}</text>
                     </div>
-
-
-                 
                 </div>
             </div>
           <ul className="mb-5 col-1 list-group list-group-horizontal">

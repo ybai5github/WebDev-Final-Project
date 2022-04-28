@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 
-const Navigation = ({ onRouteChange, isSignedIn }) => {
+const Navigation = ({ onRouteChange, isSignedIn, handleSignout }) => {
       const navigate = useNavigate();
 
       const signIn = () => {
@@ -14,17 +14,18 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
           navigate('/register');
       }
 
-      /* const signOut = () => {
-          onRouteChange('home')
+      const signOut = () => {
+          onRouteChange('signout')
+          handleSignout();
           navigate('/')
-      } */
+      }
       
 
 
     if (isSignedIn) {
         return (
             <nav style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                <p onClick={() => onRouteChange('signout')} className="f3 link dim white underline pa3 pointer"> Sign Out</p>
+                <p onClick={signOut} className="f3 link dim white underline pa3 pointer"> Sign Out</p>
             </nav>
         );
     } else {
