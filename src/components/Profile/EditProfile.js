@@ -4,7 +4,6 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import service from "../../services/profile-service.js"
 import {updateUser} from "../../actions/profile-action";
-import {Button} from "react-bootstrap";
 // import updateUser from "../../services/profile-service.js"
 const EditProfile = ({loadUser,onRouteChange, userInfo }) => {
 
@@ -67,16 +66,6 @@ const EditProfile = ({loadUser,onRouteChange, userInfo }) => {
           <button className="btn btn-outline-primary"onClick={() => navigate(-1)}>Profile</button>
         </div>
 
-        {/*  <div className="col-10">*/}
-        {/*    <h5 className="mt-1 ms-3 wd-bolded-font">Edit Profile</h5>*/}
-        {/*  </div>*/}
-        {/*  <div className="col-1">*/}
-        {/*    <button onClick={saveHandler}*/}
-        {/*            className="float-end btn btn-primary rounded-pill float-end wd-rounded-corners  wd-bolded-font ed-font-black">*/}
-        {/*      Save*/}
-        {/*    </button>*/}
-        {/*  </div>*/}
-
         </div>
 
 
@@ -106,11 +95,11 @@ const EditProfile = ({loadUser,onRouteChange, userInfo }) => {
                     value={user.dob} onChange={onDobChange}>
                 </textarea>
 
-          <div className="">
-            <Button onClick={saveUser} className="btn btn-outline-primary">Update</Button>
-          </div>
-
         </div>
+
+
+            <button onClick={saveUser} className="btn btn-outline-primary">Update</button>
+
 
       </>
 
