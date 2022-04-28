@@ -29,6 +29,8 @@ import axios from 'axios';
 
 const store = createStore(reviewsReducer);
 
+
+
 function App() {
 
     const [route, setRoute] = useState('signin');
@@ -80,7 +82,7 @@ function App() {
     const loadUser = (users) => {
         console.log('users', users)
         setUser({
-            id: users.id,
+            id: users._id,
             name: users.name,
             email: users.email,
             address: users.address,
@@ -114,9 +116,8 @@ function App() {
         setRoute(route);
     }
 
-    const storedCart = localStorage.getItem('item');
-    const myarray = JSON.parse(storedCart);
-    console.log('stored cart', storedCart);
+    //cookie session
+    const myarray = localStorage.getItem('item') ? JSON.parse(localStorage.getItem('item')) : [];
     console.log('parsed cart', myarray);
 
     const [cartItems, setCartItems] = useState([]);
@@ -227,9 +228,9 @@ function App() {
 
                             } />
                             <Route path="register" element={<Register loadUser={loadUser} onRouteChange={onRouteChange} />} />
-                            <Route path="profile" element={route === 'profile' ? <div><Profile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} /></div> : <Home />} />
-                            <Route path="profile/bob" element={<GlobalProfile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} loadDrink={loadDrink} />} />
-                            <Route path="editProfile" element={route === 'editprofile' ? <div><EditProfile loadUser={loadUser} onRouteChange={onRouteChange} /></div> : <EditProfile />} />
+                            <Route path="profile" element={route === 'profile' ? <div><Profile id ={users.id} name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} /></div> : <Home />} />
+                            <Route path="profile/:user" element={<GlobalProfile  strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} loadDrink={loadDrink} />} />
+                            <Route path="editProfile" element={<div><EditProfile loadUser={loadUser} onRouteChange={onRouteChange} userInfo={users} /></div>} />
                             <Route path="home" element={<Home />} />
                             <Route path="search" element={<SearchScreen handleAddProduct={handleAddProduct} />} />
                             <Route path="search/:cocktailSearch" element={<SearchScreen handleAddProduct={handleAddProduct} />} />

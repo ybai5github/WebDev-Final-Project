@@ -2,12 +2,13 @@ import {Link} from "react-router-dom";
 
 
 const ReviewListItem = ({review}) => {
+  console.log(review)
   return(
       <tr className='row'>
           <div className="p-3 col-3">
 
               <img className="wd-rounded-corners" width="50" height="50" src={review.profilePicture}/>
-              <Link className="ps-3" to={`#`}>Link to profile</Link>
+              <Link className="ps-3" to={`/profile/${review.user}`}>Link to profile</Link>
 
               <div className="wd-bolded-font wd-font-white">
                   {review.user}

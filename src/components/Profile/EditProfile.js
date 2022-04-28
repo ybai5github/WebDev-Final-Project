@@ -2,92 +2,66 @@ import {useDispatch, useSelector} from "react-redux";
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
-
-
-const EditProfile = ({loadUser,onRouteChange }) => {
+import service from "../../services/profile-service.js"
+import {updateUser} from "../../actions/profile-action";
+import {Button} from "react-bootstrap";
+// import updateUser from "../../services/profile-service.js"
+const EditProfile = ({loadUser,onRouteChange, userInfo }) => {
 
 
   // const dispatch = useDispatch();
 
-
-
-  let [name, setname] = useState('')
-  let [address, setaddress] = useState('')
-  let [email, setemail] = useState('')
-  let [dob, setdob] = useState('')
-
+  let [user, setuser] = useState({
+    _id: userInfo.id,
+    name: userInfo.name,
+    address: userInfo.address,
+    account: userInfo.account,
+    joined: userInfo.joined,
+    email: userInfo.email,
+    dob: userInfo.dob
+  })
 
   const onNameChange = (event) => {
-    setname(event.target.value);
+    setuser({...user, name: event.target.value});
   }
 
   const onAddressChange = (event) => {
-    setaddress(event.target.value);
+    setuser({...user, address: event.target.value});
   }
 
   const onEmailChange = (event) => {
-    setemail(event.target.value);
+    setuser({...user, email: event.target.value});
   }
   const onDobChange = (event) => {
-    setdob(event.target.value);
+    setuser({...user, dob: event.target.value});
+  }
+
+  const saveUser = () => {
+    try {
+      service.updateUser(user).then(() => loadUser(user))
+      navigate('/profile');
+    } catch (error) {
+      console.log(error)
+    }
   }
 
 
 
-   console.log('name', name);
 
-  // console.log('address', address);
-  // console.log('email', email);
-  // console.log('dob', dob);
-  // console.log('account', account);
+
+
+
 
   let navigate = useNavigate()
 
-  const profile = () => {
-    onRouteChange('profile');
-    navigate('/');
-  }
 
-  // const saveHandler = () => {
-  //   const newProfile = [{name, account, address, email, dob}];
-  //   dispatch({users: newProfile, type: 'save'});
-  //   onRouteChange('profile');
-  //   navigate("/profile")
-  // }
-
-  // const closeProfile = () => {
-  //   onRouteChange('profile');
-  //   navigate("/profile");
-  // }
-
-  const onSubmitSignIn = () => {
-    axios.post('http://localhost:4000/editprofile', {
-      email: email,
-      name: name,
-      address: address,
-      dob: dob
-    })
-    .then(user => {
-      console.log('user data', user.data);
-      if (user.data) {
-        loadUser(user.data);
-        profile();
-      } else {
-        alert('incorrect submission');
-      }
-    }).catch(error => {
-      console.log(error);
-      alert('please fill out all the fields');
-    })
-
-  }
 
   return(
 
       <>
 
         <h2>Hello</h2>
-        <h2>{name}</h2>
+        <h2>{user.name}</h2>
         <div className="mt-2 row">
         <div className="col-2">
           <button className="btn btn-outline-primary"onClick={() => navigate(-1)}>Profile</button>
@@ -114,26 +88,26 @@ const EditProfile = ({loadUser,onRouteChange }) => {
         <div className="wd-content-goes-up">
           <text>Name</text>
           <textarea className="wd-width bg-transparent wd-selector wd-font-white"
-                  value={name} onChange={onNameChange} >
+                  value={user.name} onChange={onNameChange} >
                 </textarea>
           <br/>
           <text>Address</text>
           <textarea className="wd-width bg-transparent wd-selector wd-font-white"
-                    value={address} onChange={onAddressChange}>
+                    value={user.address} onChange={onAddressChange}>
                 </textarea>
           <br/>
           <text>Email</text>
           <textarea className="wd-width bg-transparent wd-selector wd-font-white"
-                    value={email} onChange={onEmailChange}>
+                    value={user.email} onChange={onEmailChange}>
                 </textarea>
           <br/>
           <text>Date of Birth</text>
           <textarea className="wd-width bg-transparent wd-selector wd-font-white"
-                    value={dob} onChange={onDobChange}>
+                    value={user.dob} onChange={onDobChange}>
                 </textarea>
 
           <div className="">
-            <input onClick={onSubmitSignIn} className="b ph3 pv2 input-reset ba b--white grow pointer f6 dib pointer btn btn-outline-primary" type="submit" value="submit" />
+            <Button onClick={saveUser} className="btn btn-outline-primary">Update</Button>
           </div>
 
         </div>

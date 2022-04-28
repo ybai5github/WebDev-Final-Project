@@ -12,6 +12,7 @@ const DetailScreen = () => {
     const [drinkReviews, setDrinkReviews] = useState({})
     const url = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php'
     const idDrink = useParams()
+    console.log(idDrink)
     const propertyValues = Object.values(idDrink);
 
     const searchDrinkByID = async () => {

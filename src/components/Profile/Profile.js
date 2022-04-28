@@ -31,7 +31,7 @@ const Profile = ({ name, email, address, dob, account, loadDrink, onRouteChange 
 
 
   const {userSearch} = useParams()
-  const searchUrl = "";
+  const searchUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php";
   const Searchforuser = useRef();
 
   const searchuserbyname = async () => {
@@ -95,10 +95,12 @@ const Profile = ({ name, email, address, dob, account, loadDrink, onRouteChange 
                         {name}
                     </h5>
 
-                    
 
+                  <div className="wd-relative-profile-icons pb-2">
+                    <i className="fa-solid fa-location-dot me-2"></i>
+                    <text className="me-3 wd-relative-profile-bio">{address}</text>
+                  </div>
 
-                    <h6 className="wd-relative-profile-bio pb-2">{address}</h6>
 
                     <div className="wd-relative-profile-icons pb-2">
                        

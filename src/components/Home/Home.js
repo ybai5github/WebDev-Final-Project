@@ -20,14 +20,14 @@ const Home = ({ onRouteChange, userName }) => {
 
     const [useData, setData] = useState([])
 
- 
+
 
     useEffect(() => {
         localStorage.setItem('wakanda', JSON.stringify(useData));
         console.log('4th render now useeffect');
     }, [myarray]);
 
-/*     console.log('1st', useData[0].strDrink); */
+    /*     console.log('1st', useData[0].strDrink); */
 
     useEffect(() => {
         getTheMagaritas();
@@ -56,7 +56,7 @@ const Home = ({ onRouteChange, userName }) => {
                             <h5 className="card-title mb-5">{useData.length ? useData[0].strDrink : 'Loading ... '}</h5>
 
                             <div className="card-body wd-flex">
-                                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData.length ? useData[0].strDrinkThumb : 'Loading ... '}  />
+                                <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData.length ? useData[0].strDrinkThumb : 'Loading ... '} />
 
 
                                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
@@ -108,9 +108,14 @@ const Home = ({ onRouteChange, userName }) => {
 
                                 <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>
                             </div>
-                            <a href="#" className="btn btn-primary">More Details</a>
                         </div>
                     </li>
+
+
+
+
+
+
                 </ul>
 
                 <div className="col-xxl-12 row-cols-12">
