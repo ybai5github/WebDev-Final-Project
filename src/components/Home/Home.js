@@ -66,70 +66,6 @@ const Home = ({ onRouteChange, userName }) => {
                                 <a href="#" className="btn btn-primary mb-5">More Details</a>
                             </div>
                         </li>)}
-
-
-
-
-                    {/*        <li className="list-group-item">*/}
-                    {/*    <div className="card">*/}
-                    {/*        <h5 className="card-title mb-5">{useData[0].strDrink}</h5>*/}
-
-                    {/*        <div className="card-body wd-flex">*/}
-                    {/*            <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData[0].strDrinkThumb} />*/}
-
-
-                    {/*            <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>*/}
-                    {/*        </div>*/}
-                    {/*        <a href="#" className="btn btn-primary mb-5">More Details</a>*/}
-                    {/*    </div>*/}
-                    {/*</li>*/}
-                    {/*<li className="list-group-item">*/}
-                    {/*    <div className="card">*/}
-                    {/*        <h5 className="card-title mb-5">{useData[1].strDrink}</h5>*/}
-                    {/*        <div className="card-body wd-flex">*/}
-                    {/*            <img className="card-img-top  wd-product-image-photo" height="400" width="400" src={useData[1].strDrinkThumb} />*/}
-
-                    {/*            <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>*/}
-
-                    {/*        </div>*/}
-                    {/*        <a href="#" className="btn btn-primary">More Details</a>*/}
-                    {/*    </div>*/}
-                    {/*</li>*/}
-                    {/*<li className="list-group-item">*/}
-                    {/*    <div className="card">*/}
-                    {/*        <h5 className="card-title mb-5">{useData[2].strDrink}</h5>*/}
-                    {/*        <div className="card-body wd-flex">*/}
-                    {/*            <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData[2].strDrinkThumb} />*/}
-                    {/*            <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>*/}
-                    {/*        </div>*/}
-                    {/*        <a href="#" className="btn btn-primary">More Details</a>*/}
-                    {/*    </div>*/}
-                    {/*</li>*/}
-                    {/*<li className="list-group-item ">*/}
-                    {/*    <div className="card">*/}
-                    {/*        <h5 className="card-title mb-5">{useData[3].strDrink}</h5>*/}
-
-                    {/*        <div className="card-body wd-flex">*/}
-                    {/*            <img className="card-img-top wd-product-image-photo" height="291" width="291" src={useData[3].strDrinkThumb} />*/}
-                    {/*            <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>*/}
-
-                    {/*        </div>*/}
-                    {/*        <a href="#" className="btn btn-primary">More Details</a>*/}
-                    {/*    </div>*/}
-                    {/*</li>*/}
-
-                    {/*<li className="list-group-item">*/}
-                    {/*    <div className="card">*/}
-                    {/*        <h5 className="card-title mb-5">{useData[4].strDrink}</h5>*/}
-
-                    {/*        <div className="card-body wd-flex">*/}
-                    {/*            <img className="card-img-top wd-product-image-photo" height="400" width="400" src={useData[4].strDrinkThumb} />*/}
-
-                    {/*            <div className="p-5 mt-5"><a href="#" className="btn btn-primary mb-5">Go somewhere</a></div>*/}
-                    {/*        </div>*/}
-                    {/*        <a href="#" className="btn btn-primary">More Details</a>*/}
-                    {/*    </div>*/}
-                    {/*</li>*/}
                 </ul>
 
                 <div className="text-center mb-5">
@@ -143,7 +79,7 @@ const Home = ({ onRouteChange, userName }) => {
                             <div className="card-body">
                                 <h5 className="card-title text-center"> Our House Special</h5>
 
-                                <ControlledCarousel />
+                                    <ControlledCarousel/>
 
                             </div>
                         </div>
@@ -153,7 +89,7 @@ const Home = ({ onRouteChange, userName }) => {
 
                 <div className="mb-5 offset-md-1">
                     <div className="row">
-                        <div className="col-2">
+                        <div className="col-lg-3 col-sm-12 col-md-6">
                             <div className="card">
                                 <img height="200" src="https://www.thecocktaildb.com//images//media//drink//bry4qh1582751040.jpg" />
                                 <div className="card-body">
@@ -163,9 +99,9 @@ const Home = ({ onRouteChange, userName }) => {
                             </div>
                         </div>
 
-                        <div className="col-3 float-left2">
+                        <div className="col-lg-3 float-left2 col-sm-12 col-md-6">
                             <div className="card">
-                                <img width="282" height="200" src="https://www.thecocktaildb.com//images//media//drink//5noda61589575158.jpg" />
+                                <img  height="200" src="https://www.thecocktaildb.com//images//media//drink//5noda61589575158.jpg" />
                                 <div className="card-body">
                                     <h5 className="card-title">Margarita </h5>
                                     <StarRating4 />
@@ -174,9 +110,9 @@ const Home = ({ onRouteChange, userName }) => {
                         </div>
 
 
-                        <div className="col-3 float-left2">
+                        <div className="col-lg-3 float-left2 col-sm-12 col-md-6">
                             <div className="card">
-                                <img width="282" height="200" src="https://www.thecocktaildb.com//images//media//drink//srpxxp1441209622.jpg" />
+                                <img height="200" src="https://www.thecocktaildb.com//images//media//drink//srpxxp1441209622.jpg" />
                                 <div className="card-body">
                                     <h5 className="card-title">Whitecap Margarita </h5>
                                     <StarRating3 />
@@ -185,9 +121,9 @@ const Home = ({ onRouteChange, userName }) => {
                         </div>
 
 
-                        <div className="col-3 float-left3">
+                        <div className="col-lg-3 float-left3 col-sm-12 col-md-6">
                             <div className="card">
-                                <img width="282" height="200" src="https://www.thecocktaildb.com//images//media//drink//dztcv51598717861.jpg" />
+                                <img height="200" src="https://www.thecocktaildb.com//images//media//drink//dztcv51598717861.jpg" />
                                 <div className="card-body">
                                     <h5 className="card-title">Smashed Watermelon Margarita</h5>
                                     <StarRating5 />
@@ -201,21 +137,10 @@ const Home = ({ onRouteChange, userName }) => {
 
 
 
-                {/*<div className="white f3">*/}
-
-                {/*    <ul className="list-group">*/}
-                {/*        <li className="list-group-item"> Must allow users to register and create a new account</li>*/}
-                {/*    </ul>*/}
-
-                {/*    <p onClick={profile} className="pointer">Profile</p>*/}
-                {/*</div>*/}
-                {/*<div className="white f1">*/}
-
-                {/*</div>*/}
 
 
-                <div className="card offset-md-1">
-                    <ul className="list-group">
+                <div className="card offset-md-1 row">
+                    <ul className="list-group col-sm-12 col-md-10 col-lg-6">
                         <li className="list-group-item"> Must allow users to register and create a new account</li>
                     </ul>
                     <div className="card-body">
@@ -235,7 +160,7 @@ const Home = ({ onRouteChange, userName }) => {
 
 
 
-                            <ul className="col-2 list-group">
+                            <ul className="col-lg-2 list-group col-sm-12">
                                 <li className="list-group-item wd-float-inside"><strong>Main Menu</strong></li>
                                 <li className="list-group-item">
                                     <a href="#">Home</a>
@@ -250,14 +175,14 @@ const Home = ({ onRouteChange, userName }) => {
                             </li>
                             </ul>
 
-                            <ul className="col-2 list-group">
+                            <ul className="col-lg-2 list-group col-sm-12">
                                 <li className="list-group-item wd-float-inside"><strong>Location</strong></li>
                                 <li className="list-group-item">
                                     <span>200 Cleveland Boston MA</span>
                                 </li>
                             </ul>
 
-                            <ul className="col-2 list-group">
+                            <ul className="col-lg-2 list-group col-sm-12">
                                 <li className="list-group-item wd-float-inside"><strong>Our Socials</strong></li>
                                 <li className="list-group-item">
                                     <a href="#">Facebook</a>
@@ -272,7 +197,7 @@ const Home = ({ onRouteChange, userName }) => {
                             </li>
                             </ul>
 
-                            <ul className="col-3 list-group">
+                            <ul className="col-lg-3 list-group col-sm-12">
                                 <li className="list-group-item wd-float-inside"><strong>Contact Us</strong></li>
                                 <li className="list-group-item">
                                     <span>111-234-6789</span>

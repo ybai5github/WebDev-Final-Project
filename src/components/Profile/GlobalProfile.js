@@ -3,24 +3,50 @@ import drinking from "../Data/recentdrinks.json";
 import StarRating5 from "../StarRating/StarRating5";
 import StarRating4 from "../StarRating/StarRating4";
 import StarRating3 from "../StarRating/StarRating3";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
+import {useDispatch, useSelector} from "react-redux";
+import {findAllReviews} from "../../actions/reviews-actions";
 
-const GlobalProfilePage = ({ name, email, address, dob, account, strDrink,strDrinkThumb,loadDrink })=> {
 
+const GlobalProfilePage = ()=> {
 
+  const [profilePicture, setProfilePicture] = useState({});
   const getUserID = useParams();
-  console.log(getUserID)
+  //console.log(getUserID.user)
+  let myname = getUserID.user
+  const reviews = useSelector(state => state);
+  //const dispatch = useDispatch();
+
+
+  // useEffect(() => {
+  //   findAllReviews(dispatch)
+  // }, []);
+  //console.log(reviews)
+  //console.log(reviews[1].profilePicture)
+
+  var filtered = reviews.filter(
+      obj=>{
+        return obj.user === myname
+      }
+  )
+
+  // console.log(filtered);
+
+  const profilepic = filtered[0].profilePicture;
+  // console.log(profilePicture)
+  //console.log(filtered[0].profilePicture)
+
   // console.log(name);
   // console.log(email);
   // console.log(address);
   // console.log(dob);
   // console.log(account);
 
-  const searchUserByID = async () =>{
-    const response = await axios.get(`http://localhost:4000/user`)
-    const result = response.data;
-  }
+  // const searchUserByID = async () =>{
+  //   const response = await axios.get(`http://localhost:4000/user`)
+  //   const result = response.data;
+  // }
   let navigate = useNavigate()
 
 
@@ -43,7 +69,7 @@ const GlobalProfilePage = ({ name, email, address, dob, account, strDrink,strDri
             <div className="mb-5 mt-5">
               <img
                   className="wd-image-border wd-relative-position-profile wd-rounded-corners-circle2 wd-border-style wd-move-up"
-                  height="100" width="100" src="https://images.squarespace-cdn.com/content/v1/544111afe4b0881390277165/1413637430193-F3ZXW2JIYGB62PDBA9AC/James+Stickley+Profile.jpg"/>
+                  height="100" width="100" src={profilepic}  />
             </div>
 
 

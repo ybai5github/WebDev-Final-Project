@@ -21,6 +21,7 @@ import Register from './components/Register/Register';
 import Profile from './components/Profile/Profile';
 import GlobalProfile from "./components/Profile/GlobalProfile";
 import EditProfile from "./components/Profile/EditProfile";
+
 /* import './vendors/bootstrap/css/bootstrap.min.css';
 import './vendors/bootstrap/bootstrap.min.css';
 import './vendors/fontawesome/css/all.min.css'; */
