@@ -12,7 +12,7 @@ function ControlledCarousel() {
             <img
                 className="d-block w-100"
                 src="https://www.thecocktaildb.com//images//media//drink//dztcv51598717861.jpg"
-                alt="Image One"
+                alt="one"
             />
             <Carousel.Caption>
               <h3>Smashed Watermelon Margarita</h3>
@@ -23,7 +23,7 @@ function ControlledCarousel() {
             <img
                 className="d-block w-100"
                 src="https://www.thecocktaildb.com//images//media//drink//vuquyv1468876052.jpg"
-                alt="Image Two"
+                alt="two"
             />
             <Carousel.Caption>
               <h3>Afterglow</h3>
@@ -34,7 +34,7 @@ function ControlledCarousel() {
             <img
                 className="d-block w-100"
                 src="https://www.thecocktaildb.com//images//media//drink//stwiva1619704025.jpg"
-                alt="Image Three"
+                alt="three"
             />
             <Carousel.Caption>
               <h3>Mountain Bramble</h3>
@@ -45,7 +45,7 @@ function ControlledCarousel() {
             <img
                 className="d-block w-100"
                 src="https://www.thecocktaildb.com//images//media//drink//4vobt21643844913.jpg"
-                alt="Image Four"
+                alt="four"
             />
             <Carousel.Caption>
               <h3>Cocktail Horse Neck</h3>

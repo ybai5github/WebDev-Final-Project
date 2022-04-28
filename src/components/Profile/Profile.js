@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate, Link, useParams } from 'react-router-dom';
 import axios from "axios";
 import './profile.css';
@@ -27,7 +27,6 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
 
   let [newProfile, setNewProfile] = useState({ profile: 'New profile' });
 
-
   const { userSearch } = useParams()
   const searchUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php";
   const Searchforuser = useRef();
@@ -45,9 +44,10 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
     }
 
   }
-  /* useEffect(() => {
+  useEffect(() => {
     searchuserbyname()
-  }, []) */
+    //eslint-disable-next-line
+  }, [newProfile])
 
   return (
     <div >
@@ -218,7 +218,7 @@ const Profile = ({ name, email, address, dob, account, getAllHistory, adminItems
                 {item.count}
               </div>
             </div>
-            
+
           ))}
         </div>)}
 

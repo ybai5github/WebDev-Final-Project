@@ -4,6 +4,7 @@ import service from "../../services/profile-service.js"
 const EditProfile = ({ loadUser, userInfo }) => {
 
   let [user, setuser] = useState({
+    email: userInfo.email,
     _id: userInfo.id,
     name: userInfo.name,
     address: userInfo.address,
@@ -11,6 +12,8 @@ const EditProfile = ({ loadUser, userInfo }) => {
     joined: userInfo.joined,
     dob: userInfo.dob
   })
+
+  console.log(userInfo.id);
 
   const onNameChange = (event) => {
     setuser({ ...user, name: event.target.value });

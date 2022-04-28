@@ -3,7 +3,7 @@ import '../src/vendors/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css';
 import '../src/vendors/bootstrap/bootstrap-5.1.3-dist/bootstrap.min.css';
 import '../src/vendors/fontawesome/css/all.min.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import DetailScreen from "./components/detail-screen";
+import DetailScreen from "./components/Detail";
 import reviewsReducer from "./reducer/reviews-reducer";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
@@ -58,34 +58,6 @@ function App() {
         localStorage.setItem('user', JSON.stringify(users));
     }, [users]);
 
-    const [drink, setdrink] = useState(
-        {
-            id: '',
-            strDrink: '',
-            strDrinkThumb: '',
-            idDrink: ''
-        }
-    );
-
-    /* const LoadUser = (data) => {
-      setUsers({
-        ...users,
-        id: data.id,
-        name: data.name,
-        email: data.email,
-        entry: data.entry,
-        joined: data.joined
-      }); */
-    const loadDrink = (recentdrinks) => {
-        console.log("recentdrinks", recentdrinks)
-        setdrink({
-            id: recentdrinks.id,
-            strDrink: recentdrinks.strDrink,
-            strDrinkThumb: recentdrinks.strDrinkThumb,
-            idDrink: recentdrinks.idDrink
-        })
-    }
-
     const loadUser = (users) => {
         console.log('users', users)
         setUser({
@@ -100,15 +72,13 @@ function App() {
 
     }
 
-    /*     console.log('name', users.name);
-        console.log('address', users.address);
-        console.log('email', users.email);
-        console.log('dob', users.dob);
-        console.log('account', users.account);
-    
-    
-        console.log("strDrink", drink.strDrink);
-        console.log("strDrinkThumb", drink.strDrinkThumb); */
+    console.log('name', users.name);
+    console.log('address', users.address);
+    console.log('email', users.email);
+    console.log('dob', users.dob);
+    console.log('account', users.account);
+    console.log('users_id', users.id);
+
 
     const onRouteChange = (route) => {
         if (route === 'signout') {
@@ -277,8 +247,8 @@ function App() {
 
                             } />
                             <Route path="register" element={<Register loadUser={loadUser} onRouteChange={onRouteChange} />} />
-                            <Route path="profile" element={<Profile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} getAllHistory={getAllHistory} adminItems={adminItems} />} />
-                            <Route path="profile/bob" element={<GlobalProfile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} strDrink={drink.strDrink} strDrinkThumb={drink.strDrinkThumb} loadDrink={loadDrink} />} />
+                            <Route path="profile" element={<Profile name={users.name} email={users.email} address={users.address} dob={users.dob} account={users.account} getAllHistory={getAllHistory} adminItems={adminItems} />} />
+                            <Route path="profile/:user" element={<GlobalProfile />} />
                             <Route path="editProfile" element={<EditProfile loadUser={loadUser} userInfo={users} />} />
                             <Route path="home" element={<Home />} />
                             <Route path="home" element={<Home isSignedIn={isSignedIn} onRouteChange={onRouteChange} userName={users.name} />} />

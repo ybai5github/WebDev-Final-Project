@@ -1,5 +1,5 @@
 import React from "react";
-
+/* eslint-disable no-useless-escape */
 const ResultItem = (
     {
         drink=  {
@@ -66,7 +66,7 @@ const ResultItem = (
                     <div className="card-body">
                         <h5 className="card-title">{drink.strDrink}</h5>
                         <p className="card-text wd-instruction-length">{drink.strInstructions}</p>
-                        <a href="#" className="btn btn-primary">Detail Page</a>
+                        <a href="/" className="btn btn-primary">Detail Page</a>
                     </div>
                 </div>
             </div>
