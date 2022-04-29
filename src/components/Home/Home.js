@@ -53,12 +53,10 @@ const Home = ({ onRouteChange, userName }) => {
                         <li className="list-group-item">
                             <div className="card">
                                 <h5 className="card-title mb-5">{drink.strDrink}</h5>
-
                                 <div className="card-body wd-flex">
                                     <img className="card-img-top wd-product-image-photo" height="400" width="400" src={drink.strDrinkThumb} alt="img" />
                                     <div className="p-5 mt-5"><a href="/" className="btn btn-primary mb-5">Go somewhere</a></div>
                                 </div>
-                                <a href="/" className="btn btn-primary mb-5">More Details</a>
                             </div>
                         </li>)}
                 </ul>
