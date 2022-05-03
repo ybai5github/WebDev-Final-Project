@@ -4,7 +4,7 @@ import "./Cart.css"
 const Ordered = () => {
 
     return (
-      <h1 className="confirm">
+      <h1 className="wd-confirm">
           Thank you for ordering! 
       </h1>
     );

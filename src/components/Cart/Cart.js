@@ -22,46 +22,46 @@ const Cart = ({ cartItems, handleRemoveProduct, handleAddProduct, handleCartClea
     }
 
     return (
-        <div className="cart-items">
-            <h2 className="cart-items-header">Cart Items</h2>
+        <div className="wd-cart-items">
+            <h2 className="wd-cart-items-header">Cart Items</h2>
 
-            <div className="clear-cart">
+            <div className="wd-clear-cart">
                 {cartItems.length >= 1 && (
-                    <button className="clear-cart-button" onClick={handleCartClearance}> Clear Cart</button>
+                    <button className="wd-clear-cart-button" onClick={handleCartClearance}> Clear Cart</button>
                 )}
             </div>
             {cartItems.length === 0 && (
-                <div className="cart-items-empty"> No items are added. </div>)}
+                <div className="wd-cart-items-empty"> No items are added. </div>)}
 
             <div>
                 {cartItems.map((item) => (
-                    <div key={item.idDrink} className="cart-items-list">
-                        <img className="cart-items-image"
+                    <div key={item.idDrink} className="wd-cart-items-list">
+                        <img className="wd-cart-items-image"
                             src={item.strDrinkThumb}
                             alt={item.strDrink}
                         />
-                        <div className="cart-items-name"> {item.strDrink}</div>
-                        <div className="cart-items-function">
-                            <button className="cart-items-add"
+                        <div className="wd-cart-items-name"> {item.strDrink}</div>
+                        <div className="wd-cart-items-function">
+                            <button className="wd-cart-items-add"
                                 onClick={() => handleAddProduct(item)}
                             >+</button>
-                            <button className="cart-items-remove"
+                            <button className="wd-cart-items-remove"
                                 onClick={() => handleRemoveProduct(item)}
                             >-</button>
                         </div>
-                        <div className="cart-items-price">
+                        <div className="wd-cart-items-price">
                             {item.quantity} * ${Math.round(item.idDrink / 1000)}
                         </div>
                     </div>
                 ))}
             </div>
-            <div className="cart-items-total-price-name">
+            <div className="wd-cart-items-total-price-name">
                 Total price
-                <div className="cart-items-total-price">
+                <div className="wd-cart-items-total-price">
                     ${totalPrice}
                 </div>
-                <div className="checkout-cart">
-                    <button className="check-out-button" onClick={ordered} > Purchase</button>
+                <div className="wd-checkout-cart">
+                    <button className="wd-check-out-button" onClick={ordered} > Purchase</button>
                 </div>
             </div>
 

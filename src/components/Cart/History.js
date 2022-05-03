@@ -6,37 +6,29 @@ const History = ({ historyItems, getCartItems }) => {
   /*  console.log(Math.random() / historyItems[1].idDrink + 1005 / Math.random()) */
    return (
 
-          <div className="cart-items">
-               <div className="clear-cart">
+          <div className="wd-cart-items">
+               <div className="wd-clear-cart">
 
-                    <button className="clear-cart-button" onClick={getCartItems}> History</button>
+                    <button className="wd-clear-cart-button" onClick={getCartItems}> History</button>
             </div>
               <div>
                   {historyItems.map((item) => (
                       
-                      <div   className="cart-items-list">
-                          <img className="cart-items-image"
+                      <div   className="wd-cart-items-list">
+                          <img className="wd-cart-items-image"
                               src={item.strDrinkThumb}
                               alt={item.strDrink}
                           />
-                          <div className="cart-items-name"> {item.strDrink}</div>
-                          <div className="cart-items-function">
+                          <div className="wd-cart-items-name"> {item.strDrink}</div>
+                          <div className="wd-cart-items-function">
   
                           </div>
-                          <div className="cart-items-price">
+                          <div className="wd-cart-items-price">
                               {item.quantity} 
                           </div>
                       </div>
                   ))}
               </div>
-          {/*     <div className="cart-items-total-price-name">
-                  Total price
-                  <div className="cart-items-total-price">
-                      ${totalPrice}
-                  </div>
-  
-              </div> */}
-  
           </div>
     );
 };

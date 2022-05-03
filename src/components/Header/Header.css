@@ -1,4 +1,4 @@
-.header{
+.wd-header{
     position: sticky;
     top: 0;
     min-height: 80;
@@ -11,30 +11,30 @@
     background-color: black;
 }
 
-.Logo{
+.wd-Logo{
     text-decoration: none;
     text-transform: uppercase;
     color: white;
     padding-left: 40px;
 }
 
-.header-links {
+.wd-header-links {
     display: flex;
 }
 
-.header-links ul li {
+.wd-header-links ul li {
     list-style: none;
     display: inline-block;
     font-size: 18px;
 }
-.header-links ul li a{
+.wd-header-links ul li a{
     text-decoration: none;
     text-transform: uppercase;
     color: white;
     padding: 0px 15px;
 }
 
-.header-links ul li a:hover{
+.wd-header-links ul li a:hover{
     color: pink;
 
 }

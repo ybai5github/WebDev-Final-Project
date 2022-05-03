@@ -16,15 +16,15 @@ const Header = ({ cartItems, userName, onRouteChange }) => {
         }
     }
     return (
-        <header className="header">
+        <header className="wd-header">
             <div>
                 <h1>
-                    <Link to="/" className="Logo">
+                    <Link to="/" className="wd-Logo">
                         Drinks Store
                     </Link>
                 </h1>
             </div>
-            <div className="header-links">
+            <div className="wd-header-links">
                 {/* <ul>
                     <li>
                         <Link to="/">Home</Link>
@@ -55,7 +55,7 @@ const Header = ({ cartItems, userName, onRouteChange }) => {
                 </ul>
                 <ul>
                     <li>
-                        <Link to="/cart" className="cart-length"><i className="fas fa-shopping-cart" /> {cartItems.length === 0 ? "" : cartItems.length}</Link>
+                        <Link to="/cart" className="wd-cart-length"><i className="fas fa-shopping-cart" /> {cartItems.length === 0 ? "" : cartItems.length}</Link>
 
                     </li>
                 </ul>
